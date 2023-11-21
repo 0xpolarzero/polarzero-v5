@@ -15,7 +15,7 @@ export type ExternalLink = {
 /**
  * Type for a page slug on [**polarzero.xyz**](https://polarzero.xyz).
  */
-export type PageSlug = '/' | '/writing' | '/portfolio' | `/writing/${string}`;
+export type PageSlug = '/' | '/writing' | '/portfolio' | '/hire-me' | `/writing/${string}`;
 
 /**
  * Type for an external page linked on [**polarzero.xyz**](https://polarzero.xyz),
