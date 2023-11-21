@@ -11,29 +11,3 @@ export const NAVBAR_PAGES: Page[] = [
   { name: 'Writing', slug: '/writing', icon: <PenTool /> },
   { name: 'Portfolio', slug: '/portfolio', icon: <Paintbrush2 /> },
 ];
-
-/**
- * Foundational doc pages displayed on
- * [**polarzero.xyz/design**](https://polarzero.xyz/design)'s navigation
- * bar.
- */
-export const BLOG_POST_PAGES: Page[] = [
-  { name: 'Introduction', slug: '/design' },
-  { name: 'Color', slug: '/design/color' },
-  { name: 'Libraries', slug: '/design/libraries' },
-];
-
-/**
- * Component doc pages displayed on
- * [**polarzero.xyz/design**](https://polarzero.xyz/design)'s navigation
- * bar.
- */
-export const BLOG_POST_COMPONENT_PAGES: Page[] = [
-  { name: 'Badge', slug: '/design/component/badge' },
-  { name: 'Button', slug: '/design/component/button' },
-  { name: 'Code Block', slug: '/design/component/code-block' },
-  { name: 'Hover Card', slug: '/design/component/hover-card' },
-  { name: 'Select', slug: '/design/component/select' },
-  { name: 'Toast', slug: '/design/component/toast' },
-  { name: 'Tooltip', slug: '/design/component/tooltip' },
-];
