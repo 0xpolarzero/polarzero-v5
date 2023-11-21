@@ -28,7 +28,7 @@ const HomePage: NextPage = () => {
           site_name: 'polarzero',
           images: [
             {
-              url: 'https://polarzero.xyz/static/og/home.png',
+              url: 'https://polarzero.xyz/api/og/page?title=polarzero&description=Smart%20contract%20developer%20and%20security%20researcher.',
               width: 1200,
               height: 630,
               alt: 'polarzero open-graph image',

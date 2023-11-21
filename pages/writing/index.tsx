@@ -20,7 +20,7 @@ const BlogPage: NextPage = () => {
           site_name: 'polarzero',
           images: [
             {
-              url: 'https://polarzero.xyz/static/og/writing.png',
+              url: 'https://polarzero.xyz/api/og/page?title=Writing&description=Research,%20blog%20posts%20and%20threads.&path=/writing',
               width: 1200,
               height: 630,
               alt: 'polarzero writingopen-graph image',
