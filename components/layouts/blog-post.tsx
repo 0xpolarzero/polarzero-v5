@@ -121,7 +121,7 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = ({
           site_name: 'polarzero',
           images: [
             {
-              url: `https://polarzero.xyz/api/og/writing?title=${category}&subtitle=${name}&description=${description}`,
+              url: `https://polarzero.xyz/api/og/blog-post?title=${category}&subtitle=${name}&description=${description}`,
               width: 1200,
               height: 630,
               alt: 'polarzero writing docs open-graph image',
