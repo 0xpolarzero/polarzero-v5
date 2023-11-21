@@ -8,8 +8,8 @@ import type { Page } from '@/lib/types/site';
  */
 export const NAVBAR_PAGES: Page[] = [
   { name: 'Home', slug: '/', icon: <Home /> },
-  { name: 'Blog', slug: '/blog', icon: <PenTool /> },
-  { name: 'Design', slug: '/design', icon: <Paintbrush2 /> },
+  { name: 'Writing', slug: '/writing', icon: <PenTool /> },
+  { name: 'Portfolio', slug: '/portfolio', icon: <Paintbrush2 /> },
 ];
 
 /**

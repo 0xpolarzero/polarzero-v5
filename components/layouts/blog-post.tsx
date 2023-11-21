@@ -115,6 +115,7 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = ({
           locale: 'en_US',
           title: `${name} - polarzero writing`,
           description:
+            description ||
             'a blog on blockchain & distributed systems; accessibility, security and adoption.',
           url: 'https://polarzero.xyz/writing',
           site_name: 'polarzero',
