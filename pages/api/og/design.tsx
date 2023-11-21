@@ -190,7 +190,7 @@ export default async function handler(req: NextRequest) {
                   letterSpacing: '-0.025em',
                 }}
               >
-                fiveoutofnine
+                polarzero
               </div>
             </div>
             <div

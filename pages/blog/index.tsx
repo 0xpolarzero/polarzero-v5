@@ -16,23 +16,23 @@ const BlogPage: NextPage = () => {
           type: 'website',
           locale: 'en_US',
           description: 'writing',
-          url: 'https://fiveoutofnine.com/blog',
-          site_name: 'fiveoutofnine',
+          url: 'https://polarzero.xyz/writing',
+          site_name: 'polarzero',
           images: [
             {
-              url: 'https://fiveoutofnine.com/static/og/blog.png',
+              url: 'https://polarzero.xyz/static/og/writing.png',
               width: 1200,
               height: 630,
-              alt: '5/9 blog open-graph image',
+              alt: 'polarzero writingopen-graph image',
             },
           ],
         }}
         twitter={{
-          handle: '@fiveoutofnine',
+          handle: '@writing',
         }}
       />
 
-      <BaseLayout subtitle="Blog" pageSlug="/blog">
+      <BaseLayout subtitle="Writing" pageSlug="/writing">
         <ContainerLayout className="flex flex-col space-y-4">
           <h1 className="text-3xl font-semibold tracking-tight text-gray-12 md:text-4xl">Blog</h1>
           <div className="text-gray-11">Work in progress.</div>

@@ -72,7 +72,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
           locale: 'en_US',
           description: DESCRIPTION,
           url: 'https://polarzero.xyz',
-          site_name: 'fiveoutofnine',
+          site_name: 'polarzero',
         }}
         twitter={{
           handle: '@0xpolarzero',

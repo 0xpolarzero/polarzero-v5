@@ -113,23 +113,23 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = ({
         openGraph={{
           type: 'website',
           locale: 'en_US',
-          title: `${name} - polarzero blog`,
+          title: `${name} - polarzero writing`,
           description:
             'a blog on blockchain & distributed systems; accessibility, security and adoption.',
-          url: 'https://fiveoutofnine.com/design',
-          site_name: 'fiveoutofnine',
+          url: 'https://polarzero.xyz/writing',
+          site_name: 'polarzero',
           images: [
             {
-              url: `https://fiveoutofnine.com/api/og/design?title=${category}&subtitle=${name}&description=${description}`,
+              url: `https://polarzero.xyz/api/og/writing?title=${category}&subtitle=${name}&description=${description}`,
               width: 1200,
               height: 630,
-              alt: '5/9 design system docs open-graph image',
+              alt: 'polarzero writing docs open-graph image',
             },
           ],
         }}
       />
 
-      <BaseLayout title="5/9 Design" subtitle={name} pageSlug="/design">
+      <BaseLayout title="polarzero writing" subtitle={name} pageSlug="/writing">
         {/* Note: `pb-6` overrides `pb-4` on small devices. `<BlogPostNavBar />`
             has a `mb-6` when displayed on small screens, so the ``margin''
             above/below the article content is symmetrical. We do this instead

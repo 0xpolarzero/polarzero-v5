@@ -46,13 +46,13 @@ const PolarzeroHeader: FC = () => {
       <div className="hidden space-x-2 md:flex">
         <Button
           intent="primary"
-          href="https://twitter.com/fiveoutofnine"
+          href="https://twitter.com/0xpolarzero"
           leftIcon={<Twitter />}
           newTab
         >
           Twitter
         </Button>
-        <Button href="https://github.com/fiveoutofnine" leftIcon={<Github />} newTab>
+        <Button href="https://github.com/0xpolarzero" leftIcon={<Github />} newTab>
           GitHub
         </Button>
       </div>
@@ -62,7 +62,7 @@ const PolarzeroHeader: FC = () => {
           size="md"
           intent="primary"
           className="w-full"
-          href="https://twitter.com/fiveoutofnine"
+          href="https://twitter.com/0xpolarzero"
           leftIcon={<Twitter />}
         >
           Twitter
@@ -70,7 +70,7 @@ const PolarzeroHeader: FC = () => {
         <Button
           size="md"
           className="w-full"
-          href="https://github.com/fiveoutofnine"
+          href="https://github.com/0xpolarzero"
           leftIcon={<Github />}
         >
           GitHub

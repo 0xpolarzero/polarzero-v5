@@ -3,7 +3,7 @@ import { Home, Paintbrush2, PenTool } from 'lucide-react';
 import type { Page } from '@/lib/types/site';
 
 /**
- * Pages displayed on [**fiveoutofnine.com**](https://fiveoutofnine.com)'s
+ * Pages displayed on [**polarzero.xyz**](https://polarzero.xyz)'s
  * navigation bar.
  */
 export const NAVBAR_PAGES: Page[] = [
@@ -14,7 +14,7 @@ export const NAVBAR_PAGES: Page[] = [
 
 /**
  * Foundational doc pages displayed on
- * [**fiveoutofnine.com/design**](https://fiveoutofnine.com/design)'s navigation
+ * [**polarzero.xyz/design**](https://polarzero.xyz/design)'s navigation
  * bar.
  */
 export const DESIGN_PAGES: Page[] = [
@@ -25,7 +25,7 @@ export const DESIGN_PAGES: Page[] = [
 
 /**
  * Component doc pages displayed on
- * [**fiveoutofnine.com/design**](https://fiveoutofnine.com/design)'s navigation
+ * [**polarzero.xyz/design**](https://polarzero.xyz/design)'s navigation
  * bar.
  */
 export const DESIGN_COMPONENT_PAGES: Page[] = [
