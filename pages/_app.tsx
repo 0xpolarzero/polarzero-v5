@@ -28,7 +28,7 @@ const { chains, provider } = configureChains(
 );
 
 const { connectors } = getDefaultWallets({
-  appName: 'Flywheel',
+  appName: 'polarzero',
   chains: [...chains],
 });
 
@@ -62,21 +62,21 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
       <DefaultSeo
-        titleTemplate="%s | 5/9"
-        defaultTitle="5/9"
+        titleTemplate="%s | polarzero"
+        defaultTitle="polarzero"
         description={DESCRIPTION}
-        canonical="https://fiveoutofnine.com"
+        canonical="https://polarzero.xyz"
         themeColor="#000"
         openGraph={{
           type: 'website',
           locale: 'en_US',
           description: DESCRIPTION,
-          url: 'https://fiveoutofnine.com',
+          url: 'https://polarzero.xyz',
           site_name: 'fiveoutofnine',
         }}
         twitter={{
-          handle: '@fiveoutofnine',
-          site: '@fiveoutofnine',
+          handle: '@0xpolarzero',
+          site: '@0xpolarzero',
           cardType: 'summary_large_image',
         }}
         additionalLinkTags={[
