@@ -36,7 +36,6 @@ const BaseLayout: FC<BaseLayoutProps> = ({ title, subtitle, pageSlug, children }
           >
             5/9
           </Link>
-          .
         </div>
       </footer>
     </>
