@@ -3,7 +3,7 @@ import { type FC, useEffect, useRef, useState } from 'react';
 import { ArrowUp, ExternalLink, MessageCircle } from 'lucide-react';
 import { usePrepareSendTransaction, useSendTransaction, useWaitForTransaction } from 'wagmi';
 
-import { FIVEOUTOFNINE_MESSAGES } from '@/lib/constants/on-chain-messages';
+import { POLARZERO_MESSAGES } from '@/lib/constants/on-chain-messages';
 
 import CategoryTag from '@/components/templates/category-tag';
 import FeatureDisplay from '@/components/templates/feature-display';
@@ -55,7 +55,7 @@ const TxDotCoolFeatureDetail: FC = () => {
   const { config } = usePrepareSendTransaction({
     request: {
       chainId: 1,
-      to: process.env.NEXT_PUBLIC_FIVEOUTOFNINE_ADDRESS,
+      to: process.env.NEXT_PUBLIC_POLARZERO_ADDRESS,
       data: `0x${userMessage
         .split('')
         .map((_, i) => userMessage.charCodeAt(i).toString(16))
@@ -150,7 +150,7 @@ const TxDotCoolFeatureDetail: FC = () => {
           </div>
           <IconButton
             size="sm"
-            href={`https://etherscan.io/address/${process.env.NEXT_PUBLIC_FIVEOUTOFNINE_ADDRESS}`}
+            href={`https://etherscan.io/address/${process.env.NEXT_PUBLIC_POLARZERO_ADDRESS}`}
             newTab
           >
             <ExternalLink />
@@ -158,7 +158,7 @@ const TxDotCoolFeatureDetail: FC = () => {
         </div>
         {/* Chat */}
         <div className="space-y-1 px-2 pt-2">
-          {FIVEOUTOFNINE_MESSAGES.map((message) => (
+          {POLARZERO_MESSAGES.map((message) => (
             <a
               key={message.txHash}
               className="flex min-h-[1.5rem] w-fit items-center rounded-xl bg-gray-7 px-2 py-1 transition-colors hover:bg-gray-8"

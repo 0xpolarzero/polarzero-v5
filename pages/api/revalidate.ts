@@ -4,7 +4,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const apiKey = req.headers['x-api-key'];
   const pathToRevalidate = req.headers['x-path-to-revalidate'];
 
-  if (apiKey !== process.env.FIVEOUTOFNINE_API_KEY) {
+  if (apiKey !== process.env.POLARZERO_API_KEY) {
     res.status(401).json({ message: 'Unauthorized' });
     return;
   }
