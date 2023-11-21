@@ -2,7 +2,7 @@ import { type FC, useEffect, useState } from 'react';
 
 import clsx from 'clsx';
 
-import PolarzeroAvatar from '@/components/common/fiveoutofnine-avatar';
+import PolarzeroAvatar from '@/components/common/polarzero-avatar';
 import { Tooltip } from '@/components/ui';
 
 // -----------------------------------------------------------------------------

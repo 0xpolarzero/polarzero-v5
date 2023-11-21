@@ -2,7 +2,7 @@ import type { FC } from 'react';
 
 import { Github, Twitter } from 'lucide-react';
 
-import PolarzeroAvatar from '@/components/common/fiveoutofnine-avatar';
+import PolarzeroAvatar from '@/components/common/polarzero-avatar';
 import LinkPreview from '@/components/templates/link-preview';
 import { Button } from '@/components/ui';
 

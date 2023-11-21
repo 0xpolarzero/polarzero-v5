@@ -6,7 +6,7 @@ import { ChevronRight, ExternalLink, Keyboard, RotateCw } from 'lucide-react';
 
 import { SHORT_QUOTES } from '@/lib/constants/typing';
 
-import PolarzeroAvatar from '@/components/common/fiveoutofnine-avatar';
+import PolarzeroAvatar from '@/components/common/polarzero-avatar';
 import CategoryTag from '@/components/templates/category-tag';
 import FeatureDisplay from '@/components/templates/feature-display';
 import { Button, IconButton, Tooltip } from '@/components/ui';
