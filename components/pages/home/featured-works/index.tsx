@@ -1,38 +1,23 @@
 import type { FC } from 'react';
 
-import BitTwiddlingFeature from './works/bit-twiddling';
-import ChessFeature from './works/chess';
-import ColormapRegistryFeature from './works/colormap-registry';
-import CoolContractsFeature from './works/cool-contracts';
-import RunningFeature from './works/running';
-import TxDotCoolFeature from './works/txdotcool';
-import TypingFeature from './works/typing';
-
-import type { MileageLog } from '@/lib/types/running';
+// import BitTwiddlingFeature from './works/bit-twiddling';
+// import ChessFeature from './works/chess';
 
 // -----------------------------------------------------------------------------
 // Props
 // -----------------------------------------------------------------------------
 
-type FeaturedWorksProps = {
-  mileageLogs: MileageLog[];
-  runningLogs: MileageLog[];
-};
+// type FeaturedWorksProps = {};
 
 // -----------------------------------------------------------------------------
 // Component
 // -----------------------------------------------------------------------------
 
-const FeaturedWorks: FC<FeaturedWorksProps> = ({ mileageLogs, runningLogs }) => {
+const FeaturedWorks: FC = () => {
   return (
     <div className="grid grid-cols-2 gap-4 min-[560px]:grid-cols-4 min-[960px]:grid-cols-6">
-      <ChessFeature />
-      <TxDotCoolFeature />
-      <TypingFeature />
-      <RunningFeature mileageLogs={mileageLogs} runningLogs={runningLogs} />
-      <ColormapRegistryFeature />
-      <BitTwiddlingFeature />
-      <CoolContractsFeature />
+      {/* <ChessFeature />
+      <BitTwiddlingFeature /> */}
     </div>
   );
 };
