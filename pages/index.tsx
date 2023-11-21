@@ -1,9 +1,6 @@
-import type { GetStaticProps, NextPage } from 'next';
+import type { NextPage } from 'next';
 
 import { NextSeo } from 'next-seo';
-
-import type { MileageLog } from '@/lib/types/running';
-import { fetchMileageLogs, fetchRunningLogs } from '@/lib/utils';
 
 import BaseLayout from '@/components/layouts/base';
 import ContainerLayout from '@/components/layouts/container';
@@ -14,42 +11,39 @@ import PolarzeroHeader from '@/components/pages/home/header';
 // Props
 // -----------------------------------------------------------------------------
 
-type HomePageProps = {
-  mileageLogs: MileageLog[];
-  runningLogs: MileageLog[];
-};
+// type HomePageProps = {};
 
 // -----------------------------------------------------------------------------
 // Page
 // -----------------------------------------------------------------------------
 
-const HomePage: NextPage<HomePageProps> = ({ mileageLogs, runningLogs }) => {
+const HomePage: NextPage = () => {
   return (
     <>
       <NextSeo
         openGraph={{
           type: 'website',
           locale: 'en_US',
-          url: 'https://fiveoutofnine.com',
-          site_name: 'fiveoutofnine',
+          url: 'https://polarzero.xyz',
+          site_name: 'polarzero',
           images: [
             {
-              url: 'https://fiveoutofnine.com/static/og/home.png',
+              url: 'https://polarzero.xyz/static/og/home.png',
               width: 1200,
               height: 630,
-              alt: '5/9 open-graph image',
+              alt: 'polarzero open-graph image',
             },
           ],
         }}
         twitter={{
-          handle: '@fiveoutofnine',
+          handle: '@0xpolarzero',
         }}
       />
 
       <BaseLayout subtitle="Home" pageSlug="/">
         <ContainerLayout className="flex flex-col space-y-4">
           <PolarzeroHeader />
-          <FeaturedWorks mileageLogs={mileageLogs} runningLogs={runningLogs} />
+          <FeaturedWorks />
         </ContainerLayout>
       </BaseLayout>
     </>
@@ -60,13 +54,9 @@ const HomePage: NextPage<HomePageProps> = ({ mileageLogs, runningLogs }) => {
 // Get static props
 // -----------------------------------------------------------------------------
 
-export const getStaticProps: GetStaticProps = async () => {
-  const { data: mileageLogs } = await fetchMileageLogs({ type: 'monthly', limit: 12 });
-  const { data: runningLogs } = await fetchRunningLogs();
-
-  const props: HomePageProps = { mileageLogs, runningLogs };
-
-  return { props, revalidate: 3600 };
-};
+// export const getStaticProps: GetStaticProps = async () => {
+//   const props: HomePageProps = {};
+//   return { props, revalidate: 3600 };
+// };
 
 export default HomePage;
