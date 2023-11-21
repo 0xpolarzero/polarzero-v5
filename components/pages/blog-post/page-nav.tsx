@@ -3,14 +3,14 @@ import { type FC, useMemo } from 'react';
 
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
-import { DESIGN_COMPONENT_PAGES, DESIGN_PAGES } from '@/lib/constants/site';
+import { BLOG_POST_COMPONENT_PAGES, BLOG_POST_PAGES } from '@/lib/constants/site';
 import type { PageSlug } from '@/lib/types/site';
 
 // -----------------------------------------------------------------------------
 // Props
 // -----------------------------------------------------------------------------
 
-type DesignPageNavProps = {
+type BlogPostPageNavProps = {
   pageSlug?: PageSlug;
 };
 
@@ -18,8 +18,8 @@ type DesignPageNavProps = {
 // Component
 // -----------------------------------------------------------------------------
 
-const DesignPageNav: FC<DesignPageNavProps> = ({ pageSlug }) => {
-  const pages = useMemo(() => DESIGN_PAGES.concat(DESIGN_COMPONENT_PAGES), []);
+const BlogPostPageNav: FC<BlogPostPageNavProps> = ({ pageSlug }) => {
+  const pages = useMemo(() => BLOG_POST_PAGES.concat(BLOG_POST_COMPONENT_PAGES), []);
   const prevPage = useMemo(() => {
     const index = pages.findIndex((page) => page.slug === pageSlug);
 
@@ -64,4 +64,4 @@ const DesignPageNav: FC<DesignPageNavProps> = ({ pageSlug }) => {
   );
 };
 
-export default DesignPageNav;
+export default BlogPostPageNav;

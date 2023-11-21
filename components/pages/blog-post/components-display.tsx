@@ -7,7 +7,7 @@ import prettier from 'prettier';
 import babel from 'prettier/parser-babel';
 import { twMerge } from 'tailwind-merge';
 
-import ToastButton from '@/components/pages/design/toast-button';
+import ToastButton from '@/components/pages/blog-post/toast-button';
 import { Badge, Button, CodeBlock, HoverCard, IconButton, Select, Tooltip } from '@/components/ui';
 import type { CodeBlockProps } from '@/components/ui/code-block/types';
 
@@ -26,7 +26,7 @@ const COMPONENT_NAMES = [
 // Props
 // -----------------------------------------------------------------------------
 
-type DesignComponentsDisplayProps = JSX.IntrinsicElements['div'] &
+type BlogPostComponentsDisplayProps = JSX.IntrinsicElements['div'] &
   Pick<CodeBlockProps, 'highlightLines'> & {
     showSource?: boolean;
     sourceInitiallyDisplayed?: boolean;
@@ -36,7 +36,7 @@ type DesignComponentsDisplayProps = JSX.IntrinsicElements['div'] &
 // Component
 // -----------------------------------------------------------------------------
 
-const DesignComponentsDisplay: FC<DesignComponentsDisplayProps> = ({
+const BlogPostComponentsDisplay: FC<BlogPostComponentsDisplayProps> = ({
   className,
   highlightLines,
   showSource = true,
@@ -60,7 +60,7 @@ const DesignComponentsDisplay: FC<DesignComponentsDisplayProps> = ({
     if (typeof node.type === 'string') {
       componentName = node.type;
     } else {
-      // Loop through the components in the design system to try and match. This
+      // Loop through the components in the blog post system to try and match. This
       // way, we also retain the full name, rather than the minified name
       // webpack gives.
       for (let i = 0; i < COMPONENT_NAMES.length; ++i) {
@@ -120,11 +120,11 @@ const DesignComponentsDisplay: FC<DesignComponentsDisplayProps> = ({
 
       return prettier
         .format(
-          `<DesignComponentsDisplay${
+          `<BlogPostComponentsDisplay${
             className ? ` className="${className}"` : ''
           }>\n${componentChildren
             .map((child) => getJsxString(child))
-            .join('\n')}</DesignComponentsDisplay>`,
+            .join('\n')}</BlogPostComponentsDisplay>`,
           {
             bracketSpacing: true,
             semi: true,
@@ -179,4 +179,4 @@ const DesignComponentsDisplay: FC<DesignComponentsDisplayProps> = ({
   );
 };
 
-export default DesignComponentsDisplay;
+export default BlogPostComponentsDisplay;

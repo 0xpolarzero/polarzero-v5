@@ -8,8 +8,8 @@ import type { PageSlug } from '@/lib/types/site';
 
 import BaseLayout from '@/components/layouts/base';
 import ContainerLayout from '@/components/layouts/container';
-import BlogPostNavBar from '@/components/pages/design/nav-bar';
-import BlogPostPageNav from '@/components/pages/design/page-nav';
+import BlogPostNavBar from '@/components/pages/blog-post/nav-bar';
+import BlogPostPageNav from '@/components/pages/blog-post/page-nav';
 import { CodeBlock } from '@/components/ui';
 import type { CodeBlockProps } from '@/components/ui/code-block/types';
 

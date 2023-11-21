@@ -17,7 +17,7 @@ export const NAVBAR_PAGES: Page[] = [
  * [**polarzero.xyz/design**](https://polarzero.xyz/design)'s navigation
  * bar.
  */
-export const DESIGN_PAGES: Page[] = [
+export const BLOG_POST_PAGES: Page[] = [
   { name: 'Introduction', slug: '/design' },
   { name: 'Color', slug: '/design/color' },
   { name: 'Libraries', slug: '/design/libraries' },
@@ -28,7 +28,7 @@ export const DESIGN_PAGES: Page[] = [
  * [**polarzero.xyz/design**](https://polarzero.xyz/design)'s navigation
  * bar.
  */
-export const DESIGN_COMPONENT_PAGES: Page[] = [
+export const BLOG_POST_COMPONENT_PAGES: Page[] = [
   { name: 'Badge', slug: '/design/component/badge' },
   { name: 'Button', slug: '/design/component/button' },
   { name: 'Code Block', slug: '/design/component/code-block' },
