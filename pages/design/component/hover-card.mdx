@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import PolarzeroAvatar from '@/components/common/fiveoutofnine-avatar';
+import PolarzeroAvatar from '@/components/common/polarzero-avatar';
 import DesignLayout from '@/components/layouts/design';
 import DesignComponentsDisplay from '@/components/pages/design/components-display';
 import LinkPreview from '@/components/templates/link-preview';
@@ -17,7 +17,7 @@ A popup that displays preview content behind a link when the mouse hovers over i
 Note that the first example has `side="top"`, `inverted={false}`, and `hasArrow={false}`.
 
 <DesignComponentsDisplay className="grid-flow-col">
-  <FiveoutofnineHoverCard
+  <PolarzeroHoverCard
     trigger={
       <Link
         className="text-sm font-medium text-gray-12 no-underline hover:underline"
@@ -38,7 +38,7 @@ Note that the first example has `side="top"`, `inverted={false}`, and `hasArrow=
   />
 </DesignComponentsDisplay>
 
-export const FiveoutofnineHoverCard = ({ trigger }) => {
+export const PolarzeroHoverCard = ({ trigger }) => {
   return (
     <HoverCard
       className="flex flex-col p-4"

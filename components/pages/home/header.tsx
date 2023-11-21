@@ -6,7 +6,7 @@ import PolarzeroAvatar from '@/components/common/polarzero-avatar';
 import LinkPreview from '@/components/templates/link-preview';
 import { Button } from '@/components/ui';
 
-const FiveoutofnineHeader: FC = () => {
+const PolarzeroHeader: FC = () => {
   return (
     <div className="flex flex-col items-center rounded-xl border border-gray-6 bg-gray-2 p-3 md:flex-row md:justify-between md:rounded-2xl md:p-6">
       <div className="flex w-full items-center">
@@ -80,6 +80,6 @@ const FiveoutofnineHeader: FC = () => {
   );
 };
 
-FiveoutofnineHeader.displayName = 'FiveoutofnineHeader';
+PolarzeroHeader.displayName = 'PolarzeroHeader';
 
-export default FiveoutofnineHeader;
+export default PolarzeroHeader;
