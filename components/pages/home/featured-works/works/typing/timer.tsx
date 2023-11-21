@@ -2,7 +2,7 @@ import { type FC, useEffect, useState } from 'react';
 
 import clsx from 'clsx';
 
-import FiveoutofnineAvatar from '@/components/common/fiveoutofnine-avatar';
+import PolarzeroAvatar from '@/components/common/fiveoutofnine-avatar';
 import { Tooltip } from '@/components/ui';
 
 // -----------------------------------------------------------------------------
@@ -55,7 +55,7 @@ const TypingFeatureDetailTimer: FC<TypingFeatureDetailTimerProps> = ({
       <div className="text-[0.625rem] text-gray-11">Time</div>
       <div className="text-xs text-gray-12">{timePassed ? `${timePassed}s` : '–'}</div>
       <div className="flex items-center space-x-1">
-        <FiveoutofnineAvatar size={12} />
+        <PolarzeroAvatar size={12} />
         <Tooltip className="font-sans" content="5/9's time" side="bottom">
           <div
             className={clsx(

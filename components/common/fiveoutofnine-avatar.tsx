@@ -10,7 +10,7 @@ import avatar from '@/public/avatar.svg';
 // Props
 // -----------------------------------------------------------------------------
 
-type FiveoutofnineAvatarProps = {
+type PolarzeroAvatarProps = {
   className?: string;
   size?: number;
 };
@@ -19,18 +19,18 @@ type FiveoutofnineAvatarProps = {
 // Component
 // -----------------------------------------------------------------------------
 
-const FiveoutofnineAvatar: FC<FiveoutofnineAvatarProps> = ({ className, size = 40 }) => {
+const PolarzeroAvatar: FC<PolarzeroAvatarProps> = ({ className, size = 40 }) => {
   return (
     <Image
       className={clsx(twMerge('my-0 rounded-full border border-gray-6', className))}
       width={size}
       height={size}
       src={avatar}
-      alt="5/9 avatar"
+      alt="polarzero avatar"
     />
   );
 };
 
-FiveoutofnineAvatar.displayName = 'FiveoutofnineAvatar';
+PolarzeroAvatar.displayName = 'PolarzeroAvatar';
 
-export default FiveoutofnineAvatar;
+export default PolarzeroAvatar;

@@ -6,7 +6,7 @@ import { ChevronRight, ExternalLink, Keyboard, RotateCw } from 'lucide-react';
 
 import { SHORT_QUOTES } from '@/lib/constants/typing';
 
-import FiveoutofnineAvatar from '@/components/common/fiveoutofnine-avatar';
+import PolarzeroAvatar from '@/components/common/fiveoutofnine-avatar';
 import CategoryTag from '@/components/templates/category-tag';
 import FeatureDisplay from '@/components/templates/feature-display';
 import { Button, IconButton, Tooltip } from '@/components/ui';
@@ -245,7 +245,7 @@ const TypingFeatureDetail: FC = () => {
             <div className="text-xs text-gray-12">{wpm ?? '–'}</div>
             <Tooltip className="font-sans" content="5/9's WPM" side="bottom">
               <div className="flex items-center space-x-1">
-                <FiveoutofnineAvatar size={12} />
+                <PolarzeroAvatar size={12} />
                 <div
                   className={clsx(
                     'text-[0.625rem] transition-colors',
