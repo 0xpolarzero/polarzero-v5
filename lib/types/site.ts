@@ -13,35 +13,19 @@ export type ExternalLink = {
 };
 
 /**
- * Type for a page slug on [**fiveoutofnine.com**](https://fiveoutofnine.com).
+ * Type for a page slug on [**polarzero.xyz**](https://polarzero.xyz).
  */
-export type PageSlug =
-  | '/'
-  | '/blog'
-  // Design pages
-  | '/design'
-  | '/design/color'
-  | '/design/libraries'
-  // Design component pages
-  | '/design/component/badge'
-  | '/design/component/code-block'
-  | '/design/component/button'
-  | '/design/component/hover-card'
-  | '/design/component/select'
-  | '/design/component/toast'
-  | '/design/component/tooltip';
+export type PageSlug = '/' | '/writing' | '/portfolio' | `/writing/${string}`;
 
 /**
- * Type for an external page linked on [**fiveoutofnine.com**](https://fiveoutofnine.com),
+ * Type for an external page linked on [**polarzero.xyz**](https://polarzero.xyz),
  * intended to be part of configuration files (e.g. for the navigation bar
  * component).
  */
-export type PageExternalLink =
-  | 'https://twitter.com/fiveoutofnine'
-  | 'https://github.com/fiveoutofnine';
+export type PageExternalLink = 'https://twitter.com/0xpolarzero' | 'https://github.com/0xpolarzero';
 
 /**
- * Type for a page on [**fiveoutofnine.com**](https://fiveoutofnine.com),
+ * Type for a page on [**polarzero.xyz**](https://polarzero.xyz),
  * intended to be part of configuration files (e.g. for the navigation bar
  * component).
  * @param name Name describing the page.

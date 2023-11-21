@@ -8,8 +8,8 @@ import type { PageSlug } from '@/lib/types/site';
 
 import BaseLayout from '@/components/layouts/base';
 import ContainerLayout from '@/components/layouts/container';
-import DesignNavBar from '@/components/pages/design/nav-bar';
-import DesignPageNav from '@/components/pages/design/page-nav';
+import BlogPostNavBar from '@/components/pages/design/nav-bar';
+import BlogPostPageNav from '@/components/pages/design/page-nav';
 import { CodeBlock } from '@/components/ui';
 import type { CodeBlockProps } from '@/components/ui/code-block/types';
 
@@ -17,7 +17,7 @@ import type { CodeBlockProps } from '@/components/ui/code-block/types';
 // Props
 // -----------------------------------------------------------------------------
 
-type DesignLayoutProps = {
+type BlogPostLayoutProps = {
   category: string;
   name: string;
   description?: string;
@@ -29,7 +29,7 @@ type DesignLayoutProps = {
 // Component
 // -----------------------------------------------------------------------------
 
-const DesignLayout: FC<DesignLayoutProps> = ({
+const BlogPostLayout: FC<BlogPostLayoutProps> = ({
   category,
   name,
   description,
@@ -113,8 +113,9 @@ const DesignLayout: FC<DesignLayoutProps> = ({
         openGraph={{
           type: 'website',
           locale: 'en_US',
-          title: `${name} - 5/9 Design`,
-          description: 'open-source and accessible design system',
+          title: `${name} - polarzero blog`,
+          description:
+            'a blog on blockchain & distributed systems; accessibility, security and adoption.',
           url: 'https://fiveoutofnine.com/design',
           site_name: 'fiveoutofnine',
           images: [
@@ -129,21 +130,21 @@ const DesignLayout: FC<DesignLayoutProps> = ({
       />
 
       <BaseLayout title="5/9 Design" subtitle={name} pageSlug="/design">
-        {/* Note: `pb-6` overrides `pb-4` on small devices. `<DesignNavBar />`
+        {/* Note: `pb-6` overrides `pb-4` on small devices. `<BlogPostNavBar />`
             has a `mb-6` when displayed on small screens, so the ``margin''
             above/below the article content is symmetrical. We do this instead
-            of `py-6` to correctly position `<DesignNavBar />`, as well as the
+            of `py-6` to correctly position `<BlogPostNavBar />`, as well as the
             article content on small screens. This positioning issue is not
             present on larger screens so we have a breakpoint to reset it. For
             similar reasons, the `x` padding is set to 0 on small devices is set
             to 0. */}
         <ContainerLayout className="relative flex max-w-[90rem] flex-col space-x-0 px-0 pb-6 pt-0 md:flex-row md:space-x-16">
-          <DesignNavBar selected={selected} />
+          <BlogPostNavBar selected={selected} />
           <MDXProvider components={components}>
             <article className="prose prose-gray max-w-none grow px-4 dark:prose-invert md:px-0">
               {children}
               <hr className="mb-6 mt-6 w-full rounded-full border-gray-6 md:mt-12" />
-              <DesignPageNav pageSlug={selected} />
+              <BlogPostPageNav pageSlug={selected} />
             </article>
           </MDXProvider>
         </ContainerLayout>
@@ -152,4 +153,4 @@ const DesignLayout: FC<DesignLayoutProps> = ({
   );
 };
 
-export default DesignLayout;
+export default BlogPostLayout;
