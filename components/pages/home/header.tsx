@@ -1,9 +1,9 @@
+import Link from 'next/link';
 import type { FC } from 'react';
 
 import { Github, Twitter } from 'lucide-react';
 
 import PolarzeroAvatar from '@/components/common/polarzero-avatar';
-import LinkPreview from '@/components/templates/link-preview';
 import { Button } from '@/components/ui';
 
 const PolarzeroHeader: FC = () => {
@@ -15,28 +15,26 @@ const PolarzeroHeader: FC = () => {
         {/* Avatar (mobile) */}
         <PolarzeroAvatar className="mr-2 md:hidden" size={40} />
         <div>
-          <div className="text-base font-semibold md:text-2xl">5/9</div>
+          <div className="text-base font-semibold md:text-2xl">polarzero</div>
           <span className="mt-0.5 text-sm text-gray-11 md:mt-1 md:text-base">
-            Working on{' '}
-            <LinkPreview
+            Smart contract{' '}
+            <Link
               className="font-medium text-gray-12 hover:underline"
-              href="https://waterfall.market"
-              src="/static/waterfall-market-preview.webp"
+              href="/portfolio/development"
               target="_blank"
               rel="noreferrer noopener"
             >
-              Waterfall
-            </LinkPreview>{' '}
+              developer
+            </Link>{' '}
             and{' '}
-            <LinkPreview
+            <Link
               className="font-medium text-gray-12 hover:underline"
-              href="https://curta.wtf"
-              src="/static/curta-wtf-preview.webp"
+              href="/portfolio/audits"
               target="_blank"
               rel="noreferrer noopener"
             >
-              Curta
-            </LinkPreview>
+              security researcher
+            </Link>
             .
           </span>
         </div>
