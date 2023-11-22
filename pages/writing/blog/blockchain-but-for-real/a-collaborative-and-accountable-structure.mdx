@@ -1,0 +1,31 @@
+import BlogPostLayout from '@/components/layouts/blog-post';
+
+## 5. A collaborative and accountable structure
+
+Let’s try to explain **very abstractly** some fundamental aspects of blockchain; especially, those that can help understand what is being discussed here.
+
+### Distributed databases
+
+A blockchain is roughly a database shared by thousands of users. This distributed nature makes it unalterable and resistant to censorship — each transaction (operation) is examined then saved on multiple computers, ensuring its validity, and the entire network follows the majority. This is the rule of _consensus_, and this is what makes an attack improbable, as it would require the consent of the majority of participants — who would automatically lose a considerable amount of staked money in case of malicious behavior. Regarding its **security**, blockchain is based on cryptography mechanisms (which is what the term _crypto_ refers to, rather than _cryptocurrencies_), which ensure the integrity of the data, once recorded. Likewise, we refer to **transparency**, as these databases are entirely accessible to anyone. Yet, an identity can remain unknown (the transactions being connected only to a wallet address), but also, the data associated with operations can even be encrypted in some cases ([**6**](https://medium.com/@0xpolarzero/decentralized-systems-end-the-cycle-of-indifference-8c19d7167778#fe44)).
+
+Furthermore, each _write_ operation on the blockchain — a transfer, an interaction with a contract — comes with a cost. Thus, when a user performs such an operation that involves computation, they pay variable fees depending on the blockchain, to compensate the network participants, who contribute to storing and updating this database.
+
+### Digital wallet
+
+This wallet is a digital address that allows interaction with a blockchain. Each wallet is secured by a **private key** — a unique series of numbers and letters — known only by its user, as well as a **public key**, which can be shared with others for interacting with them. Essentially, the first allows proving during a transaction that the user is indeed the holder of this wallet. The second is their public address, which represents their identity and actions on the network — possessions and transactions.
+
+Hence, the significance of keeping the private key safe, as **whoever knows it gets full control of the wallet**. This is the current challenge within these systems; traditionally, third parties share this responsibility, to guarantee protection and recovery of our digital ownership. Of course, by delegating this control and responsibility, we usually also delegate part of our data and rights. Blockchain, fundamentally, is a way to reclaim these rights, the choices associated with them, and the resulting responsibility.
+
+### Smart contracts
+
+Smart contracts are merely agreements, whose logic is specified by code, which gets executed automatically without anyone being able to tamper it. Once such a contract is deployed on a blockchain, it can — and will — fulfill the agreed terms without human intervention.
+
+These contracts mold the entire infrastructure of blockchain. When we insist that a (truly decentralized) application operates _transparently_, we implicitly refer to these contracts. The code itself, which precisely describes the logic of the application, is typically fully available, with the guarantee that it can’t be modified — **one can _predict_ the outcome of an operation, rather than _hoping_ that it occurs as expected**.
+
+export default (props) => (
+  <BlogPostLayout
+    selected="a-collaborative-and-accountable-structure"
+    slug="blockchain-but-for-real"
+    {...props}
+  />
+);
