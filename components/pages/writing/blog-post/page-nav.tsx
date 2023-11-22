@@ -20,6 +20,7 @@ type BlogPostPageNavProps = {
 // -----------------------------------------------------------------------------
 
 const BlogPostPageNav: FC<BlogPostPageNavProps> = ({ pageSlug, sections }) => {
+  console.log(pageSlug);
   const prevPage = useMemo(() => {
     const index = sections.findIndex((section) => section.slug === pageSlug);
 

@@ -36,7 +36,7 @@ const BlogPostNavBar: FC<BlogPostNavBarProps> = (props) => {
 const BlogPostNavBarDesktop: FC<BlogPostNavBarProps> = ({ selected, sections, slug }) => {
   return (
     <nav
-      className="hide-scrollbar sticky top-28 -ml-3 hidden min-w-[18rem] max-w-[18rem] flex-col overflow-y-scroll px-0.5 md:flex"
+      className="hide-scrollbar sticky top-28 -ml-3 hidden min-w-[18rem] max-w-[18rem] flex-col overflow-y-scroll px-0.5 md:flex lg:min-w-[20rem] lg:max-w-[20rem]"
       style={{ height: 'calc(100vh - 11rem)' }}
     >
       <BlogPostNavBarInternal selected={selected} sections={sections} slug={slug} />
