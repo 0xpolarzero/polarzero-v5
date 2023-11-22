@@ -1,4 +1,5 @@
-import type { FC, ReactNode } from 'react';
+import { useRouter } from 'next/navigation';
+import { type FC, type ReactNode, useState } from 'react';
 
 import clsx from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -15,6 +16,7 @@ type FeatureDisplayProps = {
   tags?: ReactNode[];
   button?: ReactNode;
   children: ReactNode;
+  internalLink?: string;
 };
 
 // -----------------------------------------------------------------------------
@@ -29,7 +31,17 @@ const FeatureDisplay: FC<FeatureDisplayProps> = ({
   tags,
   button,
   children,
+  internalLink,
 }) => {
+  const router = useRouter();
+  const [hovered, hover] = useState(false);
+
+  const handleClick = () => {
+    if (internalLink) {
+      router.push(internalLink);
+    }
+  };
+
   return (
     <div
       className={twMerge(
@@ -38,7 +50,17 @@ const FeatureDisplay: FC<FeatureDisplayProps> = ({
       )}
     >
       {/* Header */}
-      <div className="flex h-[4.5rem] items-center space-x-2.5 border-b border-gray-7 px-4">
+      <div
+        className={twMerge(
+          clsx(
+            'flex h-[4.5rem] cursor-pointer items-center space-x-2.5 border-b border-gray-7 px-4 transition duration-200 ease-in-out',
+            clsx(hovered ? 'bg-gray-3' : 'bg-gray-2'),
+          ),
+        )}
+        onPointerEnter={() => hover(true)}
+        onPointerLeave={() => hover(false)}
+        onClick={handleClick}
+      >
         {/* Symbol */}
         <div className="flex h-10 w-10 items-center justify-center rounded border border-gray-6 bg-gray-3 text-gray-11">
           <div className="flex h-6 w-6 items-center justify-center">{symbol}</div>
@@ -51,7 +73,17 @@ const FeatureDisplay: FC<FeatureDisplayProps> = ({
       </div>
 
       {/* Body */}
-      <div className="w-full grow">{children}</div>
+      <div
+        className={twMerge(
+          clsx('w-full grow cursor-pointer transition duration-200 ease-in-out'),
+          clsx(hovered ? 'bg-gray-3' : 'bg-gray-2'),
+        )}
+        onPointerEnter={() => hover(true)}
+        onPointerLeave={() => hover(false)}
+        onClick={handleClick}
+      >
+        {children}
+      </div>
 
       {/* Footer */}
       {tags || button ? (
