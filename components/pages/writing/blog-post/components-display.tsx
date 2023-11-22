@@ -7,7 +7,7 @@ import prettier from 'prettier';
 import babel from 'prettier/parser-babel';
 import { twMerge } from 'tailwind-merge';
 
-import ToastButton from '@/components/pages/blog-post/toast-button';
+import ToastButton from '@/components/pages/writing/blog-post/toast-button';
 import { Badge, Button, CodeBlock, HoverCard, IconButton, Select, Tooltip } from '@/components/ui';
 import type { CodeBlockProps } from '@/components/ui/code-block/types';
 
