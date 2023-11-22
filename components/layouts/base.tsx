@@ -25,7 +25,7 @@ const BaseLayout: FC<BaseLayoutProps> = ({ title, subtitle, pageSlug, children }
       <SeoBase title={title} subtitle={subtitle} />
       <NavBar selected={pageSlug} />
       <main className="relative flex grow flex-col">{children}</main>
-      <footer className="sticky bottom-0 w-full border-t border-gray-4">
+      <footer className="bottom-0 w-full border-t border-gray-4">
         <div className=" py-2 text-center text-sm text-gray-11">
           Design shamelessly forked and modified from{' '}
           <Link
