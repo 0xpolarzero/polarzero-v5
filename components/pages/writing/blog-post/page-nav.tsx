@@ -3,8 +3,8 @@ import { type FC, useMemo } from 'react';
 
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
-import { BLOG_POST_COMPONENT_PAGES, BLOG_POST_PAGES } from '@/lib/constants/site';
 import type { PageSlug } from '@/lib/types/site';
+import { BlogPostSection } from '@/lib/types/writing';
 
 // -----------------------------------------------------------------------------
 // Props
@@ -12,29 +12,29 @@ import type { PageSlug } from '@/lib/types/site';
 
 type BlogPostPageNavProps = {
   pageSlug?: PageSlug;
+  sections: BlogPostSection[];
 };
 
 // -----------------------------------------------------------------------------
 // Component
 // -----------------------------------------------------------------------------
 
-const BlogPostPageNav: FC<BlogPostPageNavProps> = ({ pageSlug }) => {
-  const pages = useMemo(() => BLOG_POST_PAGES.concat(BLOG_POST_COMPONENT_PAGES), []);
+const BlogPostPageNav: FC<BlogPostPageNavProps> = ({ pageSlug, sections }) => {
   const prevPage = useMemo(() => {
-    const index = pages.findIndex((page) => page.slug === pageSlug);
+    const index = sections.findIndex((section) => section.slug === pageSlug);
 
-    return index > 0 ? pages[index - 1] : null;
-  }, [pages, pageSlug]);
+    return index > 0 ? sections[index - 1] : null;
+  }, [sections, pageSlug]);
 
   const nextPage = useMemo(() => {
-    const index = pages.findIndex((page) => page.slug === pageSlug);
+    const index = sections.findIndex((section) => section.slug === pageSlug);
 
     if (index === -1) {
       return null;
     }
 
-    return index !== -1 && index < pages.length - 1 ? pages[index + 1] : null;
-  }, [pages, pageSlug]);
+    return index !== -1 && index < sections.length - 1 ? sections[index + 1] : null;
+  }, [sections, pageSlug]);
 
   return (
     <div className="flex w-full items-center justify-between">
@@ -44,7 +44,7 @@ const BlogPostPageNav: FC<BlogPostPageNavProps> = ({ pageSlug }) => {
           href={prevPage.slug}
         >
           <ArrowLeft className="h-4 w-4" />
-          <div>{prevPage.name}</div>
+          <div>{prevPage.title}</div>
         </Link>
       ) : (
         <div />
@@ -54,7 +54,7 @@ const BlogPostPageNav: FC<BlogPostPageNavProps> = ({ pageSlug }) => {
           className="flex items-center space-x-1 text-sm text-gray-11 no-underline transition-colors hover:text-gray-12"
           href={nextPage.slug}
         >
-          <div>{nextPage.name}</div>
+          <div>{nextPage.title}</div>
           <ArrowRight className="h-4 w-4" />
         </Link>
       ) : (

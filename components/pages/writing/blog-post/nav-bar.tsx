@@ -4,9 +4,9 @@ import * as Dialog from '@radix-ui/react-dialog';
 import clsx from 'clsx';
 import { ChevronRight, Menu, X } from 'lucide-react';
 
-import { BLOG_POST_COMPONENT_PAGES, BLOG_POST_PAGES } from '@/lib/constants/site';
 import { useMediaQuery } from '@/lib/hooks/useMediaQuery';
 import type { PageSlug } from '@/lib/types/site';
+import { BlogPostSection } from '@/lib/types/writing';
 
 import { Button, IconButton } from '@/components/ui';
 
@@ -16,6 +16,8 @@ import { Button, IconButton } from '@/components/ui';
 
 type BlogPostNavBarProps = {
   selected?: PageSlug;
+  slug: string;
+  sections: BlogPostSection[];
 };
 
 // -----------------------------------------------------------------------------
@@ -31,30 +33,31 @@ const BlogPostNavBar: FC<BlogPostNavBarProps> = (props) => {
   );
 };
 
-const BlogPostNavBarDesktop: FC<BlogPostNavBarProps> = ({ selected }) => {
+const BlogPostNavBarDesktop: FC<BlogPostNavBarProps> = ({ selected, sections, slug }) => {
   return (
     <nav
-      className="hide-scrollbar sticky top-28 -ml-3 hidden min-w-[11rem] max-w-[11rem] flex-col overflow-y-scroll px-0.5 md:flex"
+      className="hide-scrollbar sticky top-28 -ml-3 hidden min-w-[18rem] max-w-[18rem] flex-col overflow-y-scroll px-0.5 md:flex"
       style={{ height: 'calc(100vh - 11rem)' }}
     >
-      <BlogPostNavBarInternal selected={selected} />
+      <BlogPostNavBarInternal selected={selected} sections={sections} slug={slug} />
     </nav>
   );
 };
 
-const BlogPostNavBarMobile: FC<BlogPostNavBarProps> = ({ selected }) => {
+const BlogPostNavBarMobile: FC<BlogPostNavBarProps> = ({ selected, sections, slug }) => {
   const [open, setOpen] = useState<boolean>(false);
   const isSmallScreen = useMediaQuery('(max-width: 768px)'); // `md` breakpoint
 
-  const [selectedSectionName, selectedPageName] = useMemo(() => {
-    const page = BLOG_POST_PAGES.find((page) => page.slug === selected);
-    if (page) return ['Foundations', page.name];
-
-    const componentPage = BLOG_POST_COMPONENT_PAGES.find((page) => page.slug === selected);
-    if (componentPage) return ['Components', componentPage.name];
-
+  const [selectedSectionName, selectedSubsectionName] = useMemo(() => {
+    for (const section of sections) {
+      for (const subsection of section.subsections) {
+        if (selected === subsection.slug) {
+          return [section.title, subsection.title];
+        }
+      }
+    }
     return ['', ''];
-  }, [selected]);
+  }, [selected, sections]);
 
   return (
     <Dialog.Root open={open && isSmallScreen} onOpenChange={setOpen}>
@@ -72,15 +75,37 @@ const BlogPostNavBarMobile: FC<BlogPostNavBarProps> = ({ selected }) => {
             {selectedSectionName}
             <ChevronRight className="mx-1 h-4 w-4" />
           </li>
-          <li className="font-medium text-gray-12">{selectedPageName}</li>
+          <li className="font-medium text-gray-12">{selectedSubsectionName}</li>
         </ol>
       </div>
 
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 z-overlay outline-none backdrop-brightness-50 animate-in fade-in-50 focus:outline-none md:hidden" />
+        <Dialog.Overlay className="fixed inset-0 z-overlay backdrop-brightness-50 animate-in fade-in-50 focus:outline-none md:hidden" />
         <Dialog.Content onOpenAutoFocus={(e) => e.preventDefault()} asChild>
           <nav className="hide-scrollbar fixed inset-0 z-overlay overflow-y-scroll bg-gray-1 p-4 pt-28 animate-in slide-in-from-top-1 md:hidden">
-            <BlogPostNavBarInternal selected={selected} />
+            {sections.map((section, index) => (
+              <Fragment key={index}>
+                <div className="ml-3 text-base font-medium text-gray-12">{section.title}</div>
+                {section.subsections.map((subsection) => {
+                  const isSelected = selected === subsection.slug;
+                  return (
+                    <div key={subsection.slug}>
+                      <Button
+                        className={clsx(
+                          'mt-1 w-full justify-start',
+                          isSelected ? 'cursor-default bg-gray-4' : '',
+                        )}
+                        variant="ghost"
+                        href={`#${subsection.slug}`}
+                        disabled={isSelected}
+                      >
+                        {subsection.title}
+                      </Button>
+                    </div>
+                  );
+                })}
+              </Fragment>
+            ))}
           </nav>
         </Dialog.Content>
       </Dialog.Portal>
@@ -88,50 +113,39 @@ const BlogPostNavBarMobile: FC<BlogPostNavBarProps> = ({ selected }) => {
   );
 };
 
-const BlogPostNavBarInternal: FC<BlogPostNavBarProps> = ({ selected }) => {
+const BlogPostNavBarInternal: FC<BlogPostNavBarProps> = ({ selected, sections, slug }) => {
   return (
     <Fragment>
-      <div className="ml-3 text-base font-medium text-gray-12">Foundations</div>
-      {BLOG_POST_PAGES.map((page) => {
-        const pageSelected = selected === page.slug;
-
-        return (
-          <div key={page.slug}>
-            <Button
-              className={clsx(
-                'mt-1 w-full justify-start',
-                pageSelected ? 'cursor-default bg-gray-4' : '',
-              )}
-              variant="ghost"
-              href={page.slug}
-              disabled={pageSelected}
-            >
-              {page.name}
-            </Button>
-          </div>
-        );
-      })}
-
-      <div className="ml-3 mt-4 text-base font-medium text-gray-12">Components</div>
-      {BLOG_POST_COMPONENT_PAGES.map((page) => {
-        const pageSelected = selected === page.slug;
-
-        return (
-          <div key={page.slug}>
-            <Button
-              className={clsx(
-                'mt-1 w-full justify-start',
-                pageSelected ? 'cursor-default bg-gray-4' : '',
-              )}
-              variant="ghost"
-              href={page.slug}
-              disabled={pageSelected}
-            >
-              {page.name}
-            </Button>
-          </div>
-        );
-      })}
+      {sections.map((section, index) => (
+        <Fragment key={index}>
+          <Button
+            className={clsx(
+              'h-full w-full justify-start py-1 text-base font-medium',
+              selected === section.slug ? 'cursor-default bg-gray-4 text-left text-white' : '',
+              section.subsections.length === 0 ? 'mb-2' : '',
+            )}
+            href={`/writing/blog/${slug}/${section.slug}`}
+            variant="ghost"
+            disabled={selected === section.slug}
+          >
+            {section.title}
+          </Button>
+          {section.subsections.map((subsection, i) => {
+            return (
+              <div key={subsection.slug}>
+                <div
+                  className={clsx(
+                    'ml-4 w-full justify-start py-[0.2rem] text-sm text-gray-11',
+                    i === section.subsections.length - 1 ? 'mb-2' : '',
+                  )}
+                >
+                  {subsection.title}
+                </div>
+              </div>
+            );
+          })}
+        </Fragment>
+      ))}
     </Fragment>
   );
 };

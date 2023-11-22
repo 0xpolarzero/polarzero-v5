@@ -4,6 +4,8 @@ import { type FC, isValidElement, type ReactNode } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import { NextSeo } from 'next-seo';
 
+import { SECTIONS } from '@/lib/constants/blog';
+import { WRITING_BLOG_PAGES } from '@/lib/constants/writing';
 import type { PageSlug } from '@/lib/types/site';
 
 import BaseLayout from '@/components/layouts/base';
@@ -18,24 +20,19 @@ import type { CodeBlockProps } from '@/components/ui/code-block/types';
 // -----------------------------------------------------------------------------
 
 type BlogPostLayoutProps = {
-  category: string;
-  name: string;
-  description?: string;
   selected: PageSlug;
   children?: ReactNode;
+  slug: string;
 };
 
 // -----------------------------------------------------------------------------
 // Component
 // -----------------------------------------------------------------------------
 
-const BlogPostLayout: FC<BlogPostLayoutProps> = ({
-  category,
-  name,
-  description,
-  selected,
-  children,
-}) => {
+const BlogPostLayout: FC<BlogPostLayoutProps> = ({ selected, children, slug }) => {
+  const { title, subtitle, description } =
+    WRITING_BLOG_PAGES.find((page) => page.slug === slug) || {};
+
   const components = {
     a: ({ href, children, ...rest }: JSX.IntrinsicElements['a']) => {
       if (href && href.startsWith('/')) {
@@ -77,7 +74,7 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = ({
       </h1>
     ),
     h2: ({ children }: JSX.IntrinsicElements['h2']) => (
-      <h2 className="mb-2 mt-6 text-xl font-semibold tracking-tight text-gray-12 md:mb-4 md:mt-12 md:text-2xl">
+      <h2 className="mb-2 text-xl font-semibold tracking-tight text-gray-12 md:mb-4 md:text-2xl">
         {children}
       </h2>
     ),
@@ -113,15 +110,15 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = ({
         openGraph={{
           type: 'website',
           locale: 'en_US',
-          title: `${name} - polarzero writing`,
+          title: `${title}; ${subtitle} - polarzero writing`,
           description:
             description ||
-            'a blog on blockchain & distributed systems; accessibility, security and adoption.',
+            'A blog on blockchain & distributed systems; accessibility, security and adoption.',
           url: 'https://polarzero.xyz/writing',
           site_name: 'polarzero',
           images: [
             {
-              url: `https://polarzero.xyz/api/og/blog-post?title=${category}&subtitle=${name}&description=${description}`,
+              url: `https://polarzero.xyz/api/og/blog-post?title=${title}&subtitle=${subtitle}&description=${description}`,
               width: 1200,
               height: 630,
               alt: 'polarzero writing docs open-graph image',
@@ -130,7 +127,7 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = ({
         }}
       />
 
-      <BaseLayout title="polarzero writing" subtitle={name} pageSlug="/writing">
+      <BaseLayout title={title} subtitle={subtitle} pageSlug="/writing">
         {/* Note: `pb-6` overrides `pb-4` on small devices. `<BlogPostNavBar />`
             has a `mb-6` when displayed on small screens, so the ``margin''
             above/below the article content is symmetrical. We do this instead
@@ -139,15 +136,25 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = ({
             present on larger screens so we have a breakpoint to reset it. For
             similar reasons, the `x` padding is set to 0 on small devices is set
             to 0. */}
-        <ContainerLayout className="relative flex max-w-[90rem] flex-col space-x-0 px-0 pb-6 pt-0 md:flex-row md:space-x-16">
-          <BlogPostNavBar selected={selected} />
-          <MDXProvider components={components}>
-            <article className="prose prose-gray max-w-none grow px-4 dark:prose-invert md:px-0">
-              {children}
-              <hr className="mb-6 mt-6 w-full rounded-full border-gray-6 md:mt-12" />
-              <BlogPostPageNav pageSlug={selected} />
-            </article>
-          </MDXProvider>
+        <ContainerLayout className="relative flex max-w-[90rem] flex-col gap-8">
+          <div className="flex flex-col space-y-2">
+            <h1 className="text-3xl font-semibold tracking-tight text-gray-12 md:text-4xl">
+              {title}
+            </h1>
+            <h2 className="text-xl font-medium tracking-tight text-gray-11 md:text-2xl">
+              {subtitle}
+            </h2>
+          </div>
+          <div className="relative flex flex-col space-x-0 px-0 pb-6 pt-0 md:flex-row md:space-x-16">
+            <BlogPostNavBar slug={slug} selected={selected} sections={SECTIONS[slug]} />
+            <MDXProvider components={components}>
+              <article className="prose prose-gray max-w-none grow px-4 dark:prose-invert md:px-0">
+                {children}
+                <hr className="mb-6 mt-6 w-full rounded-full border-gray-6 md:mt-12" />
+                <BlogPostPageNav pageSlug={selected} sections={SECTIONS[slug]} />
+              </article>
+            </MDXProvider>
+          </div>
         </ContainerLayout>
       </BaseLayout>
     </>

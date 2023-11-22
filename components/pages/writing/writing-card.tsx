@@ -1,27 +1,14 @@
-import { type FC, type PointerEvent, type UIEvent, useCallback, useState } from 'react';
+import { type FC } from 'react';
 
-import { TooltipWithBounds, useTooltip, useTooltipInPortal } from '@visx/tooltip';
-import clsx from 'clsx';
-import { LayoutGroup, motion } from 'framer-motion';
-import {
-  ArrowLeft,
-  Calendar,
-  ExternalLink,
-  FileText,
-  Github,
-  Paperclip,
-  Scroll,
-  Twitter,
-} from 'lucide-react';
+import { Calendar, ExternalLink, FileText, Github, Twitter } from 'lucide-react';
 
 import { BlogPost } from '@/lib/types/writing';
 import { getTimePassed } from '@/lib/utils';
 
 import CategoryTag from '@/components/templates/category-tag';
 import FeatureDisplay from '@/components/templates/feature-display';
-import { Button, IconButton } from '@/components/ui';
+import { Button } from '@/components/ui';
 
-// Replace "Open" by platform name like "Read on ..."
 // Add hover on the card & open the page here
 // Add filters for catefories
 // Add a timeline view???
@@ -63,13 +50,15 @@ const WritingCardFeature: FC<WritingCardFeatureProps> = ({
           fill="#FFFFFFB0"
         />
       </svg>
-    ) : platform === 'twitter' ? (
+    ) : platform === 'Twitter' ? (
       <Twitter />
     ) : platform === 'PDF' ? (
       <FileText />
     ) : (
       <Github />
     );
+
+  const path = platform === 'Twitter' ? 'twitter' : 'blog';
 
   return (
     <FeatureDisplay
@@ -85,6 +74,7 @@ const WritingCardFeature: FC<WritingCardFeatureProps> = ({
       tags={tags.map((tag, i) => (
         <CategoryTag key={i} size="md" category={tag} />
       ))}
+      internalLink={`/writing/${path}/${slug}`}
     >
       <div className="flex h-full flex-col space-y-4 p-4">
         <div className="flex-grow text-[0.92rem]">{description}</div>

@@ -7,7 +7,7 @@ import { BlogPost } from '../types/writing';
 export const WRITING_BLOG_PAGES: BlogPost[] = [
   {
     title: 'Blockchain...',
-    subtitle: '... but for Real',
+    subtitle: '... but for real',
     description:
       'Some explanations about blockchain: current perception, what is it actually, how it works, perspectives for the future, and what to do now.',
     slug: 'blockchain-but-for-real',
