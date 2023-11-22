@@ -7,7 +7,7 @@ const sections: BlogPostSection[] = [
     subsections: [],
   },
   {
-    title: 'Introduction: scope and hypothesis',
+    title: '1. Introduction: scope and hypothesis',
     slug: 'introduction-scope-and-hypothesis',
     subsections: [
       { title: 'What, and why?', slug: 'what-and-why' },
@@ -15,7 +15,7 @@ const sections: BlogPostSection[] = [
     ],
   },
   {
-    title: 'A truly tarnished reputation',
+    title: '2. A truly tarnished reputation',
     slug: 'a-truly-tarnished-reputation',
     subsections: [
       { title: 'NFTs', slug: 'nfts' },
@@ -25,7 +25,7 @@ const sections: BlogPostSection[] = [
     ],
   },
   {
-    title: 'Addressing this damaged reputation',
+    title: '3. Addressing this damaged reputation',
     slug: 'addressing-this-damaged-reputation',
     subsections: [
       { title: 'Public exposure', slug: 'public-exposure' },
@@ -33,7 +33,7 @@ const sections: BlogPostSection[] = [
     ],
   },
   {
-    title: 'A truly positive nature',
+    title: '4. A truly positive nature',
     slug: 'a-truly-positive-nature',
     subsections: [
       { title: 'Stereotypes (part 2)', slug: 'stereotypes-part-2' },
@@ -42,7 +42,7 @@ const sections: BlogPostSection[] = [
     ],
   },
   {
-    title: 'A collaborative and accountable structure',
+    title: '5. A collaborative and accountable structure',
     slug: 'a-collaborative-and-accountable-structure',
     subsections: [
       { title: 'Distributed databases', slug: 'distributed-databases' },
@@ -51,7 +51,7 @@ const sections: BlogPostSection[] = [
     ],
   },
   {
-    title: 'An inevitable upcoming impact',
+    title: '6. An inevitable upcoming impact',
     slug: 'an-inevitable-upcoming-impact',
     subsections: [
       { title: 'Digital transformation', slug: 'digital-transformation' },
@@ -59,7 +59,7 @@ const sections: BlogPostSection[] = [
     ],
   },
   {
-    title: 'Knowledge, lucidity, and power',
+    title: '7. Knowledge, lucidity, and power',
     slug: 'knowledge-lucidity-and-power',
     subsections: [
       { title: 'Why even bother?', slug: 'why-even-bother' },
@@ -68,7 +68,7 @@ const sections: BlogPostSection[] = [
     ],
   },
   {
-    title: 'Conclusion: future and further exploration',
+    title: '8. Conclusion: future and further exploration',
     slug: 'conclusion-future-and-further-exploration',
     subsections: [
       { title: 'Digital wallet', slug: 'digital-wallet-2' },
@@ -83,7 +83,7 @@ const sections: BlogPostSection[] = [
     ],
   },
   {
-    title: 'References',
+    title: '9. References',
     slug: 'references',
     subsections: [],
   },
