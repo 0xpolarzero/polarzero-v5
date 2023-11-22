@@ -7,8 +7,28 @@ import type { BadgeProps } from '@/components/ui/badge/types';
 // Props
 // -----------------------------------------------------------------------------
 
-type CategoryTagProps = Omit<BadgeProps, 'variant' | 'intent'> & {
-  category: 'NFT' | 'Writing' | 'Web' | 'On-chain';
+export type Category =
+  | 'chainlink'
+  | 'education'
+  | 'fr'
+  | 'governance'
+  | 'immersive tech'
+  | 'infrastructure'
+  | 'NFT'
+  | 'security research'
+  | 'solidity';
+
+export type CategoryTagProps = Omit<BadgeProps, 'variant' | 'intent'> & {
+  category:
+    | 'chainlink'
+    | 'education'
+    | 'fr'
+    | 'governance'
+    | 'immersive tech'
+    | 'infrastructure'
+    | 'NFT'
+    | 'security research'
+    | 'solidity';
 };
 
 // -----------------------------------------------------------------------------
@@ -17,10 +37,16 @@ type CategoryTagProps = Omit<BadgeProps, 'variant' | 'intent'> & {
 
 const CategoryTag: FC<CategoryTagProps> = ({ size, category, ...rest }) => {
   const CATEGORY_TO_COLORS: Record<typeof category, string> = {
-    NFT: 'orange',
-    'On-chain': 'warning',
-    Writing: 'success',
-    Web: 'primary',
+    // none, primary, success, fail, warning, orange
+    chainlink: 'primary', // 1
+    education: 'success', // 2
+    fr: 'none', // 3
+    governance: 'warning', // 4
+    'immersive tech': 'none', // 3
+    infrastructure: 'fail', // 6
+    NFT: 'warning', // 4
+    'security research': 'orange', // 5
+    solidity: 'fail', // 6
   };
 
   return (
