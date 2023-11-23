@@ -149,7 +149,8 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = ({ selected, children, slug }) =
           <div className="relative flex flex-col space-x-0 pb-6 md:flex-row md:space-x-16">
             <BlogPostNavBar slug={slug} selected={selected} sections={SECTIONS[slug]} />
             <MDXProvider components={components}>
-              <article className="prose prose-gray max-w-none grow overflow-hidden px-4 text-justify dark:prose-invert md:px-0">
+              {/* Add overflow-hidden for code-blocks (too large) so add px-1 to not hide italics */}
+              <article className="prose prose-gray max-w-none grow overflow-hidden px-4 text-justify dark:prose-invert md:px-1">
                 {children}
                 <hr className="mb-6 mt-6 w-full rounded-full border-gray-6 md:mt-12" />
                 <BlogPostPageNav pageSlug={selected} sections={SECTIONS[slug]} />
