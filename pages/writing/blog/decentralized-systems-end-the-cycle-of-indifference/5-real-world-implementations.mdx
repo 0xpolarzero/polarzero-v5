@@ -1,0 +1,45 @@
+import BlogPostLayout from '@/components/layouts/blog-post';
+
+## 5. Real-world implementations
+
+### Polygon ID: Managing decentralized identities
+
+_A platform for managing decentralized identities using ZKPs._
+
+> Polygon ID infrastructure makes use of an off-chain decentralized identity model called [Self Sovereign Identity (SSI)](https://www.dock.io/post/self-sovereign-identity) that **enables identity providers like banks or governments to issue credentials such as university degrees or driving licenses**. Users store these credentials in privately-held wallets and maintain control over them, opting to submit them to apps and services.
+>
+> […]
+>
+> With Polygon ID, **users can opt to submit these credentials to smart contracts and interact with on-chain dApps** _[Note: decentralized applications, usually interacting with blockchain infrastructure]_. Polygon has made this transition from off to on-chain possible through the magic of zero-knowledge proofs which not only **attest to the existence of the credential, but do so in a way that keeps user privacy at its zenith**. _ZKPs_ do not reveal specific details about users, they **only confirm, or ‘prove’ that a statement about a user is true**. For instance, **they could confirm that a user is over eighteen without stating their exact age**.
+>
+> [_Rarimo, "Rarimo x Polygon ID Spearheading the World’s First Multi-Chain Zero Knowledge Proofs For Verified Credentials", 2023–07–20, Medium_](https://rarimo.medium.com/rarimo-x-polygon-id-spearheading-the-worlds-first-multi-chain-zero-knowledge-proofs-for-verified-cd9b9406751e).
+
+### Vocdoni: Pioneering anonymous digital voting
+
+_A decentralized digital voting system (Voĉdoni: “to give voice” in Esperanto)._
+
+> Anyone can create an anonymous voting process that will allow users to vote with the **cryptographic assurance that nobody can correlate their identity with the contents of their ballot**. […] Users can still trace their own ballots from the time of voting to the calculation of results, and they can **inspect the contents of their vote envelope as it is counted**.
+>
+> [_Charlie McCombie & Nate Williams, "Vocdoni Introduces Anonymous Voting", 2022–10–19, Aragon’s Blog_](https://blog.aragon.org/introducing-vocdoni-anonymous-voting/).
+
+Additionally, an excerpt that perfectly reflects the essence of this piece:
+
+> It’s important to notice that when we talk about voting we are not referring to a digital version of nation-state like elections. This is only a potential instance, and it implies a wide range of connotations that we not necessarily share.
+>
+> ”We refer to voting as a much more generic and low-level system. As a collective signaling mechanism that gives cryptographic guarantees about its integrity and its outcome.”
+>
+> [_Xavi Vives, “Vocdoni, reimagining governance”, 2020–01–03, Aragon’s Blog_](https://blog.aragon.org/vocdoni-reimagining-governance/).
+
+Finally, a blog post on how Bellpuig Mayor Jordi Estiarte (Spain) used Vocdoni to conduct a public consultation, as part of his promise to “increase direct citizen participation”:
+
+[Charlie McCombie, First Public Institution in Spain Holds Vocdoni Referendum | Bellpuig Council, 2022–08–09, Aragon’s Blog](https://blog.aragon.org/first-public-institution-in-spain-holds-vocdoni-referendum-bellpuig-council/).
+
+And now that this article has brought us all the way from merely philosophical observations to this tangible demonstration of participative democracy, I feel that it’s only natural to conclude our journey here.
+
+export default (props) => (
+  <BlogPostLayout
+    selected="5-real-world-implementations"
+    slug="decentralized-systems-end-the-cycle-of-indifference"
+    {...props}
+  />
+);

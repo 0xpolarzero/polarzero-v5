@@ -1,0 +1,77 @@
+import BlogPostLayout from '@/components/layouts/blog-post';
+
+## 4. Trust in governance: A shift in paradigm
+
+### Trust in traditional voting mechanisms
+
+See this sample of mechanisms associated with voting, as we are used to it; notice how it systematically involves _trusting_ a specific institution to handle it fairly and accurately:
+
+- traditional ballot counting by **appointed officials**;
+
+- electronic voting machines managed by **private companies**;
+
+- voter registration databases overseen by **governmental bodies;**
+
+- **physical documentation** and **centralized software programs** ensuring each individual votes only once;
+
+- even international observers affiliated with **global organizations** ensuring election integrity.
+
+In each instance, trust is placed in an entity, with the _hope_ that the process — from ensuring the vote’s **authenticity and accuracy** to verifying each voter’s **eligibility and uniqueness** — remains **unbiased and untampered with**.
+
+### Enabling fair participation with decentralized systems
+
+In contrast, _trust-minimized_ networks, i.e. those operating without the need for trusted brokers, present a solution that can challenge and, often, _replace_ these traditional trust-based models. These systems aim to _eliminate_ the heavy reliance on external entities by integrating mechanisms that promise **an equal, if not superior, level of fairness, accuracy, and security**.
+
+The requirements for an adequate design can be generalized :
+
+- **decentralized and censorship-resistant**: it should not rely on a single actor/entity to initiate an action, and it should be resistant to any attempt to break/manipulate it;
+
+- **private**: the voter’s identity should remain undisclosed, although it _should_ be verified and compared to a set of rules;
+
+- **anonymous**: individual votes should not be traceable back to anyone, and stay hidden until the result is available
+
+_From [a description by Phil Kelly & Florian Kluge from O(1) Labs](https://blog.o1labs.org/zero-knowledge-proofs-for-voting-3c6a6d5d89db), which incidentally [initiated a transition to become an employee-governed company in July 2021](https://blog.o1labs.org/building-a-trustless-and-private-internet-for-everyone-e31330f8705d)._
+
+I’m not saying here that these _should be_ the characteristics of such systems, but rather that any system _should be able_ to integrate such characteristics if needed.
+
+The fact is, there are already plenty of operational innovative technologies and solutions that satisfy these characteristics.
+
+**You could — right now — leverage it to build a fully fledged “one person, one vote” voting application, at any scale of delegation, without any third party getting involved, with the same guarantees as a government-powered democratic voting system — and more**. Anyone would be able to create an account, prove they fulfill any requirement (e.g. their identity using government issued documents), without ever revealing the data, vote on proposals, as well as submit one. All without compromising the anonymity of the votes, while still being able to ensure the integrity and accuracy of _every_ step of the process.
+
+### Zero-knowledge proofs: Ensuring privacy and integrity
+
+Most of the concepts discussed in the preceding section rely heavily on the use of _zero-knowledge proofs (ZKPs)_.
+
+I won’t dive into the technical intricacies here, as this is not really the purpose of this article, and I don’t know nearly enough about it anyway. However, it’s essential to highlight their significance, as they represent the most promising and well-suited technology for this kind of participative mechanism.
+
+Basically, a zero-knowledge protocol allows anyone to **prove a claim** **without revealing any of the information used to back this claim**. Instead, they provide a proof that the claim is true, with the guarantee that this proof could not possibly have been tampered with.
+
+The following excerpts provide further insight into how ZKPs can be relevant in our context.
+
+> This is specifically down to how ZKPs deal with anonymous verifiable voting. By recording votes on a public blockchain, there is no longer a need for a trusted third party to verify the results. Moreover, the possibility of any sort of censorship is eliminated.
+>
+> […]
+>
+> Using ZKPs, eligible voters can **prove their right to cast a ballot without revealing their identity**, making the voting system anonymous. In addition, ZKPs allow voters to **request a verifiable proof that their vote was included in the final tally** by the entity reporting the results.
+>
+> […]
+>
+> **This makes the vote results auditable by the electoral body, even if the individual votes themselves are not visible on a public blockchain.**
+>
+> [_"3 Real World Applications of Zero Knowledge Proofs", 2018–10–26, Coin Bureau_](https://www.coinbureau.com/adoption/applications-zero-knowledge-proofs/).
+
+> Newer solutions […] are using zero-knowledge proofs to make on-chain voting […] resistant to bribery and collusion. MACI (Minimum Anti-Collusion Infrastructure) is a set of [smart contracts](https://yousign.com/blog/smart-contract) and scripts that allow a central administrator (called a “coordinator”) to **aggregate votes and tally results _without_ revealing specifics on how each individual voted**. Even so, it is still possible to **verify that the votes were counted properly, or confirm that a particular individual participated in the voting round**.
+>
+> [_Emmanuel Awosika, "Zero-knowledge proofs", 2022–07–01, ethereum.org_](https://ethereum.org/en/zero-knowledge-proofs/#secure-blockchain-voting).
+
+An interesting feature is that one can **mix traditional digital and somehow physical methods** to leverage this infrastructure, and benefit from the security, transparency, and accountability of blockchain.
+
+There are many experienced researchers that can provide accurate and in-depth explanation of what ZKPs can enable, and how. That’s why — rather than keeping on attempting it myself — I’d rather provide some references from companies that are successfully building/enabling practical applications leveraging this technology.
+
+export default (props) => (
+  <BlogPostLayout
+    selected="4-trust-in-governance-a-shift-in-paradigm"
+    slug="decentralized-systems-end-the-cycle-of-indifference"
+    {...props}
+  />
+);
