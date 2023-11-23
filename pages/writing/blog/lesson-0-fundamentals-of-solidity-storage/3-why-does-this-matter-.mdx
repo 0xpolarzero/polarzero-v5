@@ -1,0 +1,130 @@
+import BlogPostLayout from '@/components/layouts/blog-post';
+import BlogPostComponentsDisplay from '@/components/pages/writing/blog-post/components-display';
+
+## 3. Why Does This Matter?
+
+As a Solidity developer or researcher, understanding these storage fundamentals is essential for writing **optimized and secure** smart contracts. Knowing how the storage is structured and how the first few slots are reserved for special purposes can give insights into how Solidity operates behind the scenes.
+
+**Security** is paramount when significant assets are at stake. To ensure that contracts are resilient against attacks, both developers and auditors must have a deep understanding of the storage layout. For instance, knowing the significance and constraints of the zero slot is critical to prevent contracts from manifesting unintended behaviors. Specifically, **upgradeability** in smart contracts introduces a more complex management of the storage structure, as it requires the storage layout to remain compatible across different versions of the contract. Understanding how it works, to avoid data corruption or loss, makes it **not only important but absolutely critical**.
+
+Besides, **gas optimization** is vital on Ethereum, as inefficient contracts can lead to exorbitant transaction fees for users. A solid understanding of memory allocation, including the roles of reserved slots, is imperative for developers to craft code that is optimized for minimal gas usage. One approach is to write code in **assembly** within Solidity, which provides **finer control over the EVM,** **by allowing for direct memory access and allocation with higher precision**. However, this approach completely **bypasses the “safeguards”** provided by the higher-level constructs of Solidity. Accessing storage, especially reserved slots, must be done with extreme caution. A simple mistake could lead to unintended overwrites or incorrect data reads, which could be catastrophic, especially in a contract handling valuable assets.
+
+### Efficient storage packing to minimize gas costs
+
+Consider a simple example with two smart contracts, one with a suboptimal storage layout and the other with an optimized layout:
+
+{/* <div className={`w-[${availableWidth}]`}> */}
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract SuboptimalStructLayout {
+struct Data {
+uint256 a; // takes a full storage slot (32 bytes)
+uint8 b; // takes only 1 byte but occupies a full storage slot (32 bytes reserved)
+uint256 c; // needs a new slot, takes a full storage slot (32 bytes) - explains the previous full slot
+uint8 d; // takes only 1 byte but occupies a full storage slot (32 bytes reserved)
+}
+
+    Data public data;
+
+    // This layout uses 4 storage slots due to non-optimized arrangement in the struct
+
+}
+
+contract OptimizedStructLayout {
+struct Data {
+uint256 a; // takes a full storage slot (32 bytes)
+uint256 c; // needs a new slot, takes a full storage slot (32 bytes)
+uint8 b; // takes 1 byte, packed in the same slot with the next variable
+uint8 d; // takes 1 byte, packed in the same slot with the previous variable (2 bytes used, 30 bytes free)
+}
+
+    Data public data;
+
+    // This layout uses 3 storage slots due to optimized arrangement in the struct
+
+}
+
+```
+
+In the example above, reordering the variables within the struct in `OptimizedStructLayout` results in more efficient storage packing compared to `SuboptimalStructLayout`.
+
+### Preserving data integrity in upgradeable smart contracts
+
+Consider a deployed smart contract called `TokenV1`, that needs to be upgraded to add a new feature or fix a bug, while making sure the data remains intact. The proxy pattern is a common pattern used for upgradeable smart contracts. Essentially, a proxy contract delegates calls to an implementation contract. When upgrading, the address of the implementation contract will be updated to point to the new one.
+
+The storage layout must remain consistent across upgrades because the proxy contract relies on the layout when delegating calls to the implementation.
+
+Here’s a very basic example:
+
+```solidity
+// TokenV1.sol
+contract TokenV1 {
+error InsufficientBalance();
+
+    uint256 public totalSupply;
+    mapping(address => uint256) public balances;
+
+    constructor(uint256 _initialSupply) {
+        totalSupply = _initialSupply;
+        balances[msg.sender] = _initialSupply;
+    }
+
+    function transfer(address _to, uint256 _value) public {
+        if (balances[msg.sender] < _value) revert InsufficientBalance();
+
+        balances[msg.sender] -= _value;
+        balances[_to] += _value;
+    }
+
+}
+
+// TokenV2.sol
+contract TokenV2 {
+error InsufficientBalance();
+error ExceedsMaxTransferAmount(); // New feature
+
+    uint256 public totalSupply;
+    mapping(address => uint256) public balances;
+    uint256 public maxTransferAmount; // New variable
+
+    constructor(uint256 _initialSupply) {
+        totalSupply = _initialSupply;
+        balances[msg.sender] = _initialSupply;
+    }
+
+    function setMaxTransferAmount(uint256 _maxTransferAmount) public {
+        maxTransferAmount = _maxTransferAmount; // New feature
+    }
+
+    function transfer(address _to, uint256 _value) public {
+        if (_value <= maxTransferAmount) revert ExceedsMaxTransferAmount();
+        if (balances[msg.sender] < _value) revert InsufficientBalance();
+
+        balances[msg.sender] -= _value;
+        balances[_to] += _value;
+    }
+
+}
+
+```
+
+In this example, `TokenV2` has a new state variable `maxTransferAmount`, but it is appended after the existing ones. This means the storage layout remains compatible.
+
+However, if `maxTransferAmount` was placed at the beginning or between existing variables, it would modify the storage layout, which could cause serious issues, as the proxy contract may not correctly map the storage slots and data may become corrupted or misinterpreted. Indeed, it could assume that totalSupply is located in a specific storage slot, and mistakenly read the value of `maxTransferAmount` instead.
+
+It’s important to note that this example focuses on the most basic concern related to storage layout, but when it comes to upgradeable contracts, the considerations and complexities go _much_ further.
+
+This is why an in-depth knowledge of the EVM’s storage layout, including how storage and memory can be directly and precisely retrieved and allocated, is a linchpin for the development of **secure, efficient, and adaptable** smart contracts. This expertise is invaluable not only for developers but also for security and gas optimization researchers during audits, as it enables them to meticulously scrutinize the contract’s storage handling for potential vulnerabilities or inefficiencies.
+
+**Mastering the fundamentals of Solidity storage is crucial in forging the backbone of robust decentralized applications, empowering us to confidently welcome the next wave of users with the assurance of a secure and seamless experience**.
+
+export default (props) => (
+  <BlogPostLayout
+    selected="3-why-does-this-matter-"
+    slug="lesson-0-fundamentals-of-solidity-storage"
+    {...props}
+  />
+);

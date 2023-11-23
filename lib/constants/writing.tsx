@@ -65,7 +65,7 @@ export const WRITING_BLOG_PAGES: BlogPost[] = [
     subtitle: 'Fundamentals of Solidity Storage',
     description:
       'The storage layout in the EVM, how data is meticulously stored and managed with Solidity.',
-    slug: 'fundamentals-of-solidity-storage',
+    slug: 'lesson-0-fundamentals-of-solidity-storage',
     date: new Date('2023-06-29'),
     platform: 'Medium',
     url: 'https://medium.com/@0xpolarzero/fundamentals-of-solidity-storage-581ba0551b3',

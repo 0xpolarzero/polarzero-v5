@@ -1,0 +1,47 @@
+import BlogPostLayout from '@/components/layouts/blog-post';
+
+## 2. The Special Slots
+
+Solidity **reserves the first few slots** of the storage for specific purposes.
+
+For a more contextualized explanation, refer to this comprehensive and extensive article, part of the [Secureum Epoch0 Bootcamp](https://github.com/x676f64/secureum-mind_map):
+
+- [Rajeev, _Solidity 201, 100 more key aspects of Solidity_, Secureum](https://secureum.substack.com/p/solidity-201), [especially **127. Reserved Memory**; also **117. Storage Layout & Structs/Arrays**].
+
+To break it down, there are **four 32-byte slots** reserved as follows:
+
+### Slots 1–2 (_0x00–0x3f_): scratch space for hashing
+
+The first two slots, covering 64 bytes from `0x00` to `0x3f`, are reserved for what is known as **scratch space**. This can be considered as a whiteboard where **intermediate computations can be temporarily noted down**.
+
+Specifically, these 64 bytes are often used by hashing functions such as keccak256 and sha256 as a **workspace for performing computations**. This scratch space is crucial for efficiency; since it’s a small, designated area, the hashing functions can operate faster as they don’t need to search through a large memory area. It’s also volatile, meaning that once the hash function has done its job, the data in the scratch space can be overwritten or discarded.
+
+### Slot 3 (0x40–0x5f): free memory pointer
+
+The next slot, spanning from `0x40` to `0x5f`, holds the **currently allocated memory size**, or free memory pointer.
+
+While storage is persistent and written on the blockchain, **memory is temporary and is erased once the contract execution is complete**. This is generally used for holding data temporarily before either discarding it or saving it into storage.
+
+Consider how a librarian needs to keep an eye out for the next empty shelf to store fresh reads. In Solidity, the free memory pointer acts like **a bookmark that indicates the first empty shelf where new books can be placed**. This way, whenever the contract needs to store new data in memory temporarily, **it knows exactly where to place it** (= the next unallocated memory slot) **without having to scan through the entire bookshelf**.
+
+In technical terms, the free memory pointer is an address. When you **store something in memory**, you put it **at the address indicated by the free memory pointer**, and then you increment the pointer, so it now points to the next empty slot. Once the computation is complete, the EVM doesn’t need the memory anymore and the data is discarded. The free memory pointer, being part of this temporary environment, is reset the next time the contract is called. This process is similar to having a clean slate every time a contract function is executed.
+
+### Slot 4 (0x60–0x7f): zero slot
+
+The zero slot, as its name implies, is **a standard reference** that always contains zeros. Think of it as a dictionary in a library that would always be in a constant place for everyone to refer to. It’s the known source for a particular kind of information; in this case, a string of zeros.
+
+In the context of the EVM, having **a known immutable reference** can be very convenient. For instance, in Solidity, when creating a dynamic array in memory, it requires an initial state. **Instead of explicitly writing a bunch of zeros** every time an array is created, the program can simply **point to this zero slot as the initial content of the array**. This saves processing time and makes the code cleaner.
+
+Additionally, this slot can be used in mathematical operations to reset values, or in logical operations as a base to compare against.
+
+In certain cryptographic operations, it might be necessary to pad data to a certain length. The zero slot provides an **easy and efficient way** to achieve this by appending zeros from the zero slot to the data until the required length is reached.
+
+It’s important to understand that **the zero slot should never be modified**. Changing the contents of this slot would be similar to **modifying a critical constant in a codebase**. This would cause confusion and errors as it serves as a persistent reference, essential to the deterministic behavior and reliability of the operations within the contract.
+
+export default (props) => (
+  <BlogPostLayout
+    selected="2-the-special-slots"
+    slug="lesson-0-fundamentals-of-solidity-storage"
+    {...props}
+  />
+);

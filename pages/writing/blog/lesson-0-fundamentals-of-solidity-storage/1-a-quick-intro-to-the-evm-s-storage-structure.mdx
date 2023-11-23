@@ -1,0 +1,21 @@
+import BlogPostLayout from '@/components/layouts/blog-post';
+
+## 1. A Quick Intro to the EVM’s Storage Structure
+
+Let’s start with a visualization of the EVM’s storage structure. When you create a smart contract, it gets stored on the Ethereum blockchain (or another EVM compatible chain). This storage is similar to **a vast array of bytes, where each slot of this array can store 32 bytes**.
+
+Each of these slots is addressable and labeled with hexadecimal values, which is a base-16 numbering system that uses 16 distinct symbols: the numbers `0` to `9` (for values `0–9`) and the letters `A` to `F` (for values `10–15`).
+
+Considering that storage slots on the EVM are addressed in 32-byte increments, the first slot starts at `0x00`, the next at `0x20`, and so on. Each one of these slots holds 32 bytes of data. For instance:
+
+- the **28th byte** at the **first slot** would be accessible at the address `0x1b`;
+
+- the **6th byte** at the **second slot** would be accessible at the address `0x25`.
+
+export default (props) => (
+  <BlogPostLayout
+    selected="1-a-quick-intro-to-the-evm-s-storage-structure"
+    slug="lesson-0-fundamentals-of-solidity-storage"
+    {...props}
+  />
+);
