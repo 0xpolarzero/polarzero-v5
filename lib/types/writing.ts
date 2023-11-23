@@ -21,6 +21,7 @@ export type BlogPost = {
   date: Date; // Format: YYYY-MM-DD
   platform: Platform;
   url: string;
+  addUrl?: string;
   tags: Category[];
 };
 
