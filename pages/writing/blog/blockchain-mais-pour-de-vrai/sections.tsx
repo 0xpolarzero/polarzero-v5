@@ -1,10 +1,18 @@
+
 import { BlogPostSection } from '@/lib/types/writing';
 
 const sections: BlogPostSection[] = [
   {
-    title: 'Présentation',
-    slug: '',
-    subsections: [],
+    title: 'La blockchain, mais pour de vrai',
+    slug: 'la-blockchain-mais-pour-de-vrai',
+    subsections: [
+    ],
+  },
+  {
+    title: 'Table des matières',
+    slug: 'table-des-mati-res',
+    subsections: [
+    ],
   },
   {
     title: '1. Introduction : champ d’application et hypothèse',
@@ -37,24 +45,15 @@ const sections: BlogPostSection[] = [
     slug: '4-une-essence-v-ritablement-positive',
     subsections: [
       { title: 'Stéréotypes (partie 2)', slug: 'st-r-otypes-partie-2-' },
-      {
-        title: 'Philosophie : « don’t trust, verify »',
-        slug: 'philosophie-don-t-trust-verify-',
-      },
-      {
-        title: 'Plateformes décentralisées',
-        slug: 'plateformes-d-centralis-es',
-      },
+      { title: 'Philosophie : « don’t trust, verify »', slug: 'philosophie-don-t-trust-verify-' },
+      { title: 'Plateformes décentralisées', slug: 'plateformes-d-centralis-es' },
     ],
   },
   {
     title: '5. Un fonctionnement participatif et responsable',
     slug: '5-un-fonctionnement-participatif-et-responsable',
     subsections: [
-      {
-        title: 'Bases de données distribuées',
-        slug: 'bases-de-donn-es-distribu-es',
-      },
+      { title: 'Bases de données distribuées', slug: 'bases-de-donn-es-distribu-es' },
       { title: 'Portefeuille numérique', slug: 'portefeuille-num-rique' },
       { title: 'Contrats intelligents', slug: 'contrats-intelligents' },
     ],
@@ -83,10 +82,7 @@ const sections: BlogPostSection[] = [
       { title: 'Portefeuille numérique', slug: 'portefeuille-num-rique' },
       { title: 'Recherche et publication', slug: 'recherche-et-publication' },
       { title: 'Gouvernance communautaire', slug: 'gouvernance-communautaire' },
-      {
-        title: 'Biens communs et financement participatif',
-        slug: 'biens-communs-et-financement-participatif',
-      },
+      { title: 'Biens communs et financement participatif', slug: 'biens-communs-et-financement-participatif' },
       { title: 'Musique', slug: 'musique' },
       { title: 'Arts et culture', slug: 'arts-et-culture' },
       { title: 'Réseaux sociaux', slug: 'r-seaux-sociaux' },
@@ -97,7 +93,8 @@ const sections: BlogPostSection[] = [
   {
     title: '9. Références',
     slug: '9-r-f-rences',
-    subsections: [],
+    subsections: [
+    ],
   },
 ];
 

@@ -1,0 +1,31 @@
+import BlogPostLayout from '@/components/layouts/blog-post';
+
+## 5. Un fonctionnement participatif et responsable
+
+On peut expliquer, grossièrement, certains des principes de la blockchain ; en particulier, ceux qui permettent de comprendre ce qui est étudié ici.
+
+### Bases de données distribuées
+
+Une blockchain est fondée sur une base de données partagée par des milliers d’utilisateurs. Cette nature distribuée la rend incensurable et inaltérable — chaque transaction (opération) est vérifiée et enregistrée sur de nombreux ordinateurs, garantissant sa validité, et l’ensemble du réseau suit la majorité. C’est le principe de _consensus_, et c’est ce qui rend une attaque improbable, en ce qu’elle nécessiterait le consentement de la majorité des participants — lesquels ont misé une somme qui leur serait automatiquement retirée en cas de comportement malicieux. En termes de **sécurité**, la blockchain fonctionne sur des mécanismes de cryptographie (ce à quoi le terme _crypto_ se réfère, et non pas _cryptomonnaies_), qui assurent l’intégrité des données, une fois qu’elles sont enregistrées. Aussi, on parle de _transparence_, car ces bases de données sont intégralement accessibles. Pour autant, une identité peut rester inconnue (les transactions étant uniquement associées à une adresse de portefeuille), et même, les données associées aux opérations peuvent être dans certains cas encryptées ([**6**](https://medium.com/@0xpolarzero/decentralized-systems-end-the-cycle-of-indifference-8c19d7167778#fe44)).
+
+Par ailleurs, chaque opération _d’écriture_ sur la blockchain — un transfert, une interaction avec un contrat — a un coût. Ainsi, lorsqu’un utilisateur réalise une telle opération qui nécessite un traitement et des calculs, il paie des frais plus ou moins élevés en fonction de la blockchain, pour rémunérer les participants du réseau, qui contribuent à stocker et à actualiser cette base de données.
+
+### Portefeuille numérique
+
+Ce portefeuille est une adresse digitale qui permet d’interagir avec une blockchain. Chaque portefeuille est sécurisé par une **clé privée** — une série unique de chiffres et de lettres — seulement connue par son utilisateur, ainsi qu’une **clé publique**, qui peut être communiquée aux autres pour interagir. Essentiellement, la première permet de prouver lors d’une interaction que l’utilisateur est bien le détenteur de ce portefeuille. La seconde est son adresse publique, qui représente son identité et ses actions sur le réseau — possessions et transactions.
+
+D’où l’importance de garder la clé privée en sécurité, car **quiconque la connaît peut contrôler le portefeuille dans son intégralité**. C’est là toute la difficulté actuelle de ces systèmes ; traditionnellement, des intermédiaires se partagent cette responsabilité, pour nous garantir des moyens de protection et de récupération. Bien entendu, en leur déléguant ce contrôle et cette responsabilité, on délègue généralement par la même occasion une partie de nos données et de nos droits. La blockchain, fondamentalement, est un moyen de se réapproprier ces droits, les choix qui leur sont associés, et la responsabilité qui en résulte.
+
+### Contrats intelligents
+
+Ce sont simplement des accords, dont la logique est déterminée par du code, qui sont exécutés automatiquement sans que quiconque puisse en altérer le fonctionnement. Une fois qu’un tel contrat est déployé sur une blockchain, il peut exécuter les termes convenus sans intervention humaine.
+
+Ces contrats façonnent toute l’infrastructure de la blockchain. Lorsque nous affirmons qu’une application (réellement décentralisée) fonctionne de manière _transparente_, c’est à ces contrats qu’on se réfère implicitement. Ce code lui-même, qui décrit précisément ce fonctionnement, est généralement disponible dans son intégralité, avec la garantie qu’il ne sera pas modifié — **on peut *prévoir *le résultat d’une opération, au lieu *d’espérer *qu’elle se produise comme attendu**.
+
+export default (props) => (
+  <BlogPostLayout
+    selected="5-un-fonctionnement-participatif-et-responsable"
+    slug="blockchain-mais-pour-de-vrai"
+    {...props}
+  />
+);
