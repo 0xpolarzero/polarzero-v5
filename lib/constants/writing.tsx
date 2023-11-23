@@ -91,6 +91,8 @@ export const WRITING_BLOG_PAGES: BlogPost[] = [
     date: new Date('2022-07-07'),
     platform: 'PDF',
     url: 'https://drive.google.com/file/d/1r0_ZjVGLb32tfxoBmrERJypyCV6No36u/view',
+    addUrl:
+      'https://polarzero.notion.site/M-moire-de-M2-Antton-Lepretre-51e31e37f8124a09a948322dac59a124',
     tags: ['education', 'immersive tech', 'fr'],
   },
 ];
