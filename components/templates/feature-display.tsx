@@ -17,6 +17,7 @@ type FeatureDisplayProps = {
   button?: ReactNode;
   children: ReactNode;
   internalLink?: string;
+  addUrl?: string;
 };
 
 // -----------------------------------------------------------------------------
@@ -32,12 +33,15 @@ const FeatureDisplay: FC<FeatureDisplayProps> = ({
   button,
   children,
   internalLink,
+  addUrl,
 }) => {
   const router = useRouter();
   const [hovered, hover] = useState(false);
 
   const handleClick = () => {
-    if (internalLink) {
+    if (addUrl) {
+      window.open(addUrl, '_blank');
+    } else if (internalLink) {
       router.push(internalLink);
     }
   };

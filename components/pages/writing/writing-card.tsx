@@ -23,6 +23,7 @@ const WritingCardFeature: FC<WritingCardFeatureProps> = ({
   date,
   platform,
   url,
+  addUrl,
   tags,
 }) => {
   const symbol =
@@ -75,6 +76,7 @@ const WritingCardFeature: FC<WritingCardFeatureProps> = ({
         <CategoryTag key={i} size="md" category={tag} />
       ))}
       internalLink={`/writing/${path}/${slug}`}
+      addUrl={addUrl}
     >
       <div className="flex h-full flex-col space-y-4 p-4">
         <div className="flex-grow text-[0.92rem]">{description}</div>
