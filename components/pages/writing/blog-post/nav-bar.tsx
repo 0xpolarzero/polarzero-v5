@@ -4,6 +4,7 @@ import * as Dialog from '@radix-ui/react-dialog';
 import clsx from 'clsx';
 import { ChevronRight, Menu, X } from 'lucide-react';
 
+import { WRITING_BLOG_PAGES } from '@/lib/constants/writing';
 import { useMediaQuery } from '@/lib/hooks/useMediaQuery';
 import type { PageSlug } from '@/lib/types/site';
 import { BlogPostSection } from '@/lib/types/writing';
@@ -45,18 +46,19 @@ const BlogPostNavBarDesktop: FC<BlogPostNavBarProps> = ({ selected, sections, sl
 };
 
 const BlogPostNavBarMobile: FC<BlogPostNavBarProps> = ({ selected, sections, slug }) => {
+  const title = WRITING_BLOG_PAGES.find((page) => page.slug === slug)?.title || '';
+
   const [open, setOpen] = useState<boolean>(false);
   const isSmallScreen = useMediaQuery('(max-width: 768px)'); // `md` breakpoint
 
-  const [selectedSectionName, selectedSubsectionName] = useMemo(() => {
+  const selectedSection = useMemo(() => {
     for (const section of sections) {
-      for (const subsection of section.subsections) {
-        if (selected === subsection.slug) {
-          return [section.title, subsection.title];
-        }
+      if (selected === section.slug) {
+        return section.title;
       }
     }
-    return ['', ''];
+
+    return '';
   }, [selected, sections]);
 
   return (
@@ -72,10 +74,10 @@ const BlogPostNavBarMobile: FC<BlogPostNavBarProps> = ({ selected, sections, slu
         </Dialog.Trigger>
         <ol className="ml-4 flex text-sm">
           <li className="flex items-center text-gray-11">
-            {selectedSectionName}
+            {title}
             <ChevronRight className="mx-1 h-4 w-4" />
           </li>
-          <li className="font-medium text-gray-12">{selectedSubsectionName}</li>
+          <li className="font-medium text-gray-12">{selectedSection}</li>
         </ol>
       </div>
 
@@ -85,22 +87,31 @@ const BlogPostNavBarMobile: FC<BlogPostNavBarProps> = ({ selected, sections, slu
           <nav className="hide-scrollbar fixed inset-0 z-overlay overflow-y-scroll bg-gray-1 p-4 pt-28 animate-in slide-in-from-top-1 md:hidden">
             {sections.map((section, index) => (
               <Fragment key={index}>
-                <div className="ml-3 text-base font-medium text-gray-12">{section.title}</div>
-                {section.subsections.map((subsection) => {
-                  const isSelected = selected === subsection.slug;
+                <Button
+                  className={clsx(
+                    'w-full justify-start py-1 text-base font-medium',
+                    selected === section.slug
+                      ? 'cursor-default bg-gray-4 text-left text-white'
+                      : '',
+                    section.subsections.length === 0 ? 'mb-2' : '',
+                  )}
+                  href={`/writing/blog/${slug}/${section.slug}`}
+                  variant="ghost"
+                  disabled={selected === section.slug}
+                >
+                  {section.title}
+                </Button>
+                {section.subsections.map((subsection, i) => {
                   return (
                     <div key={subsection.slug}>
-                      <Button
+                      <div
                         className={clsx(
-                          'mt-1 w-full justify-start',
-                          isSelected ? 'cursor-default bg-gray-4' : '',
+                          'ml-4 w-full justify-start py-[0.2rem] text-sm text-gray-11',
+                          i === section.subsections.length - 1 ? 'mb-2' : '',
                         )}
-                        variant="ghost"
-                        href={`#${subsection.slug}`}
-                        disabled={isSelected}
                       >
                         {subsection.title}
-                      </Button>
+                      </div>
                     </div>
                   );
                 })}
