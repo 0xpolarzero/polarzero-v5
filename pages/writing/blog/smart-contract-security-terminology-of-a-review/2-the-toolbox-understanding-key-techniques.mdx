@@ -1,0 +1,43 @@
+import BlogPostLayout from '@/components/layouts/blog-post';
+
+## 2. The Toolbox: Understanding Key Techniques
+
+### Static Analysis: Preliminary Code Assessment
+
+Static analysis is kind of a spell-checker for the code, which identifies common errors without executing the program. While this is a good starting point, it’s nowhere near infallible. Static analysis can catch syntax errors and some vulnerabilities, but can’t predict how the contract will behave under different conditions.
+
+Tools like [Slither](https://github.com/crytic/slither) perform static analysis at the Solidity level, while [Mythril](https://github.com/Consensys/mythril) analyzes EVM bytecode; [Olympix](https://www.olympix.ai/) integrates with VSCode and highlights potential threats in real time during the development process.
+
+### Fuzzing: Random Testing Techniques
+
+Fuzzing, or fuzz testing, involves providing random data as inputs during testing. While it might seem chaotic at a first glance, fuzzing is incredibly effective at uncovering unexpected vulnerabilities.
+
+There are two variations: stateless and stateful. _Stateless_ fuzzing discards the state of a previous run for the next run, while _stateful_ fuzzing keeps the state of the previous run as the starting point for the next one. Invariant tests are essentially stateful fuzzing but with a different name; they focus on verifying the conditions that must always hold true in a system.
+
+Tools like [Echidna](https://github.com/crytic/echidna) and [Harvey](https://consensys.io/diligence/fuzzing/) are often employed for this purpose.
+
+### Symbolic Execution and Formal Verification: Mathematical Approaches to Code Validation
+
+Symbolic Execution converts the code into mathematical expressions. This makes it easier to demonstrate their correctness, by using symbolic inputs to represent a set of states and transitions instead of enumerating them individually. As a result, a full study of all conceivable execution routes is feasible without being constrained by testing with actual, imprecise concrete data.
+
+It’s a subset of formal verification, a broader field that uses various mathematical techniques to validate code.
+
+Tools like [Mythril](https://github.com/Consensys/mythril) and [Manticore](https://github.com/trailofbits/manticore) typically integrate these methods.
+
+### The FREI-PI Pattern: A Holistic Perspective on Smart Contract Integrity
+
+The FREI-PI pattern (Function-Requirements-Effects-Interactions and Protocol-Invariants) offers a comprehensive framework for smart contract _development_. It improves the well-known CEI pattern (Checks-Effects-Interactions), emphasizing the need to consider the whole protocol, not just individual functions. This holistic approach is crucial for both developing robust, secure smart contracts and embracing a “security mindset” that considers the integration of individual components within the larger system.
+
+[Read this article on Nascent to learn more about the FREI-PI pattern.](https://www.nascent.xyz/idea/youre-writing-require-statements-wrong)
+
+### The Synergy of Techniques
+
+While individual methods like fuzzing and formal verification are efficient on their own, it can be rewarding to learn how to use them together for maximum effectiveness. Hybrid fuzzing, for instance, combines fuzzing with symbolic execution to create a “smarter” fuzzer. This interweaving of techniques allows for a more robust and comprehensive security review.
+
+export default (props) => (
+  <BlogPostLayout
+    selected="2-the-toolbox-understanding-key-techniques"
+    slug="smart-contract-security-terminology-of-a-review"
+    {...props}
+  />
+);
