@@ -131,7 +131,7 @@ const BlogPostNavBarInternal: FC<BlogPostNavBarProps> = ({ selected, sections, s
         <Fragment key={index}>
           <Button
             className={clsx(
-              'h-full w-full justify-start py-1 text-base font-medium',
+              'my-2 h-min w-full justify-start py-1 text-base font-medium',
               selected === section.slug ? 'cursor-default bg-gray-4 text-left text-white' : '',
               section.subsections.length === 0 ? 'mb-2' : '',
             )}
