@@ -74,7 +74,7 @@ const WritingCardFeature: FC<WritingCardFeatureProps> = ({
       tags={tags.map((tag, i) => (
         <CategoryTag key={i} size="md" category={tag} />
       ))}
-      internalLink={`/writing/${path}/${slug}/landing`}
+      internalLink={`/writing/${path}/${slug}`}
     >
       <div className="flex h-full flex-col space-y-4 p-4">
         <div className="flex-grow text-[0.92rem]">{description}</div>

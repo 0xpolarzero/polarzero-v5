@@ -3,7 +3,7 @@ import { BlogPostSection } from '@/lib/types/writing';
 const sections: BlogPostSection[] = [
   {
     title: 'Présentation',
-    slug: 'landing',
+    slug: '',
     subsections: [],
   },
   {
