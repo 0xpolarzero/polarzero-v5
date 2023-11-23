@@ -6,6 +6,7 @@ import { NextSeo } from 'next-seo';
 
 import { SECTIONS } from '@/lib/constants/blog';
 import { WRITING_BLOG_PAGES } from '@/lib/constants/writing';
+import { useMediaQuery } from '@/lib/hooks/useMediaQuery';
 import type { PageSlug } from '@/lib/types/site';
 
 import BaseLayout from '@/components/layouts/base';
@@ -32,6 +33,8 @@ type BlogPostLayoutProps = {
 const BlogPostLayout: FC<BlogPostLayoutProps> = ({ selected, children, slug }) => {
   const { title, subtitle, description } =
     WRITING_BLOG_PAGES.find((page) => page.slug === slug) || {};
+
+  const isSmallScreen = useMediaQuery('(max-width: 768px)'); // `md` breakpoint
 
   const components = {
     a: ({ href, children, ...rest }: JSX.IntrinsicElements['a']) => {
@@ -136,16 +139,14 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = ({ selected, children, slug }) =
             present on larger screens so we have a breakpoint to reset it. For
             similar reasons, the `x` padding is set to 0 on small devices is set
             to 0. */}
-        <ContainerLayout className="relative flex max-w-[90rem] flex-col gap-8">
-          <div className="flex flex-col space-y-2">
-            <h1 className="text-3xl font-semibold tracking-tight text-gray-12 md:text-4xl">
-              {title}
-            </h1>
-            <h2 className="text-xl font-medium tracking-tight text-gray-11 md:text-2xl">
-              {subtitle}
-            </h2>
-          </div>
-          <div className="relative flex flex-col space-x-0 px-0 pb-6 pt-0 md:flex-row md:space-x-16">
+        <ContainerLayout className="relative flex max-w-[90rem] flex-col gap-8 px-0 pt-0">
+          {isSmallScreen ? null : (
+            <div className="flex flex-col space-y-2">
+              <h1 className="text-3xl font-semibold tracking-tight text-gray-12">{title}</h1>
+              <h2 className="text-xl font-medium tracking-tight text-gray-11">{subtitle}</h2>
+            </div>
+          )}
+          <div className="relative flex flex-col space-x-0 pb-6 md:flex-row md:space-x-16">
             <BlogPostNavBar slug={slug} selected={selected} sections={SECTIONS[slug]} />
             <MDXProvider components={components}>
               <article className="prose prose-gray max-w-none grow px-4 text-justify dark:prose-invert md:px-0">
