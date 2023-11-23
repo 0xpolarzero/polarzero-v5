@@ -39,9 +39,6 @@ const BlogPostPageNav: FC<BlogPostPageNavProps> = ({ pageSlug, sections }) => {
     return index !== -1 && index < sections.length - 1 ? sections[index + 1] : null;
   }, [sections, pageSlug]);
 
-  console.log(path);
-  console.log('there');
-  console.log(path.split('/').slice(0, -1).join('/'));
   return (
     <div className="flex w-full items-center justify-between">
       {prevPage ? (
