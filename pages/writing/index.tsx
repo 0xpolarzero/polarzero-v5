@@ -1,5 +1,4 @@
 import type { NextPage } from 'next';
-import Image from 'next/image';
 
 import { ChevronLeft } from 'lucide-react';
 import { NextSeo } from 'next-seo';
