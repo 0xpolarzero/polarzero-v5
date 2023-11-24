@@ -7,6 +7,7 @@ import { NextSeo } from 'next-seo';
 import BaseLayout from '@/components/layouts/base';
 import ContainerLayout from '@/components/layouts/container';
 import FeaturedWriting from '@/components/pages/writing/featured-writing';
+import FilterWriting from '@/components/pages/writing/filter-writing';
 import { Button } from '@/components/ui';
 
 const BlogPage: NextPage = () => {
@@ -38,7 +39,7 @@ const BlogPage: NextPage = () => {
           {/* <h1 className="text-3xl font-semibold tracking-tight text-gray-12 md:text-4xl">
             Writing
           </h1> */}
-          filters <br />
+          <FilterWriting />
           <FeaturedWriting />
           <Button variant="secondary" intent="primary" href="/" leftIcon={<ChevronLeft />}>
             Return home

@@ -1,5 +1,22 @@
 import { BlogPost } from '../types/writing';
 
+import { Category } from '@/components/templates/category-tag';
+
+/**
+ * Categories for posts.
+ */
+export const CATEGORIES: Category[] = [
+  'chainlink',
+  'education',
+  'fr',
+  'governance',
+  'immersive tech',
+  'infrastructure',
+  'NFT',
+  'security research',
+  'solidity',
+];
+
 /**
  * Writing pages displayed on
  * [**polarzero.xyz/writing**](https://polarzero.xyz/writing)'s table.
