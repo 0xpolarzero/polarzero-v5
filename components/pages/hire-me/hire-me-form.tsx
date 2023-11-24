@@ -1,16 +1,11 @@
-import { type FC } from 'react';
+import { type FC, useState } from 'react';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Loader2 } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
-import { cn } from '@/lib/utils';
-
-import { Button } from '@/components/ui';
-import { Form as FormComponent } from '@/components/ui';
-import { Input } from '@/components/ui';
-import { Textarea } from '@/components/ui';
-import { useToast } from '@/components/ui';
+import { Button, Form as FormComponent, Input, Textarea, useToast } from '@/components/ui';
 
 const { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } = FormComponent;
 
@@ -27,8 +22,12 @@ const formSchema = z.object({
   subject: z.string().min(6, {
     message: 'Subject must be at least 6 characters.',
   }),
-  timeline: z.string(),
-  budget: z.string(),
+  timeline: z.string().min(1, {
+    message: 'Timeline is required.',
+  }),
+  budget: z.string().min(1, {
+    message: 'Budget is required.',
+  }),
   company: z.string().optional(),
   twitter: z.string().optional(),
   message: z
@@ -60,8 +59,12 @@ const HireMeForm: FC = () => {
       message: '',
     },
   });
+  const { toast } = useToast();
+  const [loading, setLoading] = useState(false);
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    setLoading(true);
+
     const res = await fetch('/api/hire-me', {
       method: 'POST',
       headers: {
@@ -75,23 +78,21 @@ const HireMeForm: FC = () => {
       toast({
         title: 'Message sent!',
         description: 'I will get back to you as soon as possible.',
-        duration: 0,
+        intent: 'success',
       });
     } else {
-      console.error(await res.json());
+      const errorMessage = (await res.json()).message;
       toast({
-        title: 'Error!',
-        description: 'Something went wrong. Please try again later.',
-        duration: 0,
+        title: 'Error sending message.',
+        description: errorMessage
+          ? `${errorMessage}.`
+          : 'Something went wrong. Please try again later.',
+        intent: 'fail',
       });
     }
-  };
 
-  const { toast } = useToast();
-  // toast({
-  //   title: 'Copied to clipboard',
-  //   description: `${scale}${index + 1} - ${colorleading-tight }`,
-  // 3);
+    setLoading(false);
+  };
 
   return (
     <div className="mt-0.5 flex flex-col space-y-2 rounded-xl border border-gray-6 bg-gray-2 p-3 text-sm text-gray-11 md:mt-1 md:rounded-2xl md:p-6 md:text-base">
@@ -227,7 +228,12 @@ const HireMeForm: FC = () => {
               </FormItem>
             )}
           />
-          <Button intent="primary" type="submit">
+          <Button
+            intent={loading ? 'none' : 'primary'}
+            type="submit"
+            leftIcon={loading ? <Loader2 className={loading ? 'animate-spin' : ''} /> : null}
+            disabled={loading}
+          >
             Send
           </Button>
         </form>
