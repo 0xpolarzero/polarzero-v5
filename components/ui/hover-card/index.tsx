@@ -3,8 +3,8 @@ import { type ForwardedRef, forwardRef } from 'react';
 import { hoverCardArrowVariants, hoverCardVariants } from './styles';
 import type { HoverCardProps } from './types';
 import * as HoverCardPrimitive from '@radix-ui/react-hover-card';
-import clsx from 'clsx';
-import { twMerge } from 'tailwind-merge';
+
+import { cn } from '@/lib/utils';
 
 const HoverCard = forwardRef(
   (
@@ -26,7 +26,7 @@ const HoverCard = forwardRef(
       <HoverCardPrimitive.Content
         ref={ref}
         sideOffset={sideOffset}
-        className={twMerge(clsx(hoverCardVariants({ inverted }), className))}
+        className={cn(hoverCardVariants({ inverted }), className)}
         {...rest}
       >
         {hasArrow ? (

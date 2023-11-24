@@ -19,7 +19,8 @@ import clsx from 'clsx';
 import { Check, Copy, File, TerminalSquare } from 'lucide-react';
 import { Highlight } from 'prism-react-renderer';
 import Prism from 'prismjs';
-import { twMerge } from 'tailwind-merge';
+
+import { cn } from '@/lib/utils';
 
 import { IconButton } from '@/components/ui';
 
@@ -78,7 +79,7 @@ const CodeBlock: FC<CodeBlockProps> = ({
   };
 
   return (
-    <div className={twMerge(clsx(codeBlockContainerVariants({ roundedTop }), className))}>
+    <div className={cn(codeBlockContainerVariants({ roundedTop }), className)}>
       {hasFileName ? (
         <div className={codeBlockHeaderStyles}>
           <div className={codeBlockHeaderFileNameContainerStyles}>

@@ -3,8 +3,8 @@ import { type ForwardedRef, forwardRef } from 'react';
 import { tooltipArrowVariants, tooltipVariants } from './styles';
 import type { TooltipProps } from './types';
 import * as TooltipPrimitive from '@radix-ui/react-tooltip';
-import clsx from 'clsx';
-import { twMerge } from 'tailwind-merge';
+
+import { cn } from '@/lib/utils';
 
 const Tooltip = forwardRef(
   (
@@ -27,7 +27,7 @@ const Tooltip = forwardRef(
           <TooltipPrimitive.Content
             ref={ref}
             sideOffset={sideOffset}
-            className={twMerge(clsx(tooltipVariants({ inverted }), className))}
+            className={cn(tooltipVariants({ inverted }), className)}
             {...rest}
           >
             {hasArrow ? (

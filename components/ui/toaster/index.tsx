@@ -17,9 +17,9 @@ import type {
 } from './types';
 import { useToast } from './useToast';
 import * as ToastPrimitives from '@radix-ui/react-toast';
-import { clsx } from 'clsx';
 import { X } from 'lucide-react';
-import { twMerge } from 'tailwind-merge';
+
+import { cn } from '@/lib/utils';
 
 import { IconButton } from '@/components/ui';
 
@@ -28,7 +28,7 @@ const Toast = forwardRef(
     return (
       <ToastPrimitives.Root
         ref={ref}
-        className={twMerge(clsx(toastVariants({ intent }), className))}
+        className={cn(toastVariants({ intent }), className)}
         {...rest}
       />
     );
@@ -49,7 +49,7 @@ const ToastClose = forwardRef(
       <IconButton
         size="sm"
         variant="secondary"
-        className={twMerge(clsx(toastCloseStyles, className))}
+        className={cn(toastCloseStyles, className)}
         intent={intent}
       >
         <X />
@@ -66,7 +66,7 @@ const ToastDescription = forwardRef(
   ) => (
     <ToastPrimitives.Description
       ref={ref}
-      className={twMerge(clsx(toastDescriptionVariants({ intent }), className))}
+      className={cn(toastDescriptionVariants({ intent }), className)}
       {...rest}
     />
   ),
@@ -102,7 +102,7 @@ const ToastTitle = forwardRef(
   ({ className, intent = 'none', ...rest }: ToastTitleProps, ref: ForwardedRef<HTMLDivElement>) => (
     <ToastPrimitives.Title
       ref={ref}
-      className={twMerge(clsx(toastTitleVariants({ intent }), className))}
+      className={cn(toastTitleVariants({ intent }), className)}
       {...rest}
     />
   ),
@@ -111,11 +111,7 @@ ToastTitle.displayName = ToastPrimitives.Title.displayName;
 
 const ToastViewport = forwardRef(
   ({ className, ...rest }: ToastViewportProps, ref: ForwardedRef<HTMLOListElement>) => (
-    <ToastPrimitives.Viewport
-      ref={ref}
-      className={twMerge(clsx(toastViewportStyles, className))}
-      {...rest}
-    />
+    <ToastPrimitives.Viewport ref={ref} className={cn(toastViewportStyles, className)} {...rest} />
   ),
 );
 ToastViewport.displayName = ToastPrimitives.Viewport.displayName;
