@@ -29,7 +29,7 @@ const WritingPage: NextPage = () => {
           ],
         }}
         twitter={{
-          handle: '@writing',
+          handle: '@0xpolarzero',
         }}
       />
 
