@@ -12,3 +12,11 @@ export const NAVBAR_PAGES: Page[] = [
   { name: 'Portfolio', slug: '/portfolio', icon: <Layers /> },
   { name: 'Hire me', slug: '/hire-me', icon: <Briefcase /> },
 ];
+
+/**
+ * Contact links displayed on [**polarzero.xyz/hire-me**](https://polarzero.xyz/hire-me).
+ */
+export const CONTACT_LINKS: Record<string, string> = {
+  email: 'contact@polarzero.xyz',
+  twitter: 'https://twitter.com/0xpolarzero',
+};
