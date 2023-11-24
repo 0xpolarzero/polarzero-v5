@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { type FC, isValidElement, type ReactNode } from 'react';
 
 import { MDXProvider } from '@mdx-js/react';
+import { ChevronLeft, ExternalLink } from 'lucide-react';
 import { NextSeo } from 'next-seo';
 
 import { SECTIONS } from '@/lib/constants/blog';
@@ -13,7 +14,7 @@ import BaseLayout from '@/components/layouts/base';
 import ContainerLayout from '@/components/layouts/container';
 import BlogPostNavBar from '@/components/pages/writing/blog-post/nav-bar';
 import BlogPostPageNav from '@/components/pages/writing/blog-post/page-nav';
-import { CodeBlock } from '@/components/ui';
+import { Button, CodeBlock } from '@/components/ui';
 import type { CodeBlockProps } from '@/components/ui/code-block/types';
 
 // -----------------------------------------------------------------------------
@@ -31,7 +32,7 @@ type BlogPostLayoutProps = {
 // -----------------------------------------------------------------------------
 
 const BlogPostLayout: FC<BlogPostLayoutProps> = ({ selected, children, slug }) => {
-  const { title, subtitle, description } =
+  const { title, subtitle, description, url, platform } =
     WRITING_BLOG_PAGES.find((page) => page.slug === slug) || {};
 
   const isSmallScreen = useMediaQuery('(max-width: 768px)'); // `md` breakpoint
@@ -141,11 +142,36 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = ({ selected, children, slug }) =
             to 0. */}
         <ContainerLayout className="relative flex max-w-[90rem] flex-col gap-8 px-0 pt-0">
           {isSmallScreen ? null : (
-            <div className="flex flex-col space-y-2">
+            <div className="grid grid-cols-2 items-center justify-between space-x-2 space-y-2">
+              {/* Title */}
               <h1 className="text-3xl font-semibold tracking-tight text-gray-12">{title}</h1>
+              {/* Back */}
+              <Button
+                className="justify-self-end"
+                variant="secondary"
+                intent="primary"
+                href="/writing"
+                leftIcon={<ChevronLeft />}
+              >
+                Return to Writing
+              </Button>
+              {/* Subtitle */}
               <h2 className="text-xl font-medium tracking-tight text-gray-11">{subtitle}</h2>
+              {/* Open external link */}
+              <Button
+                className="justify-self-end"
+                size="md"
+                variant="ghost"
+                href={url}
+                rightIcon={<ExternalLink />}
+                newTab
+              >
+                {platform === 'PDF' ? 'Read PDF' : `Read on ${platform}`}
+              </Button>
             </div>
           )}
+
+          {/* Post */}
           <div className="relative flex flex-col space-x-0 pb-6 md:flex-row md:space-x-16">
             <BlogPostNavBar slug={slug} selected={selected} sections={SECTIONS[slug]} />
             <MDXProvider components={components}>
