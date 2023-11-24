@@ -9,7 +9,7 @@ import FeaturedWriting from '@/components/pages/writing/featured-writing';
 import FilterWriting from '@/components/pages/writing/filter-writing';
 import { Button } from '@/components/ui';
 
-const BlogPage: NextPage = () => {
+const WritingPage: NextPage = () => {
   return (
     <>
       <NextSeo
@@ -49,4 +49,4 @@ const BlogPage: NextPage = () => {
   );
 };
 
-export default BlogPage;
+export default WritingPage;
