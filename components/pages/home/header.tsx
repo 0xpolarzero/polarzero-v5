@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import type { FC } from 'react';
 
 import { Github, Twitter } from 'lucide-react';
@@ -17,25 +16,8 @@ const PolarzeroHeader: FC = () => {
         <div>
           <div className="text-base font-semibold md:text-2xl">polarzero</div>
           <span className="mt-0.5 text-sm text-gray-11 md:mt-1 md:text-base">
-            Smart contract{' '}
-            <Link
-              className="font-medium text-gray-12 hover:underline"
-              href="/portfolio/development"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              developer
-            </Link>{' '}
-            and{' '}
-            <Link
-              className="font-medium text-gray-12 hover:underline"
-              href="/portfolio/audits"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              security researcher
-            </Link>
-            .
+            Smart contract <span className="font-medium">developer</span> and{' '}
+            <span className="font-medium">security researcher</span>.
           </span>
         </div>
       </div>
