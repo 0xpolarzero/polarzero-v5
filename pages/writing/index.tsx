@@ -24,7 +24,7 @@ const WritingPage: NextPage = () => {
               url: 'https://polarzero.xyz/api/og/page?title=Writing&description=Research,%20blog%20posts%20and%20threads.&path=/writing',
               width: 1200,
               height: 630,
-              alt: 'polarzero writingopen-graph image',
+              alt: 'polarzero writing open-graph image',
             },
           ],
         }}
