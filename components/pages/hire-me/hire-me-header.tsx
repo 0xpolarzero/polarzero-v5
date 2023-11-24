@@ -23,8 +23,9 @@ const HireMeHeader: FC = () => {
   };
 
   return (
-    <div className="mt-0.5 flex flex-col space-y-2 rounded-xl border border-gray-6 bg-gray-2 p-3 text-sm text-gray-11 md:mt-1 md:rounded-2xl md:p-6 md:text-base">
-      <p className="text-white">
+    // <div className="mt-0.5 flex flex-col space-y-2 rounded-xl border border-gray-6 bg-gray-2 p-3 text-sm text-gray-11 md:mt-1 md:rounded-2xl md:p-6 md:text-base">
+    <div className="mt-0.5 flex flex-col space-y-2 px-3 text-sm text-gray-11 md:px-6 md:text-base">
+      <p className="text-gray-12">
         If you would like to <span className="font-medium">integrate smart contracts</span> into
         your project, or if you need a <span className="font-medium">security review/audit</span>,
         reach out to me for a quote.
@@ -34,12 +35,12 @@ const HireMeHeader: FC = () => {
         details such as the concept, timeline, budget, scope, and any other relevant information.
         Feel free to attach links to any pertinent documents or resources.
       </p>
-      <p className="flex space-x-1">
-        <span>For anything else, you can reach me on</span>
+      <p className="relative">
+        For anything else, reach me on{' '}
         <Link href={CONTACT_LINKS.twitter} target="_blank" className="font-medium hover:underline">
           Twitter
-        </Link>
-        <span>or at</span>
+        </Link>{' '}
+        or at{' '}
         <Link
           href={`mailto:${CONTACT_LINKS.email}`}
           target="_blank"
@@ -47,7 +48,9 @@ const HireMeHeader: FC = () => {
         >
           {CONTACT_LINKS.email}
         </Link>
+        .
         <IconButton
+          className="absolute bottom-0 ml-1 inline-flex"
           size="sm"
           variant="outline"
           title="Copy to clipboard"
@@ -57,7 +60,6 @@ const HireMeHeader: FC = () => {
         >
           {copied ? <Check /> : <Copy />}
         </IconButton>
-        .
       </p>
     </div>
   );
