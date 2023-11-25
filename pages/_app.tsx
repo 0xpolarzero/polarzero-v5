@@ -119,7 +119,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
 
       <WagmiConfig client={client}>
         <RainbowKitProvider modalSize="compact" chains={chains} theme={darkTheme()}>
-          <main className={clsx(inter.variable, firaCode.variable)}>
+          <main className={clsx(inter.variable, firaCode.variable, immersiveBg ? '' : 'bg-gray-1')}>
             <Component {...pageProps} />
           </main>
           {immersiveBg ? (
