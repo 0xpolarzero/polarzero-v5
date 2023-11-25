@@ -7,7 +7,6 @@ import IconButton from './icon-button';
 import { Input } from './input';
 import { Label } from './label';
 import Select from './select';
-import Switch from './switch';
 import { Textarea } from './textarea';
 import Toaster from './toaster';
 import { useToast } from './toaster/useToast';
@@ -20,7 +19,6 @@ export {
   HoverCard,
   IconButton,
   Select,
-  Switch,
   Toaster,
   Tooltip,
   useToast,
