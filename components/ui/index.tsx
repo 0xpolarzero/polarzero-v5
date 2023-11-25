@@ -8,8 +8,6 @@ import { Input } from './input';
 import { Label } from './label';
 import Select from './select';
 import Switch from './switch';
-import Table from './table';
-import Tabs from './tabs';
 import { Textarea } from './textarea';
 import Toaster from './toaster';
 import { useToast } from './toaster/useToast';
@@ -23,8 +21,6 @@ export {
   IconButton,
   Select,
   Switch,
-  Table,
-  Tabs,
   Toaster,
   Tooltip,
   useToast,

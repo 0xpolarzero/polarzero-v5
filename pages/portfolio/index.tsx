@@ -5,7 +5,6 @@ import { NextSeo } from 'next-seo';
 
 import BaseLayout from '@/components/layouts/base';
 import ContainerLayout from '@/components/layouts/container';
-import AuditsTable from '@/components/pages/portfolio/audits-table';
 import { Button } from '@/components/ui';
 
 const PortfolioPage: NextPage = () => {
@@ -34,7 +33,8 @@ const PortfolioPage: NextPage = () => {
 
       <BaseLayout subtitle="Portfolio" pageSlug="/portfolio">
         <ContainerLayout className="flex flex-col space-y-4">
-          <AuditsTable />
+          {/* content */}
+          test
           <Button variant="secondary" intent="primary" href="/" leftIcon={<ChevronLeft />}>
             Return home
           </Button>
