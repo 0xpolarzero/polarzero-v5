@@ -1,4 +1,4 @@
-import { type FC, Fragment } from 'react';
+import { type FC, Fragment, useEffect, useState } from 'react';
 
 import Logo from './logo';
 import clsx from 'clsx';
@@ -58,6 +58,10 @@ const DesktopNavBar: FC<NavBarProps> = ({ selected }) => {
 };
 
 const MobileNavBar: FC<NavBarProps> = ({ selected }) => {
+  const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => setIsMounted(true), []);
+  const isMobile = isMounted ? /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) : false;
+
   return (
     <nav className="pointer-events-auto sticky top-0 z-popover flex h-12 items-center border-b border-gray-6 bg-white px-4 dark:bg-black md:hidden">
       <Logo />
@@ -79,6 +83,7 @@ const MobileNavBar: FC<NavBarProps> = ({ selected }) => {
       })}
       <div className="flex-grow" />
       {/* <ConnectButton /> */}
+      {!isMobile ? <ImmersiveSwitch /> : null}
     </nav>
   );
 };
