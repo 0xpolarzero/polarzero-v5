@@ -5,6 +5,9 @@ import { Loader2 } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
+import { useImmersiveBg } from '@/lib/stores/useImmersiveBg';
+import { cn } from '@/lib/utils';
+
 import { Button, Form as FormComponent, Input, Textarea, useToast } from '@/components/ui';
 
 const { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } = FormComponent;
@@ -59,6 +62,9 @@ const HireMeForm: FC = () => {
       message: '',
     },
   });
+
+  const { immersiveBg } = useImmersiveBg((state) => ({ immersiveBg: state.enabled }));
+
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
 
@@ -95,7 +101,14 @@ const HireMeForm: FC = () => {
   };
 
   return (
-    <div className="mt-0.5 flex flex-col space-y-2 rounded-xl border border-gray-6 bg-gray-2 p-3 text-sm text-gray-11 md:mt-1 md:rounded-2xl md:p-6 md:text-base">
+    <div
+      className={cn(
+        'mt-0.5 flex flex-col space-y-2 rounded-xl border border-gray-6 p-3 text-sm text-gray-11 md:mt-1 md:rounded-2xl md:p-6 md:text-base',
+        immersiveBg
+          ? 'backdrop-blur-xs bg-white/0 bg-clip-padding transition-all duration-100 hover:backdrop-blur-sm'
+          : 'bg-gray-2',
+      )}
+    >
       <h1 className="text-2xl font-semibold leading-tight tracking-tight text-gray-12 md:text-3xl">
         Contact
       </h1>
