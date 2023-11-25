@@ -14,6 +14,10 @@ import { publicProvider } from 'wagmi/providers/public';
 
 import '@/styles/globals.css';
 
+import { useImmersiveBg } from '@/lib/stores/useImmersiveBg';
+
+import Entity from '@/components/canvas/entity';
+import Scene from '@/components/canvas/scene';
 import { Toaster } from '@/components/ui';
 
 // -----------------------------------------------------------------------------
@@ -58,6 +62,7 @@ const firaCode = Fira_Code({
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
   const DESCRIPTION = 'personal website';
+  const { immersiveBg } = useImmersiveBg((state) => ({ immersiveBg: state.enabled }));
 
   return (
     <>
@@ -107,6 +112,11 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
           <main className={clsx(inter.variable, firaCode.variable)}>
             <Component {...pageProps} />
           </main>
+          {immersiveBg ? (
+            <Scene>
+              <Entity />
+            </Scene>
+          ) : null}
           <Toaster />
         </RainbowKitProvider>
       </WagmiConfig>

@@ -5,7 +5,8 @@
 html,
 body,
 main {
-  @apply bg-gray-1 text-gray-12;
+  /* @apply bg-gray-1 text-gray-12; */
+  @apply text-gray-12;
   font-weight: 300;
 }
 
