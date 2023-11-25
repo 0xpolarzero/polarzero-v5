@@ -1,5 +1,6 @@
 import type { AppProps } from 'next/app';
 import { Fira_Code, Inter } from 'next/font/google';
+import { usePathname } from 'next/navigation';
 import { type FC, useEffect } from 'react';
 
 import { darkTheme, getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
@@ -62,17 +63,18 @@ const firaCode = Fira_Code({
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
   const DESCRIPTION = 'personal website';
-  const { immersiveBg, disableImmersiveBg } = useImmersiveBg((state) => ({
-    immersiveBg: state.enabled,
-    disableImmersiveBg: state.disable,
+
+  const path = usePathname();
+  const { immersiveBg, immersiveBgControlEnabled, toggleImmersiveBg } = useImmersiveBg((state) => ({
+    immersiveBg: state.enabledWithConditions,
+    immersiveBgControlEnabled: state.enabled,
+    toggleImmersiveBg: state.toggleWithConditions,
   }));
 
   useEffect(() => {
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    if (isMobile) {
-      disableImmersiveBg();
-    }
-  }, [disableImmersiveBg]);
+    toggleImmersiveBg(isMobile, path);
+  }, [path, immersiveBgControlEnabled, toggleImmersiveBg]);
 
   return (
     <>
@@ -122,12 +124,13 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
           <main className={clsx(inter.variable, firaCode.variable, immersiveBg ? '' : 'bg-gray-1')}>
             <Component {...pageProps} />
           </main>
+          <Toaster />
+
           {immersiveBg ? (
             <Scene>
               <Entity />
             </Scene>
           ) : null}
-          <Toaster />
         </RainbowKitProvider>
       </WagmiConfig>
       <Analytics />
