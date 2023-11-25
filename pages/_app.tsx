@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app';
 import { Fira_Code, Inter } from 'next/font/google';
-import type { FC } from 'react';
+import { type FC, useEffect } from 'react';
 
 import { darkTheme, getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import '@rainbow-me/rainbowkit/styles.css';
@@ -62,7 +62,17 @@ const firaCode = Fira_Code({
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
   const DESCRIPTION = 'personal website';
-  const { immersiveBg } = useImmersiveBg((state) => ({ immersiveBg: state.enabled }));
+  const { immersiveBg, disableImmersiveBg } = useImmersiveBg((state) => ({
+    immersiveBg: state.enabled,
+    disableImmersiveBg: state.disable,
+  }));
+
+  useEffect(() => {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile) {
+      disableImmersiveBg();
+    }
+  }, [disableImmersiveBg]);
 
   return (
     <>
