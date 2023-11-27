@@ -14,8 +14,7 @@ import { Table as TableComponent } from '@/components/ui';
 
 type BugBountyFeatureProps = BugBounty;
 
-const { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } =
-  TableComponent;
+const { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } = TableComponent;
 
 const BugBountyFeature: FC<BugBountyFeatureProps> = ({
   protocol,
@@ -46,9 +45,9 @@ const BugBountyFeature: FC<BugBountyFeatureProps> = ({
     >
       <div className="flex h-full flex-col space-y-4 p-4">
         {/* description */}
-        <div className="flex-grow text-[0.92rem]">{description}</div>
+        <div className="text-[0.92rem]">{description}</div>
         {/* finding */}
-        <Table>
+        <Table className="flex-grow">
           <TableHeader>
             <TableRow>
               <TableHead>Finding</TableHead>
