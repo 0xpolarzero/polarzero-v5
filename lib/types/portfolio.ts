@@ -23,18 +23,9 @@ export type Audit = {
   url: string;
   slug: string;
   findings: Findings;
-};
-
-/**
- * Type for an audit competition displayed in a feature display card
- * on [polarzero.xyz/portfolio](https://polarzero.xyz/portfolio)
- * > Everything in Audit type, extended with:
- * @param rank The rank of the audit in the competition
- * @param platform The platform the audit was conducted on (e.g. CodeArena, Immunefi, etc.)
- */
-export type AuditCompetition = Audit & {
-  rank: number;
-  platform: string;
+  // competition (or solo audit on a platform)
+  rank?: number;
+  platform?: string;
 };
 
 /**
