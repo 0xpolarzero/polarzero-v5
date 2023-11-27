@@ -13,7 +13,7 @@ import { Badge, Button, Tooltip } from '@/components/ui';
 
 type AuditCardFeatureProps = Audit;
 
-const isAuditCompetition = (object: Audit): object is Audit => {
+const isCompetition = (object: Audit): object is Audit => {
   return 'rank' in object && 'platform' in object;
 };
 
@@ -24,10 +24,14 @@ const AuditCardFeature: FC<AuditCardFeatureProps> = (props) => {
   // Access competition-specific properties
   let rank;
   let platform;
-  if (isAuditCompetition(props)) {
+  if (isCompetition(props)) {
     rank = props.rank;
     platform = props.platform;
   }
+
+  const hasAtLeastOneFinding = () => {
+    return Object.entries(findings).some(([key, count]) => key !== 'analysis' && count > 0);
+  };
 
   const formattedSeverities = Object.entries(findings)
     .filter(([severity, count]) => count > 0 && severity != 'analysis') // Filter out severities with no occurrences
@@ -72,25 +76,39 @@ const AuditCardFeature: FC<AuditCardFeatureProps> = (props) => {
         {/* description */}
         <div className="text-[0.92rem]">{description}</div>
         {/* findings */}
-        <div className="flex flex-grow flex-col space-y-2">
-          <h2 className="flex items-center space-x-2 font-medium text-gray-11">
-            <span>Findings</span>
-            {/* rank */}
-            {isAuditCompetition(props) ? (
-              <span className="text-sm font-normal tracking-widest text-gray-11">(#{rank})</span>
-            ) : null}
-          </h2>
-          <div className="flex flex-wrap items-baseline space-x-2 space-y-1">
-            {formattedSeverities}
+        {hasAtLeastOneFinding() ? (
+          <div className="flex flex-grow flex-col space-y-2">
+            <h2 className="flex items-center space-x-2 font-medium text-gray-11">
+              <span>Findings</span>
+              {/* rank */}
+              {isCompetition(props) ? (
+                <span className="text-sm font-normal tracking-widest text-gray-11">(#{rank})</span>
+              ) : null}
+            </h2>
+            <div className="flex flex-wrap items-baseline space-x-2 space-y-1">
+              {formattedSeverities}
+              {findings.analysis > 0 ? (
+                <Badge variant="secondary" intent="success" className="font-normal">
+                  Analysis
+                </Badge>
+              ) : null}
+            </div>
+          </div>
+        ) : isCompetition(props) ? (
+          <>
+            <h2 className="flex items-center space-x-2 text-sm font-medium text-gray-11">
+              <span>Placed</span>
+              <span className="text-sm font-normal tracking-widest text-gray-11">#{rank}</span>
+            </h2>
             {findings.analysis > 0 ? (
               <Badge variant="secondary" intent="success" className="font-normal">
                 Analysis
               </Badge>
             ) : null}
-          </div>
-        </div>
+          </>
+        ) : null}
         {/* platform */}
-        {isAuditCompetition(props) ? (
+        {isCompetition(props) ? (
           <div className="flex items-center space-x-2 text-sm text-gray-11">
             {PLATFORM_ICONS[platform || ''](16)}
             <span>{platform}</span>

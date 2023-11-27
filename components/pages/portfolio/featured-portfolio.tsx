@@ -29,7 +29,8 @@ const FeaturedPortfolio: FC = () => {
         ).map((page, i) => {
           if (
             page.categories.includes('audit competition') ||
-            page.categories.includes('solo audit')
+            page.categories.includes('solo audit') ||
+            page.categories.includes('formal verification')
           ) {
             // We won't associate these tags to a page with the wrong type
             return <AuditCardFeature key={i} {...(page as Audit)} />;
