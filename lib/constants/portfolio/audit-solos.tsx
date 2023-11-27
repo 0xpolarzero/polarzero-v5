@@ -6,7 +6,7 @@ export const AUDIT_SOLOS: Audit[] = [
     date: new Date('2021-01-01'),
     duration: 7,
     shortDesc: 'Lending & Borrowing',
-    categories: ['audit competition', 'lending'],
+    categories: ['solo audit', 'lending'],
     description: 'Formal verification and fuzzing of the core Aave V2 protocol.',
     url: 'https://code4rena.com/tasks/aave-v2',
     slug: '2021-01-01-aave-v2',
