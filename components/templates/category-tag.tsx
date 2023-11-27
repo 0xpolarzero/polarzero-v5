@@ -26,7 +26,8 @@ export type Category =
   | 'bug bounty'
   | 'formal verification'
   // Portfolio (protocol type)
-  | 'lending';
+  | 'ens'
+  | 'lending/borrowing';
 
 export type CategoryTagProps = Omit<BadgeProps, 'variant' | 'intent'> & {
   category:
@@ -43,7 +44,8 @@ export type CategoryTagProps = Omit<BadgeProps, 'variant' | 'intent'> & {
     | 'audit competition'
     | 'bug bounty'
     | 'formal verification'
-    | 'lending';
+    | 'ens'
+    | 'lending/borrowing';
 };
 
 type Intent = 'none' | 'primary' | 'success' | 'fail' | 'warning' | 'orange';
@@ -70,7 +72,8 @@ const CategoryTag: FC<CategoryTagProps> = ({ size, category, ...rest }) => {
     'bug bounty': 'warning',
     'formal verification': 'success',
 
-    lending: 'none',
+    ens: 'none',
+    'lending/borrowing': 'none',
   };
 
   const filter = useCategoriesFilters((state) => state.filter);

@@ -8,7 +8,10 @@ import { BlogPostSection } from '@/lib/types/writing';
 
 import { Category } from '@/components/templates/category-tag';
 
-export const PORTFOLIO_PAGES: (Audit | BugBounty)[] = [];
+export const PORTFOLIO_PAGES: (Audit | BugBounty)[] = [
+  AUDIT_COMPETITIONS[0],
+  AUDIT_COMPETITIONS[1],
+];
 
 export const SECTIONS: Record<string, BlogPostSection[]> = {
   'mock-audit': MOCK_AUDIT,
@@ -22,5 +25,6 @@ export const CATEGORIES: Category[] = [
   'audit competition',
   'bug bounty',
   'formal verification',
-  'lending',
+  'ens',
+  'lending/borrowing',
 ];
