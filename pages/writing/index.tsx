@@ -3,10 +3,12 @@ import type { NextPage } from 'next';
 import { ChevronLeft } from 'lucide-react';
 import { NextSeo } from 'next-seo';
 
+import { CATEGORIES } from '@/lib/constants/writing';
+
 import BaseLayout from '@/components/layouts/base';
 import ContainerLayout from '@/components/layouts/container';
 import FeaturedWriting from '@/components/pages/writing/featured-writing';
-import FilterWriting from '@/components/pages/writing/filter-writing';
+import FilterCategories from '@/components/templates/filter-categories';
 import { Button } from '@/components/ui';
 
 const WritingPage: NextPage = () => {
@@ -38,7 +40,7 @@ const WritingPage: NextPage = () => {
           {/* <h1 className="text-3xl font-semibold tracking-tight text-gray-12 md:text-4xl">
             Writing
           </h1> */}
-          <FilterWriting />
+          <FilterCategories categories={CATEGORIES} />
           <FeaturedWriting />
           <Button variant="secondary" intent="primary" href="/" leftIcon={<ChevronLeft />}>
             Return home

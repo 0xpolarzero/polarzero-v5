@@ -3,13 +3,12 @@ import type { NextPage } from 'next';
 import { ChevronLeft } from 'lucide-react';
 import { NextSeo } from 'next-seo';
 
-import { PORTFOLIO_PAGES } from '@/lib/constants/portfolio';
-import { Audit, BugBounty } from '@/lib/types/portfolio';
+import { CATEGORIES } from '@/lib/constants/portfolio';
 
 import BaseLayout from '@/components/layouts/base';
 import ContainerLayout from '@/components/layouts/container';
-import AuditCardFeature from '@/components/pages/portfolio/audit-card';
-import BugBountyFeature from '@/components/pages/portfolio/bug-bounty';
+import FeaturedPortfolio from '@/components/pages/portfolio/featured-portfolio';
+import FilterCategories from '@/components/templates/filter-categories';
 import { Button } from '@/components/ui';
 
 const PortfolioPage: NextPage = () => {
@@ -38,26 +37,8 @@ const PortfolioPage: NextPage = () => {
 
       <BaseLayout subtitle="Portfolio" pageSlug="/portfolio">
         <ContainerLayout className="flex flex-col space-y-4">
-          {PORTFOLIO_PAGES.length > 0 ? (
-            PORTFOLIO_PAGES.map((page, i) => {
-              if (
-                page.categories.includes('audit competition') ||
-                page.categories.includes('solo audit')
-              ) {
-                // We won't associate these tags to a page with the wrong type
-                return <AuditCardFeature key={i} {...(page as Audit)} />;
-              }
-
-              if (page.categories.includes('bug bounty')) {
-                // We won't associate these tags to a page with the wrong type
-                return <BugBountyFeature key={i} {...(page as BugBounty)} />;
-              }
-
-              return null;
-            })
-          ) : (
-            <div className="text-gray-11">Nothing to display yet...</div>
-          )}
+          <FilterCategories categories={CATEGORIES} />
+          <FeaturedPortfolio />
           <Button variant="secondary" intent="primary" href="/" leftIcon={<ChevronLeft />}>
             Return home
           </Button>
