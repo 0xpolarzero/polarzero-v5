@@ -2,18 +2,23 @@ import type { FC } from 'react';
 
 import { Filter } from 'lucide-react';
 
-import { CATEGORIES } from '@/lib/constants/writing';
-import { useWritingFilters } from '@/lib/stores/useWritingFilters';
+import { useCategoriesFilters } from '@/lib/stores/useCategoriesFilters';
 
 import { Category } from '@/components/templates/category-tag';
 import { Button, Select } from '@/components/ui';
 
 // -----------------------------------------------------------------------------
+// Props
+// -----------------------------------------------------------------------------
+
+type FilterCategoriesProps = { categories: string[] };
+
+// -----------------------------------------------------------------------------
 // Component
 // -----------------------------------------------------------------------------
 
-const FilterWriting: FC = () => {
-  const { currentFilter, filter } = useWritingFilters((state) => ({
+const FilterCategories: FC<FilterCategoriesProps> = ({ categories }) => {
+  const { currentFilter, filter } = useCategoriesFilters((state) => ({
     currentFilter: state.currentFilter,
     filter: state.filter,
   }));
@@ -33,7 +38,7 @@ const FilterWriting: FC = () => {
         }
       >
         <option>All categories</option>
-        {CATEGORIES.map((category) => (
+        {categories.map((category) => (
           <option key={category}>{category}</option>
         ))}
       </Select>
@@ -44,6 +49,6 @@ const FilterWriting: FC = () => {
   );
 };
 
-FilterWriting.displayName = 'FilterWriting';
+FilterCategories.displayName = 'FilterCategories';
 
-export default FilterWriting;
+export default FilterCategories;

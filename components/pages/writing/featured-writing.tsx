@@ -3,14 +3,14 @@ import { type FC, useEffect } from 'react';
 import WritingCardFeature from './writing-card';
 
 import { WRITING_BLOG_PAGES } from '@/lib/constants/writing';
-import { useWritingFilters } from '@/lib/stores/useWritingFilters';
+import { useCategoriesFilters } from '@/lib/stores/useCategoriesFilters';
 
 // -----------------------------------------------------------------------------
 // Component
 // -----------------------------------------------------------------------------
 
 const FeaturedWriting: FC = () => {
-  const { currentFilter, filter } = useWritingFilters((state) => ({
+  const { currentFilter, filter } = useCategoriesFilters((state) => ({
     currentFilter: state.currentFilter,
     filter: state.filter,
   }));

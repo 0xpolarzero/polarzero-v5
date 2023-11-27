@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 
-import { useWritingFilters } from '@/lib/stores/useWritingFilters';
+import { useCategoriesFilters } from '@/lib/stores/useCategoriesFilters';
 
 import { Badge } from '@/components/ui';
 import type { BadgeProps } from '@/components/ui/badge/types';
@@ -73,7 +73,7 @@ const CategoryTag: FC<CategoryTagProps> = ({ size, category, ...rest }) => {
     lending: 'none',
   };
 
-  const filter = useWritingFilters((state) => state.filter);
+  const filter = useCategoriesFilters((state) => state.filter);
 
   return (
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
