@@ -10,6 +10,7 @@ import type { BadgeProps } from '@/components/ui/badge/types';
 // -----------------------------------------------------------------------------
 
 export type Category =
+  // Blog post
   | 'chainlink'
   | 'education'
   | 'fr'
@@ -18,7 +19,14 @@ export type Category =
   | 'infrastructure'
   | 'NFT'
   | 'security research'
-  | 'solidity';
+  | 'solidity'
+  // Portfolio (type)
+  | 'audit'
+  | 'audit competition'
+  | 'bug bounty'
+  | 'formal verification'
+  // Portfolio (protocol type)
+  | 'lending';
 
 export type CategoryTagProps = Omit<BadgeProps, 'variant' | 'intent'> & {
   category:
@@ -30,7 +38,12 @@ export type CategoryTagProps = Omit<BadgeProps, 'variant' | 'intent'> & {
     | 'infrastructure'
     | 'NFT'
     | 'security research'
-    | 'solidity';
+    | 'solidity'
+    | 'audit'
+    | 'audit competition'
+    | 'bug bounty'
+    | 'formal verification'
+    | 'lending';
 };
 
 type Intent = 'none' | 'primary' | 'success' | 'fail' | 'warning' | 'orange';
@@ -51,6 +64,13 @@ const CategoryTag: FC<CategoryTagProps> = ({ size, category, ...rest }) => {
     NFT: 'warning', // 4
     'security research': 'orange', // 5
     solidity: 'fail', // 6
+
+    audit: 'primary',
+    'audit competition': 'orange',
+    'bug bounty': 'warning',
+    'formal verification': 'success',
+
+    lending: 'none',
   };
 
   const filter = useWritingFilters((state) => state.filter);
