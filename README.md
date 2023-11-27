@@ -26,6 +26,7 @@ Forked and modified by polarzero from [5/9 design system](https://fiveoutofnine.
     [x] extend it (w/ chess?) to display in the body (such as chess) the vulnerabilities found (badges with colors) as well as analysis, and tags of the protocol functionnalities (+ and maybe separated for the kind of testing, e.g. Certora, etc)
 
 [x] Replace any "design" with "writing"
+
 [x] Add buttons to go back & to open in ... on blog pages
 
     - maybe need to create a dedicated component like external-link-button.tsx - could be used later to open audit reports on Code4rena, etc as well
@@ -35,9 +36,13 @@ Forked and modified by polarzero from [5/9 design system](https://fiveoutofnine.
     - with a switch (instead of connect wallet) to activate/disable (just return the most low level component or not) / don't return it on mobile
 
 [x] Add hire-me page w/ contact form
+
 [ ] Remove Medium, add social login & comments section?? + Reads, likes, etc
+
 ❌ Add description on home page?
+
 [ ] Add different versions (history) of website (e.g. right of navbar) with dropdown and links (e.g. v. n greyed out, then v. n-1, etc with dates of release)
+
 ❌ Use Curta.wtf for table, etc
 
 ## Updates
@@ -45,26 +50,35 @@ Forked and modified by polarzero from [5/9 design system](https://fiveoutofnine.
 ### Components
 
 [x] Update components/common/logo (svg)
+
 [x] Update components/pages/home/header.tsx
+
 [x] Update components/pages/home/featured-works (index & all works)
+
 [x] Update PolarzeroAvatar, PolarzeroHeader, PolarzeroHoverCard
+
 [x] Update categories in components/templates/category-tag.tsx
+
 [x] Update logos (favicon, apple-touch, etc)
 
 ### Pages
 
 [x] Update pages/api/og/design.tsx (of images when shared)
+
 [x] Update pages/blog/index.tsx
+
 [x] Update pages/index.tsx
 
 ### Lib
 
 [x] Update lib/constants/site.tsx
+
 [x] Update lib/types/site.ts (slugs, etc)
 
 ### Public
 
 [x] Update public/images
+
 [x] Update public/static
 
 ## Running Locally
