@@ -3,8 +3,11 @@ import type { NextPage } from 'next';
 import { ChevronLeft } from 'lucide-react';
 import { NextSeo } from 'next-seo';
 
+import { PORTFOLIO_PAGES } from '@/lib/constants/portfolio';
+
 import BaseLayout from '@/components/layouts/base';
 import ContainerLayout from '@/components/layouts/container';
+import AuditCompetitionCardFeature from '@/components/pages/portfolio/audit-competition-card';
 import { Button } from '@/components/ui';
 
 const PortfolioPage: NextPage = () => {
@@ -33,8 +36,15 @@ const PortfolioPage: NextPage = () => {
 
       <BaseLayout subtitle="Portfolio" pageSlug="/portfolio">
         <ContainerLayout className="flex flex-col space-y-4">
-          {/* content */}
-          test
+          <p>Body: vulnerabilities found (depending on type) + date & duration</p>
+          <p>+ add slight color depending on type</p>
+          <p>Filters as well with type of contest, and maybe also categories</p>
+
+          {PORTFOLIO_PAGES.map((page, i) => {
+            if (page.categories.includes('audit competition')) {
+              return <AuditCompetitionCardFeature key={i} {...page} />;
+            }
+          })}
           <Button variant="secondary" intent="primary" href="/" leftIcon={<ChevronLeft />}>
             Return home
           </Button>

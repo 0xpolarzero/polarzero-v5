@@ -1,6 +1,8 @@
+import { Category } from '@/components/templates/category-tag';
+
 /**
- * Type for an audit (or Certora contest/bug bounty) displayed in the
- * audits table on [polarzero.xyz/portfolio](https://polarzero.xyz/portfolio)
+ * Type for an audit competition displayed in a feature display card
+ * on [polarzero.xyz/portfolio](https://polarzero.xyz/portfolio)
  * @param rank The rank in the contest (if applicable)
  * @param protocol The protocol that was audited
  * @param platform The platform the audit was conducted on (e.g. CodeArena, Immunefi, etc.)
@@ -10,20 +12,20 @@
  * @param category The category of the "audit" (e.g. audit, formal verification, bug bounty)
  * @param details The details of the audit (e.g. description of the process, results, links, etc.)
  */
-export type Audit = {
+export type AuditCompetition = {
   rank?: number;
   protocol: string;
   platform: string;
   date: Date;
   duration: number;
   shortDesc: string;
-  category: string;
+  categories: Category[];
   details: AuditDetails;
 };
 
 /**
- * Type for the details of an audit (or Certora contest/bug bounty) displayed in the
- * audits table on [polarzero.xyz/portfolio](https://polarzero.xyz/portfolio)
+ * Type for the details of an audit or audit competition displayed
+ *  on [polarzero.xyz/portfolio](https://polarzero.xyz/portfolio)
  * @param description The description of the audit (e.g. description of the process, results, links, etc.)
  * @param url The link to the report/writeup
  * @param slug A unique slug for the audit (e.g. "compound-v2")
@@ -35,10 +37,6 @@ export type AuditDetails = {
   description: string;
   url: string;
   slug: string;
-  // Pass again
-  category: string;
-  protocol: string;
-  platform: string;
   findings: Finding[];
 };
 

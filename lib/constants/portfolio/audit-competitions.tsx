@@ -1,20 +1,17 @@
-import { Audit } from '@/lib/types/audit';
+import { AuditCompetition } from '@/lib/types/portfolio';
 
-const test: Audit = {
+const test: AuditCompetition = {
   rank: 1,
   protocol: 'Aave',
   platform: 'Code4rena',
   date: new Date('2021-01-01'),
   duration: 7,
   shortDesc: 'Lending & Borrowing',
-  category: 'audit',
+  categories: ['audit competition', 'lending'],
   details: {
     description: 'Formal verification and fuzzing of the core Aave V2 protocol.',
     url: 'https://code4rena.com/tasks/aave-v2',
     slug: '2021-01-01-aave-v2',
-    category: 'audit',
-    platform: 'Code4rena',
-    protocol: 'Aave',
     findings: [
       {
         severity: 'critical',
@@ -46,7 +43,7 @@ const test: Audit = {
   },
 };
 
-export const AUDITS_RESULTS: Audit[] = [
+export const AUDIT_COMPETITIONS: AuditCompetition[] = [
   test,
   test,
   test,
