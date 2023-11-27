@@ -9,7 +9,7 @@ export const BUG_BOUNTIES: BugBounty[] = [
     categories: ['bug bounty', 'lending'],
     description: 'Formal verification and fuzzing of the core Aave V2 protocol.',
     url: 'https://code4rena.com/tasks/aave-v2',
-    slug: '2021-01-01-aave-v2',
+    slug: 'mock-bounty',
     finding: {
       severity: 'critical',
       reward: 10000,
