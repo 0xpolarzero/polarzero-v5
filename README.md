@@ -1,7 +1,5 @@
 Forked and modified by polarzero from [5/9 design system](https://fiveoutofnine.com).
 
-- https://github.com/waterfall-mkt/curta.wtf
-
 [Original repo](https://github.com/fiveoutofnine/www)
 
 <!-- (on commit 7029233ccdc727c73e0e2f1defcdb6ce19dc0872). -->
