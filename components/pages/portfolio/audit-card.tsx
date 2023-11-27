@@ -1,15 +1,6 @@
 import { type FC } from 'react';
 
-import {
-  Calendar,
-  ExternalLink,
-  FileText,
-  Github,
-  HelpCircle,
-  Home,
-  Info,
-  Twitter,
-} from 'lucide-react';
+import { Calendar, ExternalLink } from 'lucide-react';
 
 import { PLATFORM_ICONS } from '@/lib/constants/portfolio/platforms';
 import { PROTOCOL_ICONS } from '@/lib/constants/portfolio/protocols';
