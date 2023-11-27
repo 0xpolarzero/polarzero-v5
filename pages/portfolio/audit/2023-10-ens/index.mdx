@@ -1,0 +1,19 @@
+import AuditReportLayout from '@/components/layouts/audit-report';
+
+> This report includes the analysis I wrote for the codebase, which was selected for the Code4rena report.
+
+## 1. Overview
+
+The system implements a mechanism to **delegate voting power**, through ERC20Votes compatible tokens, to multiple delegates. Specifically, the `ERC20MultiDelegate` contract allows for **efficiently batching operations**, regardless of their nature:
+
+- _delegating directly_ from the user to a chosen delegate;
+- transferring a delegation _from one delegate to another_;
+- _revoking_ a delegation and _withdrawing_ the associated tokens.
+
+The system uses the `ERC1155` standard to track the delegated amounts for each delegator, and proxy contracts to actually hold the delegated tokens.
+
+This provides a **secure way to hold these tokens**, and allows for **efficiently tracking** the tokens delegated by individuals, in addition to the native `ERC20Votes` ability to track the voting power of each delegate. All this while ensuring a **direct way for users to revoke any individual delegation**, and **withdraw the associated tokens**, at any given moment.
+
+Simplicity on the surface often stems from quality and efficiency beneath; such is the case with this system.
+
+export default (props) => <AuditReportLayout selected="" slug="2023-10-ens" {...props} />;

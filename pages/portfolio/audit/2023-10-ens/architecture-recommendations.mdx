@@ -1,0 +1,21 @@
+import AuditReportLayout from '@/components/layouts/audit-report';
+
+## 4. Architecture recommendations
+
+The following architectural recommendations can be made.
+
+### **4.1 Batch processing & gas usage**
+
+The batch processing methods (`_burnBatch`, `_mintBatch`) should be monitored for gas consumption, especially when handling a large array of delegates. The same applies for deploying multiple proxy contracts, when dealing with a wide array of new delegates as targets.
+
+This is especially relevant if an implementation intends to handle gas for users (i.e. meta transactions), which could easily be abused, even by accident.
+
+### **4.2 User interface**
+
+This application requires a thoroughly designed interface. Otherwise, it would be too easy to mess up the array formatting, thereby performing unintended transactions.
+
+While in most cases it would not constitute a significant risk, it _could_ in some edge cases. For instance, in the event of a highly disputed vote, any widespread malfunction in the system could have drastic consequences.
+
+export default (props) => (
+  <AuditReportLayout selected="architecture-recommendations" slug="2023-10-ens" {...props} />
+);

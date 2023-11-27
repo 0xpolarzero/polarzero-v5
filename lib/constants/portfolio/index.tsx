@@ -1,7 +1,7 @@
 import { AUDIT_COMPETITIONS } from './audit-competitions';
 import { AUDIT_SOLOS } from './audit-solos';
 import { BUG_BOUNTIES } from './bug-bounties';
-import MOCK_AUDIT from './sections/mock-audit';
+import ENS_2023_10 from './sections/2023-10-ens';
 
 import { Audit, BugBounty } from '@/lib/types/portfolio';
 import { BlogPostSection } from '@/lib/types/writing';
@@ -14,7 +14,7 @@ export const PORTFOLIO_PAGES: (Audit | BugBounty)[] = [
 ];
 
 export const SECTIONS: Record<string, BlogPostSection[]> = {
-  'mock-audit': MOCK_AUDIT,
+  '2023-10-ens': ENS_2023_10,
 };
 
 /**
