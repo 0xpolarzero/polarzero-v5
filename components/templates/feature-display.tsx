@@ -40,8 +40,8 @@ const FeatureDisplay: FC<FeatureDisplayProps> = ({
   children,
   internalLink,
   addUrl,
-  bgBase = 'bg-gray-2',
-  bgImmersive = 'bg-white/0',
+  bgBase = 'bg-gray',
+  bgImmersive = 'bg-white',
 }) => {
   const router = useRouter();
   const [hovered, hover] = useState(false);
@@ -62,8 +62,8 @@ const FeatureDisplay: FC<FeatureDisplayProps> = ({
         clsx('flex h-64 w-64 flex-col overflow-hidden rounded-xl border border-gray-6'),
         clsx(
           immersiveBg
-            ? `${bgImmersive}-9/5 bg-clip-padding backdrop-blur-sm transition-all duration-100 hover:backdrop-blur-md`
-            : `${bgBase}-9/5`,
+            ? `${bgImmersive}-9/20 bg-clip-padding backdrop-blur-[2px] transition-all duration-100 hover:backdrop-blur-md`
+            : '',
         ),
         className,
       )}

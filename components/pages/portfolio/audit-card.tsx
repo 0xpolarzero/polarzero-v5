@@ -65,21 +65,20 @@ const AuditCardFeature: FC<AuditCardFeatureProps> = (props) => {
         <CategoryTag key={i} size="md" category={tag} />
       ))}
       internalLink={`/portfolio/audits/${slug}`}
-      bgImmersive={categories.includes('audit competition') ? 'bg-orange' : 'bg-blue'}
-      bgBase={categories.includes('audit competition') ? 'bg-orange' : 'bg-blue'}
+      // bgImmersive={categories.includes('audit competition') ? 'bg-orange' : 'bg-blue'}
+      // bgBase={categories.includes('audit competition') ? 'bg-orange' : 'bg-blue'}
     >
       <div className="flex h-full flex-col space-y-4 p-4">
         {/* description */}
         <div className="flex-grow text-[0.92rem]">{description}</div>
-        {/* rank */}
-        {isAuditCompetition(props) ? (
-          <div className="flex items-center space-x-2">
-            <h2 className="font-medium text-gray-11">Rank</h2>
-            <span className="font-base tracking-widest text-gray-11">#{rank}</span>
-          </div>
-        ) : null}
+        <h2 className="flex items-center space-x-2 font-medium text-gray-11">
+          <span>Findings</span>
+          {/* rank */}
+          {isAuditCompetition(props) ? (
+            <span className="text-sm font-normal tracking-widest text-gray-11">(#{rank})</span>
+          ) : null}
+        </h2>
         {/* findings */}
-        <h2 className="font-medium text-gray-11">Findings</h2>
         <div className="flex flex-wrap space-x-2">
           {formattedSeverities}
           {findings.analysis > 0 ? (
