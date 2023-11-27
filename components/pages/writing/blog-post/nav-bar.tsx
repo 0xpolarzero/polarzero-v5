@@ -4,6 +4,7 @@ import * as Dialog from '@radix-ui/react-dialog';
 import clsx from 'clsx';
 import { ChevronRight, Menu, X } from 'lucide-react';
 
+import { PORTFOLIO_PAGES } from '@/lib/constants/portfolio';
 import { WRITING_BLOG_PAGES } from '@/lib/constants/writing';
 import { useMediaQuery } from '@/lib/hooks/useMediaQuery';
 import type { PageSlug } from '@/lib/types/site';
@@ -19,6 +20,7 @@ type BlogPostNavBarProps = {
   selected?: PageSlug;
   slug: string;
   sections: BlogPostSection[];
+  category: 'blog' | 'audit' | 'bug bounty';
 };
 
 // -----------------------------------------------------------------------------
@@ -34,19 +36,27 @@ const BlogPostNavBar: FC<BlogPostNavBarProps> = (props) => {
   );
 };
 
-const BlogPostNavBarDesktop: FC<BlogPostNavBarProps> = ({ selected, sections, slug }) => {
+const BlogPostNavBarDesktop: FC<BlogPostNavBarProps> = ({ selected, sections, slug, category }) => {
   return (
     <nav
       className="hide-scrollbar sticky top-28 -ml-3 hidden min-w-[18rem] max-w-[18rem] flex-col overflow-y-scroll px-0.5 md:flex lg:min-w-[20rem] lg:max-w-[20rem]"
       style={{ height: 'calc(100vh - 11rem)' }}
     >
-      <BlogPostNavBarInternal selected={selected} sections={sections} slug={slug} />
+      <BlogPostNavBarInternal
+        selected={selected}
+        sections={sections}
+        slug={slug}
+        category={category}
+      />
     </nav>
   );
 };
 
-const BlogPostNavBarMobile: FC<BlogPostNavBarProps> = ({ selected, sections, slug }) => {
-  const title = WRITING_BLOG_PAGES.find((page) => page.slug === slug)?.title || '';
+const BlogPostNavBarMobile: FC<BlogPostNavBarProps> = ({ selected, sections, slug, category }) => {
+  const title =
+    category === 'blog'
+      ? WRITING_BLOG_PAGES.find((page) => page.slug === slug)?.title || ''
+      : PORTFOLIO_PAGES.find((page) => page.slug === slug)?.protocol || '';
 
   const [open, setOpen] = useState<boolean>(false);
   const isSmallScreen = useMediaQuery('(max-width: 768px)'); // `md` breakpoint
@@ -95,7 +105,9 @@ const BlogPostNavBarMobile: FC<BlogPostNavBarProps> = ({ selected, sections, slu
                       : '',
                     section.subsections.length === 0 ? 'mb-2' : '',
                   )}
-                  href={`/writing/blog/${slug}/${section.slug}`}
+                  href={`/${category === 'blog' ? 'writing' : 'portfolio'}/${
+                    category === 'blog' ? 'blog' : category === 'audit' ? 'audit' : 'bounty'
+                  }/${slug}/${section.slug}`}
                   variant="ghost"
                   disabled={selected === section.slug}
                 >
@@ -124,7 +136,12 @@ const BlogPostNavBarMobile: FC<BlogPostNavBarProps> = ({ selected, sections, slu
   );
 };
 
-const BlogPostNavBarInternal: FC<BlogPostNavBarProps> = ({ selected, sections, slug }) => {
+const BlogPostNavBarInternal: FC<BlogPostNavBarProps> = ({
+  selected,
+  sections,
+  slug,
+  category,
+}) => {
   return (
     <Fragment>
       {sections.map((section, index) => (
@@ -135,7 +152,9 @@ const BlogPostNavBarInternal: FC<BlogPostNavBarProps> = ({ selected, sections, s
               selected === section.slug ? 'cursor-default bg-gray-4 text-left text-white' : '',
               section.subsections.length === 0 ? 'mb-2' : '',
             )}
-            href={`/writing/blog/${slug}/${section.slug}`}
+            href={`/${category === 'blog' ? 'writing' : 'portfolio'}/${
+              category === 'blog' ? 'blog' : category === 'audit' ? 'audit' : 'bounty'
+            }/${slug}/${section.slug}`}
             variant="ghost"
             disabled={selected === section.slug}
           >

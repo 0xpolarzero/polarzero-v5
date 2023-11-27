@@ -4,16 +4,16 @@ import { Calendar, ExternalLink } from 'lucide-react';
 
 import { PLATFORM_ICONS } from '@/lib/constants/portfolio/platforms';
 import { PROTOCOL_ICONS } from '@/lib/constants/portfolio/protocols';
-import { Audit, AuditCompetition } from '@/lib/types/portfolio';
+import { Audit } from '@/lib/types/portfolio';
 import { getTimePassed } from '@/lib/utils';
 
 import CategoryTag from '@/components/templates/category-tag';
 import FeatureDisplay from '@/components/templates/feature-display';
 import { Badge, Button, Tooltip } from '@/components/ui';
 
-type AuditCardFeatureProps = Audit | AuditCompetition;
+type AuditCardFeatureProps = Audit;
 
-const isAuditCompetition = (object: Audit | AuditCompetition): object is AuditCompetition => {
+const isAuditCompetition = (object: Audit): object is Audit => {
   return 'rank' in object && 'platform' in object;
 };
 
@@ -64,7 +64,7 @@ const AuditCardFeature: FC<AuditCardFeatureProps> = (props) => {
       tags={categories.map((tag, i) => (
         <CategoryTag key={i} size="md" category={tag} />
       ))}
-      internalLink={`/portfolio/audits/${slug}`}
+      internalLink={`/portfolio/audit/${slug}`}
       // bgImmersive={categories.includes('audit competition') ? 'bg-orange' : 'bg-blue'}
       // bgBase={categories.includes('audit competition') ? 'bg-orange' : 'bg-blue'}
     >
