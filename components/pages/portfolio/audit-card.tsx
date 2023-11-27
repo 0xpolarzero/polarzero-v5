@@ -4,7 +4,7 @@ import { Calendar, ExternalLink } from 'lucide-react';
 
 import { PLATFORM_ICONS } from '@/lib/constants/portfolio/platforms';
 import { PROTOCOL_ICONS } from '@/lib/constants/portfolio/protocols';
-import { Audit, AuditCompetition, Finding } from '@/lib/types/portfolio';
+import { Audit, AuditCompetition } from '@/lib/types/portfolio';
 import { getTimePassed } from '@/lib/utils';
 
 import CategoryTag from '@/components/templates/category-tag';
@@ -12,14 +12,6 @@ import FeatureDisplay from '@/components/templates/feature-display';
 import { Badge, Button, Tooltip } from '@/components/ui';
 
 type AuditCardFeatureProps = Audit | AuditCompetition;
-
-type SeverityCounts = {
-  critical?: number;
-  high?: number;
-  medium?: number;
-  lowQa?: number;
-  analysis?: number;
-};
 
 const isAuditCompetition = (object: Audit | AuditCompetition): object is AuditCompetition => {
   return 'rank' in object && 'platform' in object;
@@ -37,13 +29,7 @@ const AudiCardFeature: FC<AuditCardFeatureProps> = (props) => {
     platform = props.platform;
   }
 
-  const severityCounts = findings.reduce((acc: SeverityCounts, finding: Finding) => {
-    const severity = finding.severity;
-    acc[severity] = (acc[severity] || 0) + 1;
-    return acc;
-  }, {} as SeverityCounts);
-
-  const formattedSeverities = Object.entries(severityCounts)
+  const formattedSeverities = Object.entries(findings)
     .filter(([severity, count]) => count > 0 && severity != 'analysis') // Filter out severities with no occurrences
     .map(([severity, count]) => (
       <Badge
@@ -96,7 +82,7 @@ const AudiCardFeature: FC<AuditCardFeatureProps> = (props) => {
         <h2 className="font-medium text-gray-11">Findings</h2>
         <div className="flex flex-wrap space-x-2">
           {formattedSeverities}
-          {severityCounts.analysis && severityCounts.analysis > 0 ? (
+          {findings.analysis > 0 ? (
             <Badge variant="secondary" intent="success" className="font-normal">
               Analysis
             </Badge>
