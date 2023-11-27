@@ -1,8 +1,8 @@
-import { AUDIT_COMPETITIONS } from './audit-competition';
+import { AUDIT_COMPETITIONS } from './audit-competitions';
 
 export const PORTFOLIO_PAGES = [
   AUDIT_COMPETITIONS[0],
-  AUDIT_COMPETITIONS[1],
-  AUDIT_COMPETITIONS[2],
-  AUDIT_COMPETITIONS[3],
+  AUDIT_COMPETITIONS[0],
+  AUDIT_COMPETITIONS[0],
+  AUDIT_COMPETITIONS[0],
 ];

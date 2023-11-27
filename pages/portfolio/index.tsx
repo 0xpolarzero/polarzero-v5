@@ -7,7 +7,7 @@ import { PORTFOLIO_PAGES } from '@/lib/constants/portfolio';
 
 import BaseLayout from '@/components/layouts/base';
 import ContainerLayout from '@/components/layouts/container';
-import AuditCompetitionCardFeature from '@/components/pages/portfolio/audit-competition-card';
+import AuditCompetitionCardFeature from '@/components/pages/portfolio/audit-card';
 import { Button } from '@/components/ui';
 
 const PortfolioPage: NextPage = () => {
@@ -41,7 +41,10 @@ const PortfolioPage: NextPage = () => {
           <p>Filters as well with type of contest, and maybe also categories</p>
 
           {PORTFOLIO_PAGES.map((page, i) => {
-            if (page.categories.includes('audit competition')) {
+            if (
+              page.categories.includes('audit competition') ||
+              page.categories.includes('solo audit')
+            ) {
               return <AuditCompetitionCardFeature key={i} {...page} />;
             }
           })}

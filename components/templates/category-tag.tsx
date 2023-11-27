@@ -21,7 +21,7 @@ export type Category =
   | 'security research'
   | 'solidity'
   // Portfolio (type)
-  | 'audit'
+  | 'solo audit'
   | 'audit competition'
   | 'bug bounty'
   | 'formal verification'
@@ -39,7 +39,7 @@ export type CategoryTagProps = Omit<BadgeProps, 'variant' | 'intent'> & {
     | 'NFT'
     | 'security research'
     | 'solidity'
-    | 'audit'
+    | 'solo audit'
     | 'audit competition'
     | 'bug bounty'
     | 'formal verification'
@@ -65,7 +65,7 @@ const CategoryTag: FC<CategoryTagProps> = ({ size, category, ...rest }) => {
     'security research': 'orange', // 5
     solidity: 'fail', // 6
 
-    audit: 'primary',
+    'solo audit': 'primary',
     'audit competition': 'orange',
     'bug bounty': 'warning',
     'formal verification': 'success',

@@ -1,10 +1,8 @@
-import { AuditCompetition } from '@/lib/types/portfolio';
+import { Audit } from '@/lib/types/portfolio';
 
-export const AUDIT_COMPETITIONS: AuditCompetition[] = [
+export const AUDIT_SOLOS: Audit[] = [
   {
-    rank: 1,
     protocol: 'Aave',
-    platform: 'Code4rena',
     date: new Date('2021-01-01'),
     duration: 7,
     shortDesc: 'Lending & Borrowing',
