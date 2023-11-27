@@ -122,7 +122,7 @@ const AuditReportLayout: FC<AuditReportLayoutProps> = ({ selected, children, slu
           type: 'website',
           locale: 'en_US',
           title: `${protocol}; ${subtitle} - polarzero reports`,
-          description: description || 'Audit reports & bug bounty writeups',
+          description: 'Audit reports & bug bounty writeups',
           url: 'https://polarzero.xyz/portfolio',
           site_name: 'polarzero',
           images: [
