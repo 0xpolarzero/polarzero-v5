@@ -70,22 +70,24 @@ const AuditCardFeature: FC<AuditCardFeatureProps> = (props) => {
     >
       <div className="flex h-full flex-col space-y-4 p-4">
         {/* description */}
-        <div className="flex-grow text-[0.92rem]">{description}</div>
-        <h2 className="flex items-center space-x-2 font-medium text-gray-11">
-          <span>Findings</span>
-          {/* rank */}
-          {isAuditCompetition(props) ? (
-            <span className="text-sm font-normal tracking-widest text-gray-11">(#{rank})</span>
-          ) : null}
-        </h2>
+        <div className="text-[0.92rem]">{description}</div>
         {/* findings */}
-        <div className="flex flex-wrap space-x-2">
-          {formattedSeverities}
-          {findings.analysis > 0 ? (
-            <Badge variant="secondary" intent="success" className="font-normal">
-              Analysis
-            </Badge>
-          ) : null}
+        <div className="flex flex-grow flex-col space-y-2">
+          <h2 className="flex items-center space-x-2 font-medium text-gray-11">
+            <span>Findings</span>
+            {/* rank */}
+            {isAuditCompetition(props) ? (
+              <span className="text-sm font-normal tracking-widest text-gray-11">(#{rank})</span>
+            ) : null}
+          </h2>
+          <div className="flex flex-wrap items-baseline space-x-2 space-y-1">
+            {formattedSeverities}
+            {findings.analysis > 0 ? (
+              <Badge variant="secondary" intent="success" className="font-normal">
+                Analysis
+              </Badge>
+            ) : null}
+          </div>
         </div>
         {/* platform */}
         {isAuditCompetition(props) ? (
