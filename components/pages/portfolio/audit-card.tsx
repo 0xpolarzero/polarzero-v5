@@ -72,7 +72,7 @@ const AudiCardFeature: FC<AuditCardFeatureProps> = (props) => {
       symbol={<Tooltip content={protocol}>{PROTOCOL_ICONS[protocol]}</Tooltip>}
       button={
         <Button size="sm" href={url} rightIcon={<ExternalLink />} newTab>
-          Open report on {platform}
+          Open report on {categories.includes('audit competition') ? platform : 'GitHub'}
         </Button>
       }
       tags={categories.map((tag, i) => (
