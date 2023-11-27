@@ -21,7 +21,7 @@ const FeaturedWriting: FC = () => {
 
   return (
     <div
-      className="grid grid-cols-1 gap-4 min-[960px]:grid-cols-2"
+      className="grid grid-cols-2 gap-4 min-[960px]:grid-cols-4"
       // className="grid grid-cols-2 gap-4 min-[560px]:grid-cols-4 min-[960px]:grid-cols-6"
     >
       {WRITING_BLOG_PAGES.filter((post) =>
