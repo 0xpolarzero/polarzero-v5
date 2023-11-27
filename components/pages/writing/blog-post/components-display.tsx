@@ -163,7 +163,7 @@ const BlogPostComponentsDisplay: FC<BlogPostComponentsDisplayProps> = ({
           collapsible
         >
           <Accordion.Item value="source-code">
-            <Accordion.Trigger className="data-[state='open']:border-b-1 group z-10 flex h-10 w-full items-center space-x-2 border border-gray-6 bg-gray-3 px-4 text-sm text-gray-11 transition-colors hover:border-gray-7 hover:bg-gray-4 hover:text-gray-12 focus:outline-none focus-visible:rounded focus-visible:outline focus-visible:-outline-offset-1 focus-visible:outline-blue-9 active:bg-gray-5 data-[state='closed']:rounded-b-xl data-[state='open']:border-b-0">
+            <Accordion.Trigger className="data-[state='open']:border-b-1 group z-10 flex h-10 w-full items-center space-x-2 border border-gray-6 bg-gray-3 px-4 text-sm text-gray-11 transition-colors hover:border-gray-7 hover:bg-gray-4 hover:text-gray-12 focus:outline-none focus-visible:rounded focus-visible:outline focus-visible:-outline-offset-1 focus-visible:outline-indigo-9 active:bg-gray-5 data-[state='closed']:rounded-b-xl data-[state='open']:border-b-0">
               <ChevronRight className="h-4 w-4 transition-transform group-data-[state='open']:rotate-90" />
               <span>View source</span>
             </Accordion.Trigger>

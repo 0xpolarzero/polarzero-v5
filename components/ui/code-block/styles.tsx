@@ -21,7 +21,7 @@ export const codeBlockHeaderFileNameStyles = 'text-sm text-ellipsis overflow-hid
 export const codeBlockHeaderStyles =
   'flex h-10 grow items-center justify-between border-b border-gray-6 bg-gray-2 pl-4 pr-2 rounded-top-xl';
 
-export const codeBlockLineHighlightedStyles = 'bg-blue-4 shadow-[inset_2px_0] shadow-blue-9';
+export const codeBlockLineHighlightedStyles = 'bg-indigo-4 shadow-[inset_2px_0] shadow-indigo-9';
 
 export const codeBlockLineNumberStyles = 'mr-4 inline-block w-4 text-end text-gray-11 select-none';
 

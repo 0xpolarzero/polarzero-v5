@@ -20,7 +20,7 @@ export const iconButtonVariants = cva(
     'transition-colors',
     'focus-visible:outline-none',
     'focus-visible:ring-2',
-    'focus-visible:ring-blue-9',
+    'focus-visible:ring-indigo-9',
   ],
   {
     variants: {
@@ -62,25 +62,25 @@ export const iconButtonVariants = cva(
         ],
         primary: [
           // Primary
-          'data-[variant=primary]:bg-blue-9',
+          'data-[variant=primary]:bg-indigo-9',
           'data-[variant=primary]:text-gray-12',
-          'data-[variant=primary]:border-blue-7',
-          'data-[variant=primary]:hover:border-blue-8',
-          'data-[variant=primary]:active:bg-blue-10',
+          'data-[variant=primary]:border-indigo-7',
+          'data-[variant=primary]:hover:border-indigo-8',
+          'data-[variant=primary]:active:bg-indigo-10',
           // Secondary
-          'data-[variant=secondary]:bg-blue-4',
-          'data-[variant=secondary]:text-blue-11',
-          'data-[variant=secondary]:hover:bg-blue-5',
-          'data-[variant=secondary]:active:bg-blue-6',
+          'data-[variant=secondary]:bg-indigo-4',
+          'data-[variant=secondary]:text-indigo-11',
+          'data-[variant=secondary]:hover:bg-indigo-5',
+          'data-[variant=secondary]:active:bg-indigo-6',
           // Outline
-          'data-[variant=outline]:text-blue-9',
-          'data-[variant=outline]:border-blue-7',
-          'data-[variant=outline]:hover:border-blue-8',
-          'data-[variant=outline]:active:bg-blue-3',
+          'data-[variant=outline]:text-indigo-9',
+          'data-[variant=outline]:border-indigo-7',
+          'data-[variant=outline]:hover:border-indigo-8',
+          'data-[variant=outline]:active:bg-indigo-3',
           // Ghost
-          'data-[variant=ghost]:text-blue-9',
-          'data-[variant=ghost]:hover:bg-blue-4',
-          'data-[variant=ghost]:active:bg-blue-5',
+          'data-[variant=ghost]:text-indigo-9',
+          'data-[variant=ghost]:hover:bg-indigo-4',
+          'data-[variant=ghost]:active:bg-indigo-5',
         ],
         success: [
           // Primary

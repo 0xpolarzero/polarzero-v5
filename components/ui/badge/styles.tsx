@@ -22,11 +22,11 @@ export const badgeVariants = cva(
           'data-[variant=secondary]:text-gray-11',
         ],
         primary: [
-          'data-[variant=primary]:bg-blue-9',
+          'data-[variant=primary]:bg-indigo-9',
           'data-[variant=primary]:dark:text-gray-12',
           'data-[variant=primary]:text-gray-1',
-          'data-[variant=secondary]:bg-blue-3',
-          'data-[variant=secondary]:text-blue-9',
+          'data-[variant=secondary]:bg-indigo-3',
+          'data-[variant=secondary]:text-indigo-9',
         ],
         success: [
           'data-[variant=primary]:bg-green-9',

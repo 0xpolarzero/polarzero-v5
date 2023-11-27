@@ -136,11 +136,11 @@
 //                   className={clsx(
 //                     'flex h-4 w-4 items-center justify-center text-[0.5rem]',
 //                     pieceOverlap > 1
-//                       ? 'bg-purple-9'
+//                       ? 'bg-indigo-9'
 //                       : nft.userMove.from === index
-//                       ? 'bg-blue-3'
+//                       ? 'bg-indigo-3'
 //                       : nft.userMove.to === index
-//                       ? 'bg-blue-9'
+//                       ? 'bg-indigo-9'
 //                       : nft.contractMove.from === index
 //                       ? 'bg-red-3'
 //                       : nft.contractMove.to === index
@@ -169,7 +169,7 @@
 //         </div>
 //         <div className="flex justify-between text-[0.5rem] font-medium">
 //           <div>
-//             <div className="text-blue-9">User</div>
+//             <div className="text-indigo-9">User</div>
 //             <div className="text-gray-12">
 //               {getPieceNotation(nft.userMove.from)} <span className="text-gray-11">-&gt;</span>{' '}
 //               {getPieceNotation(nft.userMove.to)}

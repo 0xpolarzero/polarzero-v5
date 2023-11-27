@@ -49,7 +49,7 @@ const AuditReportLayout: FC<AuditReportLayoutProps> = ({ selected, children, slu
       if (href && href.startsWith('/')) {
         return (
           <Link
-            className="mdx--link group font-medium text-blue-9 no-underline hover:underline"
+            className="mdx--link group font-medium text-indigo-9 no-underline hover:underline"
             href={href}
           >
             {children}
@@ -59,7 +59,7 @@ const AuditReportLayout: FC<AuditReportLayoutProps> = ({ selected, children, slu
 
       return (
         <a
-          className="mdx--link group w-fit font-medium text-blue-9 no-underline hover:underline"
+          className="mdx--link group w-fit font-medium text-indigo-9 no-underline hover:underline"
           href={href}
           target="_blank"
           rel="noopener noreferrer"
@@ -70,12 +70,12 @@ const AuditReportLayout: FC<AuditReportLayoutProps> = ({ selected, children, slu
       );
     },
     blockquote: ({ children }: JSX.IntrinsicElements['blockquote']) => (
-      <blockquote className="mdx--blockquote group rounded-xl border border-blue-6 bg-blue-3 p-4 text-blue-12">
+      <blockquote className="mdx--blockquote group rounded-xl border border-indigo-6 bg-indigo-3 p-4 text-indigo-12">
         {children}
       </blockquote>
     ),
     code: ({ children }: JSX.IntrinsicElements['code']) => (
-      <code className="rounded border border-gray-6 bg-gray-3 px-1 py-0.5 font-normal text-gray-12 before:content-none after:content-none group-[.mdx--link]:text-blue-9">
+      <code className="rounded border border-gray-6 bg-gray-3 px-1 py-0.5 font-normal text-gray-12 before:content-none after:content-none group-[.mdx--link]:text-indigo-9">
         {children}
       </code>
     ),
@@ -95,7 +95,7 @@ const AuditReportLayout: FC<AuditReportLayoutProps> = ({ selected, children, slu
       </h3>
     ),
     p: ({ children }: JSX.IntrinsicElements['p']) => (
-      <p className="font-light not-italic text-gray-11 before:content-none after:content-none group-[.mdx--blockquote]:my-0 group-[.mdx--blockquote]:text-blue-12">
+      <p className="font-light not-italic text-gray-11 before:content-none after:content-none group-[.mdx--blockquote]:my-0 group-[.mdx--blockquote]:text-indigo-12">
         {children}
       </p>
     ),
