@@ -38,22 +38,26 @@ const PortfolioPage: NextPage = () => {
 
       <BaseLayout subtitle="Portfolio" pageSlug="/portfolio">
         <ContainerLayout className="flex flex-col space-y-4">
-          {PORTFOLIO_PAGES.map((page, i) => {
-            if (
-              page.categories.includes('audit competition') ||
-              page.categories.includes('solo audit')
-            ) {
-              // We won't associate these tags to a page with the wrong type
-              return <AuditCardFeature key={i} {...(page as Audit)} />;
-            }
+          {PORTFOLIO_PAGES.length > 0 ? (
+            PORTFOLIO_PAGES.map((page, i) => {
+              if (
+                page.categories.includes('audit competition') ||
+                page.categories.includes('solo audit')
+              ) {
+                // We won't associate these tags to a page with the wrong type
+                return <AuditCardFeature key={i} {...(page as Audit)} />;
+              }
 
-            if (page.categories.includes('bug bounty')) {
-              // We won't associate these tags to a page with the wrong type
-              return <BugBountyFeature key={i} {...(page as BugBounty)} />;
-            }
+              if (page.categories.includes('bug bounty')) {
+                // We won't associate these tags to a page with the wrong type
+                return <BugBountyFeature key={i} {...(page as BugBounty)} />;
+              }
 
-            return null;
-          })}
+              return null;
+            })
+          ) : (
+            <div className="text-gray-11">Nothing to display yet...</div>
+          )}
           <Button variant="secondary" intent="primary" href="/" leftIcon={<ChevronLeft />}>
             Return home
           </Button>
