@@ -2,6 +2,7 @@ import type { FC } from 'react';
 
 import { Github, Twitter } from 'lucide-react';
 
+import LogoIcon from '@/components/common/logo-icon';
 import PolarzeroAvatar from '@/components/common/polarzero-avatar';
 import { Button } from '@/components/ui';
 
@@ -28,7 +29,7 @@ const PolarzeroHeader: FC = () => {
         <Button
           intent="primary"
           href="https://twitter.com/0xpolarzero"
-          leftIcon={<Twitter />}
+          leftIcon={<LogoIcon.X />}
           newTab
         >
           Twitter
