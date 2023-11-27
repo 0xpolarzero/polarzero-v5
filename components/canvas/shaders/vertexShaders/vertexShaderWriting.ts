@@ -23,6 +23,6 @@ gl_PointSize = size * uGain;
 gl_PointSize *= (1.0 / - viewPosition.z);
 }
 
-`
+`;
 
-export default vertexShader
+export default vertexShader;
