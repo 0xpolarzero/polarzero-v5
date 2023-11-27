@@ -21,4 +21,28 @@ export const PLATFORM_ICONS: { [key: string]: (size: number) => JSX.Element } = 
       />
     </svg>
   ),
+  Immunefi: (size) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      xmlSpace="preserve"
+      id="katman_1"
+      x={0}
+      y={0}
+      enableBackground="new 0 0 800 600"
+      viewBox="90.4 233.7 154.4 132.6"
+      width={size}
+      height={size}
+    >
+      <style>{'.st0{fill:#fff;fill-rule:evenodd;clip-rule:evenodd}'}</style>
+      <path
+        d="m125 289.6 42.8 43.5L210 290l34.7 35.3-40.3 41L194 356l30.2-30.8-14.2-14.3-42.3 43.1-42.7-43.6-14.1 14.3 30.7 31.2-10.4 10.3-40.8-41.5 34.6-35.1z"
+        className="st0"
+      />
+      <path
+        d="m210.2 310.4-42.8-43.5-42.3 43.1-34.7-35.3 40.3-41 10.4 10.3-30.2 30.8 14.2 14.5 42.3-43.1 42.8 43.5 14.1-14.3-30.7-31.4 10.4-10.3 40.8 41.5-34.6 35.2zM161.1 365.4V338h14v27.4h-14z"
+        className="st0"
+      />
+      <path d="M161.1 262v-27.4h14V262h-14z" className="st0" />
+    </svg>
+  ),
 };

@@ -40,19 +40,14 @@ export type AuditCompetition = Audit & {
 /**
  * Type for the amount of each finding severity found in an audit
  */
-export type Findings = {
-  critical: number;
-  high: number;
-  medium: number;
-  lowQa: number;
-  analysis: number;
-};
+export type Findings = Record<FindingSeverity, number>;
 
-export const FINDING_SEVERITY = {
+export const FINDING_SEVERITY: Record<FindingSeverity, string> = {
   critical: 'Critical',
   high: 'High',
   medium: 'Medium',
   lowQa: 'Low/QA',
+  low: 'Low',
   analysis: 'Analysis',
 };
 
@@ -71,7 +66,7 @@ export const FINDING_SEVERITY = {
  */
 export type BugBounty = {
   protocol: string;
-  platform: string;
+  platform?: string;
   date: Date;
   shortDesc: string;
   categories: Category[];
@@ -89,8 +84,13 @@ export type BugBounty = {
  * @param description A short description of the vulnerability
  */
 export type BountyFinding = {
-  severity: 'critical' | 'high' | 'medium' | 'low';
+  severity: FindingSeverity;
   reward: number;
   title: string;
   description: string;
 };
+
+/**
+ * Type for the severity of a finding
+ */
+export type FindingSeverity = 'critical' | 'high' | 'medium' | 'low' | 'lowQa' | 'analysis';
