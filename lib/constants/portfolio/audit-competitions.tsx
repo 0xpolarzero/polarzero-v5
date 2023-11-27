@@ -9,7 +9,12 @@ export const AUDIT_COMPETITIONS: Audit[] = [
     duration: 6,
     shortDesc: 'Decentralized naming system for wallets, websites, and more',
     categories: ['audit competition', 'ens'],
-    description: 'Stateful fuzzing (invariant testing), manual analysis.',
+    description: (
+      <div>
+        <p className="mb-2 font-medium text-gray-11">Waiting for report...</p>
+        <p>Stateful fuzzing (invariant testing), manual analysis.</p>
+      </div>
+    ),
     url: 'https://code4rena.com/reports/2023-10-ens',
     slug: '2023-10-ens',
     findings: {
@@ -29,7 +34,12 @@ export const AUDIT_COMPETITIONS: Audit[] = [
     duration: 21,
     shortDesc: 'Smart contract based Bitcoin',
     categories: ['formal verification', 'lending/borrowing'],
-    description: 'Certora Prover: Formal verification competition. Waiting for results...',
+    description: (
+      <div>
+        <p className="mb-2 font-medium text-gray-11">Waiting for results...</p>
+        <p>Formal verification competition (Certora Prover).</p>
+      </div>
+    ),
     url: 'https://code4rena.com/reports/2023-10-badger-ebtc-audit-certora-formal-verification-competition',
     slug: '2023-10-ens',
     findings: {
