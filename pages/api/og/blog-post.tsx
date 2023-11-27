@@ -25,10 +25,12 @@ const interSemiBoldFontP = fetch(
 export default async function handler(req: NextRequest) {
   const { searchParams } = new URL(req.url);
 
+  const hasCategory = searchParams.has('category');
   const hasTitle = searchParams.has('title');
   const hasSubtitle = searchParams.has('subtitle');
   const hasDescription = searchParams.get('description');
 
+  const category = hasCategory ? `/${searchParams.get('category')}` : '/writing';
   const title = hasTitle ? searchParams.get('title') : 'Title';
   const subtitle = hasSubtitle ? searchParams.get('subtitle') : null;
   const description = hasDescription ? searchParams.get('description') : null;
@@ -219,7 +221,7 @@ export default async function handler(req: NextRequest) {
                 fontWeight: 500,
               }}
             >
-              /writing
+              {category}
             </div>
           </div>
         </div>

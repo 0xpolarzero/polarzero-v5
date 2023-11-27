@@ -4,7 +4,7 @@ import { ChevronLeft } from 'lucide-react';
 import { NextSeo } from 'next-seo';
 
 import { PORTFOLIO_PAGES } from '@/lib/constants/portfolio';
-import { Audit, AuditCompetition, BugBounty } from '@/lib/types/portfolio';
+import { Audit, BugBounty } from '@/lib/types/portfolio';
 
 import BaseLayout from '@/components/layouts/base';
 import ContainerLayout from '@/components/layouts/container';
@@ -24,7 +24,7 @@ const PortfolioPage: NextPage = () => {
           site_name: 'polarzero',
           images: [
             {
-              url: 'https://polarzero.xyz/api/og/page?title=Portfolio&description=Audit%20findings%20and%20research.&path=/portfolio',
+              url: 'https://polarzero.xyz/api/og/page?title=Portfolio&description=Audit%20findings,%20bounties%20and%20research.&path=/portfolio',
               width: 1200,
               height: 630,
               alt: 'polarzero portfolio open-graph image',
@@ -38,17 +38,13 @@ const PortfolioPage: NextPage = () => {
 
       <BaseLayout subtitle="Portfolio" pageSlug="/portfolio">
         <ContainerLayout className="flex flex-col space-y-4">
-          <p>Body: vulnerabilities found (depending on type) + date & duration</p>
-          <p>+ add slight color depending on type</p>
-          <p>Filters as well with type of contest, and maybe also categories</p>
-
           {PORTFOLIO_PAGES.map((page, i) => {
             if (
               page.categories.includes('audit competition') ||
               page.categories.includes('solo audit')
             ) {
               // We won't associate these tags to a page with the wrong type
-              return <AuditCardFeature key={i} {...(page as Audit | AuditCompetition)} />;
+              return <AuditCardFeature key={i} {...(page as Audit)} />;
             }
 
             if (page.categories.includes('bug bounty')) {
