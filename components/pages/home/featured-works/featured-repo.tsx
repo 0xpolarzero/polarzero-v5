@@ -41,6 +41,7 @@ const FeaturedRepoFeature: FC<FeaturedRepoFeatureProps> = ({ name, description, 
           View
         </Button>
       }
+      allowWrap
     />
   );
 };
