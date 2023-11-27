@@ -2,13 +2,25 @@ import type { FC } from 'react';
 
 import { Github, Twitter } from 'lucide-react';
 
+import { useImmersiveBg } from '@/lib/stores/useImmersiveBg';
+import { cn } from '@/lib/utils';
+
 import LogoIcon from '@/components/common/logo-icon';
 import PolarzeroAvatar from '@/components/common/polarzero-avatar';
 import { Button } from '@/components/ui';
 
 const PolarzeroHeader: FC = () => {
+  const immersiveBg = useImmersiveBg((state) => state.enabledWithConditions);
+
   return (
-    <div className="flex flex-col items-center rounded-xl border border-gray-6 bg-gray-2 p-3 md:flex-row md:justify-between md:rounded-2xl md:p-6">
+    <div
+      className={cn(
+        'flex flex-col items-center rounded-xl border border-gray-6 p-3 md:flex-row md:justify-between md:rounded-2xl md:p-6',
+        immersiveBg
+          ? 'bg-white/0 bg-clip-padding backdrop-blur-[2px] transition-all duration-100 hover:backdrop-blur-sm'
+          : 'bg-gray-2',
+      )}
+    >
       <div className="flex w-full items-center">
         {/* Avatar (desktop) */}
         <PolarzeroAvatar className="mr-4 hidden md:block" size={56} />

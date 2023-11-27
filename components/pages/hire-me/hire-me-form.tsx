@@ -105,7 +105,7 @@ const HireMeForm: FC = () => {
       className={cn(
         'mt-0.5 flex flex-col space-y-2 rounded-xl border border-gray-6 p-3 text-sm text-gray-11 md:mt-1 md:rounded-2xl md:p-6 md:text-base',
         immersiveBg
-          ? 'backdrop-blur-xs bg-white/0 bg-clip-padding transition-all duration-100 hover:backdrop-blur-sm'
+          ? 'bg-white/0 bg-clip-padding backdrop-blur-[2px] transition-all duration-100 hover:backdrop-blur-sm'
           : 'bg-gray-2',
       )}
     >
