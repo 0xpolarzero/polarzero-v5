@@ -5,8 +5,8 @@ import { MDXProvider } from '@mdx-js/react';
 import { ChevronLeft, ExternalLink } from 'lucide-react';
 import { NextSeo } from 'next-seo';
 
-import { SECTIONS } from '@/lib/constants/blog';
-import { WRITING_BLOG_PAGES } from '@/lib/constants/writing';
+import { SECTIONS } from '@/lib/constants/portfolio';
+import { PORTFOLIO_PAGES } from '@/lib/constants/portfolio';
 import { useMediaQuery } from '@/lib/hooks/useMediaQuery';
 import type { PageSlug } from '@/lib/types/site';
 
@@ -21,7 +21,7 @@ import type { CodeBlockProps } from '@/components/ui/code-block/types';
 // Props
 // -----------------------------------------------------------------------------
 
-type BlogPostLayoutProps = {
+type AuditReportLayoutProps = {
   selected: PageSlug;
   children?: ReactNode;
   slug: string;
@@ -31,9 +31,16 @@ type BlogPostLayoutProps = {
 // Component
 // -----------------------------------------------------------------------------
 
-const BlogPostLayout: FC<BlogPostLayoutProps> = ({ selected, children, slug }) => {
-  const { title, subtitle, description, url, platform } =
-    WRITING_BLOG_PAGES.find((page) => page.slug === slug) || {};
+const AuditReportLayout: FC<AuditReportLayoutProps> = ({ selected, children, slug }) => {
+  const { protocol, categories, description, url, platform } =
+    PORTFOLIO_PAGES.find((page) => page.slug === slug) || {};
+  const category =
+    categories?.includes('audit competition') || categories?.includes('solo audit')
+      ? 'audit'
+      : 'bug bounty';
+
+  const subtitle =
+    category === 'audit' ? 'Audit report' : category === 'bug bounty' ? 'Bug bounty writeup' : '';
 
   const isSmallScreen = useMediaQuery('(max-width: 768px)'); // `md` breakpoint
 
@@ -114,24 +121,22 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = ({ selected, children, slug }) =
         openGraph={{
           type: 'website',
           locale: 'en_US',
-          title: `${title}; ${subtitle} - polarzero writing`,
-          description:
-            description ||
-            'A blog on blockchain & distributed systems; accessibility, security and adoption.',
-          url: 'https://polarzero.xyz/writing',
+          title: `${protocol}; ${subtitle} - polarzero reports`,
+          description: description || 'Audit reports & bug bounty writeups',
+          url: 'https://polarzero.xyz/portfolio',
           site_name: 'polarzero',
           images: [
             {
-              url: `https://polarzero.xyz/api/og/blog-post?title=${title}&subtitle=${subtitle}&description=${description}`,
+              url: `https://polarzero.xyz/api/og/blog-post?title=${protocol}&subtitle=${subtitle}&description=${description}`,
               width: 1200,
               height: 630,
-              alt: 'polarzero writing docs open-graph image',
+              alt: 'polarzero portfolio docs open-graph image',
             },
           ],
         }}
       />
 
-      <BaseLayout title={title} subtitle={subtitle} pageSlug="/writing">
+      <BaseLayout title={protocol} subtitle={subtitle} pageSlug="/portfolio">
         {/* Note: `pb-6` overrides `pb-4` on small devices. `<BlogPostNavBar />`
             has a `mb-6` when displayed on small screens, so the ``margin''
             above/below the article content is symmetrical. We do this instead
@@ -144,19 +149,21 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = ({ selected, children, slug }) =
           {isSmallScreen ? null : (
             <div className="grid grid-cols-2 items-center justify-between space-y-2">
               {/* Title */}
-              <h1 className="text-3xl font-semibold tracking-tight text-gray-12">{title}</h1>
+              <h1 className="text-3xl font-semibold tracking-tight text-gray-12">{protocol}</h1>
               {/* Back */}
               <Button
                 className="justify-self-end"
                 variant="secondary"
                 intent="primary"
-                href="/writing"
+                href="/portfolio"
                 leftIcon={<ChevronLeft />}
               >
-                Return to Writing
+                Return to Portfolio
               </Button>
               {/* Subtitle */}
-              <h2 className="text-xl font-medium tracking-tight text-gray-11">{subtitle}</h2>
+              <h2 className="ml-0 pl-0 text-left text-xl font-medium tracking-tight text-gray-11">
+                {subtitle}
+              </h2>
               {/* Open external link */}
               <Button
                 className="justify-self-end"
@@ -166,7 +173,14 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = ({ selected, children, slug }) =
                 rightIcon={<ExternalLink />}
                 newTab
               >
-                {platform === 'PDF' ? 'Read PDF' : `Read on ${platform}`}
+                {/* bug bounty => read on Medium */}
+                {/* audit => read on platform if platform, otherwise github */}
+                Open report on{' '}
+                {category === 'audit' && platform
+                  ? platform
+                  : category === 'bug bounty'
+                  ? 'Medium'
+                  : 'GitHub'}
               </Button>
             </div>
           )}
@@ -177,7 +191,7 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = ({ selected, children, slug }) =
               slug={slug}
               selected={selected}
               sections={SECTIONS[slug]}
-              category="blog"
+              category={category}
             />
             <MDXProvider components={components}>
               {/* Add overflow-hidden for code-blocks (too large) so add px-1 to not hide italics */}
@@ -194,4 +208,4 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = ({ selected, children, slug }) =
   );
 };
 
-export default BlogPostLayout;
+export default AuditReportLayout;
