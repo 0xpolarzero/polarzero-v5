@@ -20,10 +20,7 @@ const FeaturedWriting: FC = () => {
   }, [filter]);
 
   return (
-    <div
-      className="grid grid-cols-2 gap-4 min-[960px]:grid-cols-4"
-      // className="grid grid-cols-2 gap-4 min-[560px]:grid-cols-4 min-[960px]:grid-cols-6"
-    >
+    <div className="grid grid-cols-2 gap-4 min-[960px]:grid-cols-4">
       {WRITING_BLOG_PAGES.filter((post) =>
         currentFilter ? post.tags.includes(currentFilter) : true,
       ).map((post, i) => (

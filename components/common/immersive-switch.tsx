@@ -6,10 +6,6 @@ import { useImmersiveBg } from '@/lib/stores/useImmersiveBg';
 
 import { Button, Tooltip } from '@/components/ui';
 
-// -----------------------------------------------------------------------------
-// Component
-// -----------------------------------------------------------------------------
-
 const ImmersiveSwitch: FC = () => {
   const { immersiveBgEnabled, toggleImmersiveBg } = useImmersiveBg((state) => ({
     immersiveBgEnabled: state.enabled,

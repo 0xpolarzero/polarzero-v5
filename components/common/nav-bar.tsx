@@ -1,12 +1,11 @@
 import { type FC, Fragment, useEffect, useState } from 'react';
 
 import Logo from './logo';
-import clsx from 'clsx';
 
 import { NAVBAR_PAGES } from '@/lib/constants/site';
 import type { PageSlug } from '@/lib/types/site';
+import { cn } from '@/lib/utils';
 
-// import ConnectButton from '@/components/common/connect-button';
 import ImmersiveSwitch from '@/components/common/immersive-switch';
 import { Button, IconButton, Tooltip } from '@/components/ui';
 
@@ -41,7 +40,7 @@ const DesktopNavBar: FC<NavBarProps> = ({ selected }) => {
         return (
           <Button
             key={page.slug}
-            className={clsx('ml-2', pageSelected ? 'cursor-default bg-gray-4' : '')}
+            className={cn('ml-2', pageSelected ? 'cursor-default bg-gray-4' : '')}
             variant="ghost"
             href={page.slug}
             disabled={pageSelected}
@@ -51,7 +50,6 @@ const DesktopNavBar: FC<NavBarProps> = ({ selected }) => {
         );
       })}
       <div className="flex-grow" />
-      {/* <ConnectButton /> */}
       <ImmersiveSwitch />
     </nav>
   );
@@ -71,7 +69,7 @@ const MobileNavBar: FC<NavBarProps> = ({ selected }) => {
         return (
           <Tooltip key={page.slug} content={page.name}>
             <IconButton
-              className={clsx('ml-2', pageSelected ? 'cursor-default bg-gray-4' : '')}
+              className={cn('ml-2', pageSelected ? 'cursor-default bg-gray-4' : '')}
               variant="ghost"
               href={page.slug}
               disabled={pageSelected}
@@ -82,7 +80,6 @@ const MobileNavBar: FC<NavBarProps> = ({ selected }) => {
         );
       })}
       <div className="flex-grow" />
-      {/* <ConnectButton /> */}
       {!isMobile ? <ImmersiveSwitch /> : null}
     </nav>
   );

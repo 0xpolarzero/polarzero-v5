@@ -11,7 +11,7 @@ import { Button, Select } from '@/components/ui';
 // Props
 // -----------------------------------------------------------------------------
 
-type FilterCategoriesProps = { categories: string[] };
+type FilterCategoriesProps = { categories: Category[] };
 
 // -----------------------------------------------------------------------------
 // Component

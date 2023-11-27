@@ -1,7 +1,6 @@
 import { type FC, Fragment, useMemo, useState } from 'react';
 
 import * as Dialog from '@radix-ui/react-dialog';
-import clsx from 'clsx';
 import { ChevronRight, Menu, X } from 'lucide-react';
 
 import { PORTFOLIO_PAGES } from '@/lib/constants/portfolio';
@@ -9,6 +8,7 @@ import { WRITING_BLOG_PAGES } from '@/lib/constants/writing';
 import { useMediaQuery } from '@/lib/hooks/useMediaQuery';
 import type { PageSlug } from '@/lib/types/site';
 import { BlogPostSection } from '@/lib/types/writing';
+import { cn } from '@/lib/utils';
 
 import { Button, IconButton } from '@/components/ui';
 
@@ -98,7 +98,7 @@ const BlogPostNavBarMobile: FC<BlogPostNavBarProps> = ({ selected, sections, slu
             {sections.map((section, index) => (
               <Fragment key={index}>
                 <Button
-                  className={clsx(
+                  className={cn(
                     'w-full justify-start py-1 text-base font-medium',
                     selected === section.slug
                       ? 'cursor-default bg-gray-4 text-left text-white'
@@ -117,7 +117,7 @@ const BlogPostNavBarMobile: FC<BlogPostNavBarProps> = ({ selected, sections, slu
                   return (
                     <div key={subsection.slug}>
                       <div
-                        className={clsx(
+                        className={cn(
                           'ml-4 w-full justify-start py-[0.2rem] text-sm text-gray-11',
                           i === section.subsections.length - 1 ? 'mb-2' : '',
                         )}
@@ -147,7 +147,7 @@ const BlogPostNavBarInternal: FC<BlogPostNavBarProps> = ({
       {sections.map((section, index) => (
         <Fragment key={index}>
           <Button
-            className={clsx(
+            className={cn(
               'my-2 h-min w-full justify-start py-1 text-base font-medium',
               selected === section.slug ? 'cursor-default bg-gray-4 text-left text-white' : '',
               section.subsections.length === 0 ? 'mb-2' : '',
@@ -164,7 +164,7 @@ const BlogPostNavBarInternal: FC<BlogPostNavBarProps> = ({
             return (
               <div key={subsection.slug}>
                 <div
-                  className={clsx(
+                  className={cn(
                     'ml-4 w-full justify-start py-[0.2rem] text-sm text-gray-11',
                     i === section.subsections.length - 1 ? 'mb-2' : '',
                   )}

@@ -2,9 +2,9 @@ import { type FC, type ForwardedRef, forwardRef } from 'react';
 
 import { selectContainerStyles, selectIconContainerVariants, selectVariants } from './styles';
 import type { SelectComposition, SelectItemProps, SelectProps } from './types';
-import clsx from 'clsx';
 import { ChevronDown } from 'lucide-react';
-import { twMerge } from 'tailwind-merge';
+
+import { cn } from '@/lib/utils';
 
 const Select: FC<SelectProps> & SelectComposition = ({
   className,
@@ -20,11 +20,9 @@ const Select: FC<SelectProps> & SelectComposition = ({
   return (
     <div className={selectContainerStyles}>
       <select
-        className={twMerge(
-          clsx(
-            selectVariants({ size, variant, intent: !disabled ? intent : undefined, disabled }),
-            className,
-          ),
+        className={cn(
+          selectVariants({ size, variant, intent: !disabled ? intent : undefined, disabled }),
+          className,
         )}
         size={selectSize}
         data-variant={variant}

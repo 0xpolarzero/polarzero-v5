@@ -71,8 +71,6 @@ const AuditCardFeature: FC<AuditCardFeatureProps> = (props) => {
         <CategoryTag key={i} size="md" category={tag} />
       ))}
       internalLink={`/portfolio/audit/${slug}`}
-      // bgImmersive={categories.includes('audit competition') ? 'bg-orange' : 'bg-indigo'}
-      // bgBase={categories.includes('audit competition') ? 'bg-orange' : 'bg-indigo'}
     >
       <div className="flex h-full flex-col space-y-4 p-4">
         {/* description */}

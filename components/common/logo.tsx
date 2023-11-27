@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import type { FC } from 'react';
 
-import clsx from 'clsx';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/lib/utils';
 
 // -----------------------------------------------------------------------------
 // Props
@@ -19,11 +18,7 @@ type LogoProps = {
 
 const Logo: FC<LogoProps> = ({ className, href = '/' }) => {
   return (
-    <Link
-      href={href}
-      className={clsx(twMerge('h-8 w-8 hover:brightness-75', className))}
-      aria-label="Home"
-    >
+    <Link href={href} className={cn('h-8 w-8 hover:brightness-75', className)} aria-label="Home">
       <svg
         width="32"
         height="32"

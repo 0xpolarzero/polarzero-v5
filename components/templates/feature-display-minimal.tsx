@@ -1,8 +1,5 @@
 import type { FC, ReactNode } from 'react';
 
-import clsx from 'clsx';
-import { twMerge } from 'tailwind-merge';
-
 import { cn } from '@/lib/utils';
 
 // -----------------------------------------------------------------------------

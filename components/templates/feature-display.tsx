@@ -1,9 +1,7 @@
 import { useRouter } from 'next/navigation';
 import { type FC, type ReactNode, useState } from 'react';
 
-import clsx from 'clsx';
 import { ArrowRight } from 'lucide-react';
-import { twMerge } from 'tailwind-merge';
 
 import { useImmersiveBg } from '@/lib/stores/useImmersiveBg';
 import { cn } from '@/lib/utils';
@@ -58,23 +56,19 @@ const FeatureDisplay: FC<FeatureDisplayProps> = ({
 
   return (
     <div
-      className={twMerge(
-        clsx('flex h-64 w-64 flex-col overflow-hidden rounded-xl border border-gray-6'),
-        clsx(
-          immersiveBg
-            ? `${bgImmersive}-9/20 bg-clip-padding backdrop-blur-[2px] transition-all duration-100 hover:backdrop-blur-md`
-            : '',
-        ),
+      className={cn(
+        'flex h-64 w-64 flex-col overflow-hidden rounded-xl border border-gray-6',
+        immersiveBg
+          ? `${bgImmersive}-9/20 bg-clip-padding backdrop-blur-[2px] transition-all duration-100 hover:backdrop-blur-md`
+          : '',
         className,
       )}
     >
       {/* Header */}
       <div
-        className={twMerge(
-          clsx(
-            'relative flex h-[4.5rem] cursor-pointer items-center space-x-2.5 border-b border-gray-7 px-4 transition duration-200 ease-in-out',
-            clsx(!immersiveBg ? (hovered ? `${bgBase}-3` : `${bgBase}-2`) : ''),
-          ),
+        className={cn(
+          'relative flex h-[4.5rem] cursor-pointer items-center space-x-2.5 border-b border-gray-7 px-4 transition duration-200 ease-in-out',
+          !immersiveBg ? (hovered ? `${bgBase}-3` : `${bgBase}-2`) : '',
         )}
         onPointerEnter={() => hover(true)}
         onPointerLeave={() => hover(false)}
@@ -102,9 +96,9 @@ const FeatureDisplay: FC<FeatureDisplayProps> = ({
 
       {/* Body */}
       <div
-        className={twMerge(
-          clsx('w-full grow cursor-pointer transition duration-200 ease-in-out'),
-          clsx(!immersiveBg ? (hovered ? `${bgBase}-3` : `${bgBase}-2`) : ''),
+        className={cn(
+          'w-full grow cursor-pointer transition duration-200 ease-in-out',
+          !immersiveBg ? (hovered ? `${bgBase}-3` : `${bgBase}-2`) : '',
         )}
         onPointerEnter={() => hover(true)}
         onPointerLeave={() => hover(false)}
@@ -118,7 +112,7 @@ const FeatureDisplay: FC<FeatureDisplayProps> = ({
         <div
           className={cn(
             'flex h-10 items-center justify-between border-t border-gray-6 p-2 transition duration-200 ease-in-out',
-            clsx(!immersiveBg ? (hovered ? `${bgBase}-3` : `${bgBase}-2`) : ''),
+            !immersiveBg ? (hovered ? `${bgBase}-3` : `${bgBase}-2`) : '',
           )}
         >
           {/* Tags */}

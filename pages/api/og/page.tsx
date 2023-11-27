@@ -3,7 +3,7 @@ import type { NextRequest } from 'next/server';
 import { ImageResponse } from '@vercel/og';
 
 /* ------------------------------------ - ----------------------------------- */
-// Used onlyto generate the og image for the home page
+// Used only to generate the og image for the home page
 /* ------------------------------------ - ----------------------------------- */
 
 export const config = {

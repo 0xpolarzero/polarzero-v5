@@ -8,12 +8,6 @@ import FeaturedWorks from '@/components/pages/home/featured-works';
 import PolarzeroHeader from '@/components/pages/home/header';
 
 // -----------------------------------------------------------------------------
-// Props
-// -----------------------------------------------------------------------------
-
-// type HomePageProps = {};
-
-// -----------------------------------------------------------------------------
 // Page
 // -----------------------------------------------------------------------------
 
@@ -49,14 +43,5 @@ const HomePage: NextPage = () => {
     </>
   );
 };
-
-// -----------------------------------------------------------------------------
-// Get static props
-// -----------------------------------------------------------------------------
-
-// export const getStaticProps: GetStaticProps = async () => {
-//   const props: HomePageProps = {};
-//   return { props, revalidate: 3600 };
-// };
 
 export default HomePage;

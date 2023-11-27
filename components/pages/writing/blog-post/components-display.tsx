@@ -1,11 +1,11 @@
 import { Children, type FC, isValidElement, type ReactNode, useCallback, useMemo } from 'react';
 
 import * as Accordion from '@radix-ui/react-accordion';
-import clsx from 'clsx';
 import { ChevronRight } from 'lucide-react';
 import prettier from 'prettier';
 import babel from 'prettier/parser-babel';
-import { twMerge } from 'tailwind-merge';
+
+import { cn } from '@/lib/utils';
 
 import ToastButton from '@/components/pages/writing/blog-post/toast-button';
 import { Badge, Button, CodeBlock, HoverCard, IconButton, Select, Tooltip } from '@/components/ui';
@@ -145,12 +145,10 @@ const BlogPostComponentsDisplay: FC<BlogPostComponentsDisplayProps> = ({
   return (
     <div className="grid w-full grid-cols-1">
       <div
-        className={twMerge(
-          clsx(
-            'grid w-full items-center justify-evenly gap-4 border border-gray-6 bg-gray-2 py-8',
-            code.length > 0 ? 'rounded-t-xl border-b-0' : 'rounded-xl',
-            className,
-          ),
+        className={cn(
+          'grid w-full items-center justify-evenly gap-4 border border-gray-6 bg-gray-2 py-8',
+          code.length > 0 ? 'rounded-t-xl border-b-0' : 'rounded-xl',
+          className,
         )}
         {...rest}
       >

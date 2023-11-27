@@ -1,15 +1,11 @@
 import Link from 'next/link';
 import { type FC, useState } from 'react';
 
-import { Check, Copy, Mail, Twitter } from 'lucide-react';
+import { Check, Copy } from 'lucide-react';
 
 import { CONTACT_LINKS } from '@/lib/constants/site';
 
-import { Button, IconButton } from '@/components/ui';
-
-// -----------------------------------------------------------------------------
-// Component
-// -----------------------------------------------------------------------------
+import { IconButton } from '@/components/ui';
 
 const HireMeHeader: FC = () => {
   const [copied, setCopied] = useState<boolean>(false);
@@ -23,7 +19,6 @@ const HireMeHeader: FC = () => {
   };
 
   return (
-    // <div className="mt-0.5 flex flex-col space-y-2 rounded-xl border border-gray-6 bg-gray-2 p-3 text-sm text-gray-11 md:mt-1 md:rounded-2xl md:p-6 md:text-base">
     <div className="mt-0.5 flex flex-col space-y-2 px-3 text-sm text-gray-11 md:px-6 md:text-base">
       <p className="text-gray-12">
         If you would like to <span className="font-medium">integrate smart contracts</span> into

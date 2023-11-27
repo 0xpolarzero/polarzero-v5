@@ -6,7 +6,7 @@ export const BUG_BOUNTIES: BugBounty[] = [
     platform: 'Immunefi',
     date: new Date('2021-01-01'),
     shortDesc: 'Lending & Borrowing',
-    categories: ['bug bounty', 'lending'],
+    categories: ['bug bounty'],
     description: 'Formal verification and fuzzing...',
     url: 'https://immunefi.com/bounty/mock',
     slug: 'mock-bounty',

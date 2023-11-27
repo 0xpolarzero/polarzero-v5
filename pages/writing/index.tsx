@@ -37,9 +37,6 @@ const WritingPage: NextPage = () => {
 
       <BaseLayout subtitle="Writing" pageSlug="/writing">
         <ContainerLayout className="flex flex-col space-y-4">
-          {/* <h1 className="text-3xl font-semibold tracking-tight text-gray-12 md:text-4xl">
-            Writing
-          </h1> */}
           <FilterCategories categories={CATEGORIES} />
           <FeaturedWriting />
           <Button variant="secondary" intent="primary" href="/" leftIcon={<ChevronLeft />}>

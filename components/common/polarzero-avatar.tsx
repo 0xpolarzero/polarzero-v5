@@ -1,10 +1,9 @@
 import Image from 'next/image';
 import type { FC } from 'react';
 
-import clsx from 'clsx';
-import { twMerge } from 'tailwind-merge';
-
 import avatar from '@/public/avatar.svg';
+
+import { cn } from '@/lib/utils';
 
 // -----------------------------------------------------------------------------
 // Props
@@ -22,7 +21,7 @@ type PolarzeroAvatarProps = {
 const PolarzeroAvatar: FC<PolarzeroAvatarProps> = ({ className, size = 40 }) => {
   return (
     <Image
-      className={clsx(twMerge('my-0 rounded-full border border-gray-6', className))}
+      className={cn('my-0 rounded-full border border-gray-6', className)}
       width={size}
       height={size}
       src={avatar}
