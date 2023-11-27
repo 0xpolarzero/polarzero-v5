@@ -79,6 +79,8 @@ const AudiCardFeature: FC<AuditCardFeatureProps> = (props) => {
         <CategoryTag key={i} size="md" category={tag} />
       ))}
       internalLink={`/portfolio/audits/${slug}`}
+      bgImmersive={categories.includes('audit competition') ? 'bg-orange' : 'bg-blue'}
+      bgBase={categories.includes('audit competition') ? 'bg-orange' : 'bg-blue'}
     >
       <div className="flex h-full flex-col space-y-4 p-4">
         {/* description */}

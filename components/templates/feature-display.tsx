@@ -22,6 +22,8 @@ type FeatureDisplayProps = {
   children: ReactNode;
   internalLink?: string;
   addUrl?: string;
+  bgBase?: string;
+  bgImmersive?: string;
 };
 
 // -----------------------------------------------------------------------------
@@ -38,6 +40,8 @@ const FeatureDisplay: FC<FeatureDisplayProps> = ({
   children,
   internalLink,
   addUrl,
+  bgBase = 'bg-gray-2',
+  bgImmersive = 'bg-white/0',
 }) => {
   const router = useRouter();
   const [hovered, hover] = useState(false);
@@ -58,8 +62,8 @@ const FeatureDisplay: FC<FeatureDisplayProps> = ({
         clsx('flex h-64 w-64 flex-col overflow-hidden rounded-xl border border-gray-6'),
         clsx(
           immersiveBg
-            ? 'bg-white/0 bg-clip-padding backdrop-blur-sm transition-all duration-100 hover:backdrop-blur-md'
-            : 'bg-gray-2',
+            ? `${bgImmersive}-9/5 bg-clip-padding backdrop-blur-sm transition-all duration-100 hover:backdrop-blur-md`
+            : `${bgBase}-9/5`,
         ),
         className,
       )}
@@ -69,7 +73,7 @@ const FeatureDisplay: FC<FeatureDisplayProps> = ({
         className={twMerge(
           clsx(
             'relative flex h-[4.5rem] cursor-pointer items-center space-x-2.5 border-b border-gray-7 px-4 transition duration-200 ease-in-out',
-            clsx(!immersiveBg ? (hovered ? 'bg-gray-3' : 'bg-gray-2') : ''),
+            clsx(!immersiveBg ? (hovered ? `${bgBase}-3` : `${bgBase}-2`) : ''),
           ),
         )}
         onPointerEnter={() => hover(true)}
@@ -100,7 +104,7 @@ const FeatureDisplay: FC<FeatureDisplayProps> = ({
       <div
         className={twMerge(
           clsx('w-full grow cursor-pointer transition duration-200 ease-in-out'),
-          clsx(!immersiveBg ? (hovered ? 'bg-gray-3' : 'bg-gray-2') : ''),
+          clsx(!immersiveBg ? (hovered ? `${bgBase}-3` : `${bgBase}-2`) : ''),
         )}
         onPointerEnter={() => hover(true)}
         onPointerLeave={() => hover(false)}
@@ -111,7 +115,12 @@ const FeatureDisplay: FC<FeatureDisplayProps> = ({
 
       {/* Footer */}
       {tags || button ? (
-        <div className="flex h-10 items-center justify-between border-t border-gray-6 p-2">
+        <div
+          className={cn(
+            'flex h-10 items-center justify-between border-t border-gray-6 p-2 transition duration-200 ease-in-out',
+            clsx(!immersiveBg ? (hovered ? `${bgBase}-3` : `${bgBase}-2`) : ''),
+          )}
+        >
           {/* Tags */}
           <div className="flex items-center space-x-1">{tags ? tags.map((tag) => tag) : null}</div>
 
