@@ -5,13 +5,15 @@ import { Calendar, ExternalLink } from 'lucide-react';
 import { PLATFORM_ICONS } from '@/lib/constants/portfolio/platforms';
 import { PROTOCOL_ICONS } from '@/lib/constants/portfolio/protocols';
 import { Audit } from '@/lib/types/portfolio';
-import { getTimePassed } from '@/lib/utils';
+import { cn, getTimePassed } from '@/lib/utils';
 
 import CategoryTag from '@/components/templates/category-tag';
 import FeatureDisplay from '@/components/templates/feature-display';
 import { Badge, Button, Tooltip } from '@/components/ui';
 
-type AuditCardFeatureProps = Audit;
+type AuditCardFeatureProps = Audit & {
+  className?: string;
+};
 
 const isCompetition = (object: Audit): object is Audit => {
   return 'rank' in object && 'platform' in object;
@@ -56,7 +58,7 @@ const AuditCardFeature: FC<AuditCardFeatureProps> = (props) => {
 
   return (
     <FeatureDisplay
-      className="col-span-1 h-full w-full min-[960px]:w-full"
+      className={cn('col-span-1 h-full w-full min-[960px]:w-full', props.className)}
       name={protocol}
       description={shortDesc}
       symbol={<Tooltip content={protocol}>{PROTOCOL_ICONS[protocol]}</Tooltip>}
