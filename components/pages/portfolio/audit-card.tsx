@@ -17,7 +17,7 @@ const isAuditCompetition = (object: Audit | AuditCompetition): object is AuditCo
   return 'rank' in object && 'platform' in object;
 };
 
-const AudiCardFeature: FC<AuditCardFeatureProps> = (props) => {
+const AuditCardFeature: FC<AuditCardFeatureProps> = (props) => {
   // Access common properties
   const { protocol, date, duration, shortDesc, categories, description, url, slug, findings } =
     props;
@@ -108,4 +108,4 @@ const AudiCardFeature: FC<AuditCardFeatureProps> = (props) => {
   );
 };
 
-export default AudiCardFeature;
+export default AuditCardFeature;
