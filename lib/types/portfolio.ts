@@ -19,7 +19,7 @@ export type Audit = {
   duration: number;
   shortDesc: string;
   categories: Category[];
-  description: string;
+  description: string | React.ReactNode;
   url: string;
   slug: string;
   findings: Findings;
