@@ -4,10 +4,12 @@ import { ChevronLeft } from 'lucide-react';
 import { NextSeo } from 'next-seo';
 
 import { PORTFOLIO_PAGES } from '@/lib/constants/portfolio';
+import { Audit, AuditCompetition, BugBounty } from '@/lib/types/portfolio';
 
 import BaseLayout from '@/components/layouts/base';
 import ContainerLayout from '@/components/layouts/container';
-import AuditCompetitionCardFeature from '@/components/pages/portfolio/audit-card';
+import AuditCardFeature from '@/components/pages/portfolio/audit-card';
+import BugBountyFeature from '@/components/pages/portfolio/bug-bounty';
 import { Button } from '@/components/ui';
 
 const PortfolioPage: NextPage = () => {
@@ -45,8 +47,16 @@ const PortfolioPage: NextPage = () => {
               page.categories.includes('audit competition') ||
               page.categories.includes('solo audit')
             ) {
-              return <AuditCompetitionCardFeature key={i} {...page} />;
+              // We won't associate these tags to a page with the wrong type
+              return <AuditCardFeature key={i} {...(page as Audit | AuditCompetition)} />;
             }
+
+            if (page.categories.includes('bug bounty')) {
+              // We won't associate these tags to a page with the wrong type
+              return <BugBountyFeature key={i} {...(page as BugBounty)} />;
+            }
+
+            return null;
           })}
           <Button variant="secondary" intent="primary" href="/" leftIcon={<ChevronLeft />}>
             Return home
