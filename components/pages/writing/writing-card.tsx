@@ -40,7 +40,7 @@ const WritingCardFeature: FC<WritingCardFeatureProps> = ({
 
   return (
     <FeatureDisplay
-      className="col-span-2 h-full w-full"
+      className="col-span-2 w-full"
       name={title}
       description={subtitle || ''}
       symbol={symbol}

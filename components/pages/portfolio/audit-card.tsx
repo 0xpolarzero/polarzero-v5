@@ -58,7 +58,7 @@ const AuditCardFeature: FC<AuditCardFeatureProps> = (props) => {
 
   return (
     <FeatureDisplay
-      className={cn('col-span-1 h-full w-full min-[960px]:w-full', props.className)}
+      className={cn('col-span-1 w-full min-[960px]:w-full', props.className)}
       name={protocol}
       description={shortDesc}
       symbol={<Tooltip content={protocol}>{PROTOCOL_ICONS[protocol]}</Tooltip>}

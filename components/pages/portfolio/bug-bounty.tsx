@@ -29,7 +29,7 @@ const BugBountyFeature: FC<BugBountyFeatureProps> = ({
 }) => {
   return (
     <FeatureDisplay
-      className="col-span-1 h-full w-full min-[960px]:w-full"
+      className="col-span-1 w-full min-[960px]:w-full"
       name={protocol}
       description={shortDesc}
       symbol={<Tooltip content={protocol}>{PROTOCOL_ICONS[protocol]}</Tooltip>}
