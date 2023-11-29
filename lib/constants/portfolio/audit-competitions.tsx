@@ -41,7 +41,7 @@ export const AUDIT_COMPETITIONS: Audit[] = [
       </div>
     ),
     url: 'https://code4rena.com/reports/2023-10-badger-ebtc-audit-certora-formal-verification-competition',
-    slug: '2023-10-ens',
+    slug: '2023-10-badger-ebtc-audit-certora-formal-verification-competition',
     findings: {
       critical: 0,
       high: 0,
