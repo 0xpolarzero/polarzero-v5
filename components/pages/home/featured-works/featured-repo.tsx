@@ -35,6 +35,7 @@ const FeaturedRepoFeature: FC<FeaturedRepoFeatureProps> = ({ name, description, 
       )}
       name={name}
       description={description}
+      details="Foundry fuzzing, Halmos, Certora"
       symbol={<Github />}
       button={
         <Button size="sm" rightIcon={<ExternalLink />} href={url} newTab>
