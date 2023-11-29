@@ -57,7 +57,7 @@ const FeatureDisplay: FC<FeatureDisplayProps> = ({
   return (
     <div
       className={cn(
-        'flex h-64 w-64 flex-col overflow-hidden rounded-xl border border-gray-6',
+        'flex h-full w-64 flex-col overflow-hidden rounded-xl border border-gray-6',
         immersiveBg
           ? `${bgImmersive}-9/20 bg-clip-padding backdrop-blur-[2px] transition-all duration-100 hover:backdrop-blur-md`
           : '',
@@ -75,7 +75,7 @@ const FeatureDisplay: FC<FeatureDisplayProps> = ({
         onClick={handleClick}
       >
         {/* Symbol */}
-        <div className="flex h-10 w-10 items-center justify-center rounded border border-gray-6 bg-gray-3 text-gray-11">
+        <div className="flex h-min w-min items-center justify-center rounded border border-gray-6 bg-gray-3 p-2 text-gray-11">
           <div className="flex h-6 w-6 items-center justify-center">{symbol}</div>
         </div>
         {/* Title + subtitle */}
@@ -111,12 +111,15 @@ const FeatureDisplay: FC<FeatureDisplayProps> = ({
       {tags || button ? (
         <div
           className={cn(
-            'flex h-10 items-center justify-between border-t border-gray-6 p-2 transition duration-200 ease-in-out',
+            'flex h-min flex-wrap items-center justify-between border-t border-gray-6 p-2 transition duration-200 ease-in-out sm:flex-nowrap',
             !immersiveBg ? (hovered ? `${bgBase}-3` : `${bgBase}-2`) : '',
           )}
+          style={{ gap: 8 }}
         >
           {/* Tags */}
-          <div className="flex items-center space-x-1">{tags ? tags.map((tag) => tag) : null}</div>
+          <div className="flex flex-wrap items-center" style={{ gap: 4 }}>
+            {tags ? tags.map((tag) => tag) : null}
+          </div>
 
           {/* Button */}
           {button}
