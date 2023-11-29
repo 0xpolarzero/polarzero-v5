@@ -14,7 +14,7 @@ export const FEATURED_WORKS: ReactNode[] = [
   <WritingCardFeature key={1} {...WRITING_BLOG_PAGES[2]} />,
   <FeaturedRepoFeature
     key={2}
-    name="Storage collision formal verification"
+    name="Storage collision"
     description="How some automated testing tools can fail to discover precise storage collision exploits, yet why it matters more than ever to use them."
     details="Foundry fuzzing, Halmos, Certora"
     url="https://github.com/0xpolarzero/storage-collision-formal-verification"
