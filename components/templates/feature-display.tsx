@@ -122,7 +122,7 @@ const FeatureDisplay: FC<FeatureDisplayProps> = ({
           </div>
 
           {/* Button */}
-          {button}
+          <div className="whitespace-nowrap">{button}</div>
         </div>
       ) : null}
     </div>
