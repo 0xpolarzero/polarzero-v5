@@ -57,7 +57,7 @@ const FeatureDisplay: FC<FeatureDisplayProps> = ({
   return (
     <div
       className={cn(
-        'flex h-full w-64 flex-col overflow-hidden rounded-xl border border-gray-6',
+        'flex h-max w-64 flex-col overflow-hidden rounded-xl border border-gray-6',
         immersiveBg
           ? `${bgImmersive}-9/20 bg-clip-padding backdrop-blur-[2px] transition-all duration-100 hover:backdrop-blur-md`
           : '',
