@@ -15,6 +15,7 @@ import { Button } from '@/components/ui';
 type FeaturedRepoFeatureProps = {
   name: string;
   description: string;
+  details: string;
   url: string;
 };
 
@@ -22,7 +23,7 @@ type FeaturedRepoFeatureProps = {
 // Component
 // -----------------------------------------------------------------------------
 
-const FeaturedRepoFeature: FC<FeaturedRepoFeatureProps> = ({ name, description, url }) => {
+const FeaturedRepoFeature: FC<FeaturedRepoFeatureProps> = ({ name, description, details, url }) => {
   const immersiveBg = useImmersiveBg((state) => state.enabledWithConditions);
 
   return (
@@ -35,7 +36,7 @@ const FeaturedRepoFeature: FC<FeaturedRepoFeatureProps> = ({ name, description, 
       )}
       name={name}
       description={description}
-      details="Foundry fuzzing, Halmos, Certora"
+      details={details}
       symbol={<Github />}
       button={
         <Button size="sm" rightIcon={<ExternalLink />} href={url} newTab>
