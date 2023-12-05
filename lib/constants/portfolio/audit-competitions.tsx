@@ -7,7 +7,7 @@ export const AUDIT_COMPETITIONS: Audit[] = [
     platform: 'Code4rena',
     date: new Date('2023-10'),
     duration: 6,
-    shortDesc: 'Decentralized naming system for wallets, websites, and more',
+    shortDesc: 'Multi delegation system for ERC20 tokens',
     categories: ['audit competition', 'ens'],
     description: (
       <div>
