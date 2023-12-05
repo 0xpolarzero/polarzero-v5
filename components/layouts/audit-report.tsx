@@ -32,7 +32,7 @@ type AuditReportLayoutProps = {
 // -----------------------------------------------------------------------------
 
 const AuditReportLayout: FC<AuditReportLayoutProps> = ({ selected, children, slug }) => {
-  const { protocol, categories, description, url, platform } =
+  const { protocol, categories, shortDesc, url, platform } =
     PORTFOLIO_PAGES.find((page) => page.slug === slug) || {};
   const category =
     categories?.includes('audit competition') || categories?.includes('solo audit')
@@ -127,7 +127,7 @@ const AuditReportLayout: FC<AuditReportLayoutProps> = ({ selected, children, slu
           site_name: 'polarzero',
           images: [
             {
-              url: `https://polarzero.xyz/api/og/blog-post?category=portfolio&title=${protocol}&subtitle=${subtitle}&description=${description}`,
+              url: `https://polarzero.xyz/api/og/blog-post?category=portfolio&title=${protocol}&subtitle=${subtitle}&description=${shortDesc}`,
               width: 1200,
               height: 630,
               alt: 'polarzero portfolio docs open-graph image',
