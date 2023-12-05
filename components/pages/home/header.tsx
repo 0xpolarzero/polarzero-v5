@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 
-import { Github, Twitter } from 'lucide-react';
+import { Github } from 'lucide-react';
 
 import { useImmersiveBg } from '@/lib/stores/useImmersiveBg';
 import { cn } from '@/lib/utils';
@@ -57,7 +57,7 @@ const PolarzeroHeader: FC = () => {
           intent="primary"
           className="w-full"
           href="https://twitter.com/0xpolarzero"
-          leftIcon={<Twitter />}
+          leftIcon={<LogoIcon.X />}
         >
           Twitter
         </Button>

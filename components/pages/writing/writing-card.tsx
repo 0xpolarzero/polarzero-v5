@@ -1,6 +1,6 @@
 import { type FC } from 'react';
 
-import { Calendar, ExternalLink, FileText, Github, Twitter } from 'lucide-react';
+import { Calendar, ExternalLink, FileText, Github } from 'lucide-react';
 
 import { BlogPost } from '@/lib/types/writing';
 import { getTimePassed } from '@/lib/utils';
@@ -29,7 +29,7 @@ const WritingCardFeature: FC<WritingCardFeatureProps> = ({
     ) : platform === 'Hashnode' ? (
       <LogoIcon.Hashnode />
     ) : platform === 'Twitter' ? (
-      <Twitter />
+      <LogoIcon.X />
     ) : platform === 'PDF' ? (
       <FileText />
     ) : (
