@@ -78,7 +78,7 @@ const AuditCardFeature: FC<AuditCardFeatureProps> = (props) => {
         {/* findings */}
         {hasAtLeastOneFinding() ? (
           <div className="flex flex-grow flex-col space-y-2">
-            <h2 className="flex items-center space-x-2 font-medium text-gray-11">
+            <h2 className="flex space-x-2 font-medium text-gray-11">
               <span>Findings</span>
               {/* rank */}
               {isCompetition(props) ? (
@@ -96,7 +96,7 @@ const AuditCardFeature: FC<AuditCardFeatureProps> = (props) => {
           </div>
         ) : isCompetition(props) ? (
           <>
-            <h2 className="flex items-center space-x-2 text-sm font-medium text-gray-11">
+            <h2 className="flex flex-grow space-x-2 text-sm font-medium text-gray-11">
               <span>Placed</span>
               <span className="text-sm font-normal tracking-widest text-gray-11">#{rank}</span>
             </h2>
