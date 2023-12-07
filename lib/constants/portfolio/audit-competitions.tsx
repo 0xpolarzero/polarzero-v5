@@ -11,7 +11,6 @@ export const AUDIT_COMPETITIONS: Audit[] = [
     categories: ['audit competition', 'ens'],
     description: (
       <div>
-        <p className="mb-2 font-medium text-gray-11">Waiting for report...</p>
         <p>Stateful fuzzing (invariant testing), manual analysis.</p>
       </div>
     ),
