@@ -11,9 +11,9 @@ import { BlogPostSection } from '@/lib/types/writing';
 import { Category } from '@/components/templates/category-tag';
 
 export const PORTFOLIO_PAGES: (Audit | BugBounty | HighlightedRepo)[] = [
+  REPO_HIGHLIGHTS[1],
   REPO_HIGHLIGHTS[0],
   AUDIT_COMPETITIONS[0],
-  AUDIT_COMPETITIONS[1],
 ];
 
 export const SECTIONS: Record<string, BlogPostSection[]> = {

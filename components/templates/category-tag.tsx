@@ -52,10 +52,10 @@ const CategoryTag: FC<CategoryTagProps> = ({ size, category, ...rest }) => {
     solidity: 'fail', // 6
 
     'solo audit': 'primary',
-    'audit competition': 'orange',
-    'bug bounty': 'warning',
-    'formal verification': 'success',
-    'fuzzing/invariants': 'success',
+    'audit competition': 'primary',
+    'bug bounty': 'primary',
+    'formal verification': 'warning',
+    'fuzzing/invariants': 'orange',
     analysis: 'none',
   };
 
