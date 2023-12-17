@@ -8,6 +8,7 @@ import { NextSeo } from 'next-seo';
 import { SECTIONS } from '@/lib/constants/portfolio';
 import { PORTFOLIO_PAGES } from '@/lib/constants/portfolio';
 import { useMediaQuery } from '@/lib/hooks/useMediaQuery';
+import { Audit, BugBounty } from '@/lib/types/portfolio';
 import type { PageSlug } from '@/lib/types/site';
 
 import BaseLayout from '@/components/layouts/base';
@@ -33,7 +34,7 @@ type AuditReportLayoutProps = {
 
 const AuditReportLayout: FC<AuditReportLayoutProps> = ({ selected, children, slug }) => {
   const { protocol, categories, shortDesc, url, platform } =
-    PORTFOLIO_PAGES.find((page) => page.slug === slug) || {};
+    (PORTFOLIO_PAGES as Audit[] | BugBounty[]).find((page) => page.slug === slug) || {};
   const category =
     categories?.includes('audit competition') || categories?.includes('solo audit')
       ? 'audit'
