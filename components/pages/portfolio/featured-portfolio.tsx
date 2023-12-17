@@ -2,10 +2,11 @@ import { type FC, useEffect } from 'react';
 
 import AuditCardFeature from './audit-card';
 import BugBountyFeature from './bug-bounty';
+import FuzzingFVFeature from './fuzzing-fv';
 
 import { PORTFOLIO_PAGES } from '@/lib/constants/portfolio';
 import { useCategoriesFilters } from '@/lib/stores/useCategoriesFilters';
-import { Audit, BugBounty } from '@/lib/types/portfolio';
+import { Audit, BugBounty, HighlightedRepo } from '@/lib/types/portfolio';
 
 // -----------------------------------------------------------------------------
 // Component
@@ -29,8 +30,7 @@ const FeaturedPortfolio: FC = () => {
         ).map((page, i) => {
           if (
             page.categories.includes('audit competition') ||
-            page.categories.includes('solo audit') ||
-            page.categories.includes('formal verification')
+            page.categories.includes('solo audit')
           ) {
             // We won't associate these tags to a page with the wrong type
             return <AuditCardFeature key={i} {...(page as Audit)} />;
@@ -41,7 +41,7 @@ const FeaturedPortfolio: FC = () => {
             return <BugBountyFeature key={i} {...(page as BugBounty)} />;
           }
 
-          return null;
+          return <FuzzingFVFeature key={i} {...(page as HighlightedRepo)} />;
         })
       ) : (
         <div className="text-gray-11">Nothing to display yet...</div>

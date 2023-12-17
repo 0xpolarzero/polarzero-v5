@@ -1,15 +1,17 @@
 import { AUDIT_COMPETITIONS } from './audit-competitions';
 import { AUDIT_SOLOS } from './audit-solos';
 import { BUG_BOUNTIES } from './bug-bounties';
+import { REPO_HIGHLIGHTS } from './repo-highlights';
 import BADGER_EBTC_2023_10 from './sections/2023-10-badger-ebtc-audit-certora-formal-verification-competition';
 import ENS_2023_10 from './sections/2023-10-ens';
 
-import { Audit, BugBounty } from '@/lib/types/portfolio';
+import { Audit, BugBounty, HighlightedRepo } from '@/lib/types/portfolio';
 import { BlogPostSection } from '@/lib/types/writing';
 
 import { Category } from '@/components/templates/category-tag';
 
-export const PORTFOLIO_PAGES: (Audit | BugBounty)[] = [
+export const PORTFOLIO_PAGES: (Audit | BugBounty | HighlightedRepo)[] = [
+  REPO_HIGHLIGHTS[0],
   AUDIT_COMPETITIONS[0],
   AUDIT_COMPETITIONS[1],
 ];

@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 import { Category } from '@/components/templates/category-tag';
 
 /**
@@ -85,3 +87,25 @@ export type BountyFinding = {
  * Type for the severity of a finding
  */
 export type FindingSeverity = 'critical' | 'high' | 'medium' | 'low' | 'lowQa' | 'analysis';
+
+/**
+ * Type for a highlighted repository (mostly a fuzzing or formal verification campaign)
+ */
+export type HighlightedRepo = {
+  name: string;
+  details: string;
+  description: ReactNode;
+  url: string;
+  categories: Category[];
+  fuzzing?: Tool[];
+  formalVerification?: Tool[];
+  date: Date;
+};
+
+/**
+ * Type for a tool used in a fuzzing or formal verification campaign
+ */
+export type Tool = {
+  name: 'Foundry' | 'Echidna' | 'Medusa' | 'Certora' | 'Halmos';
+  url: string;
+};
