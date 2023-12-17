@@ -44,7 +44,7 @@ const FuzzingFVFeature: FC<FuzzingFVFeatureProps> = ({
     >
       <div className="flex h-full flex-col space-y-4 p-4 text-[0.92rem]">
         {/* description */}
-        <div>{description}</div>
+        <div className="flex-grow">{description}</div>
         {/* fuzzing */}
         {tools ? (
           <div className="flex items-center space-x-2 text-gray-11">
