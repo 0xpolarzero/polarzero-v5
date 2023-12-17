@@ -101,7 +101,7 @@ const BugBountyFeature: FC<BugBountyFeatureProps> = ({
         {/* date */}
         <div className="flex items-center space-x-2 text-sm text-gray-11">
           <Calendar size={16} />
-          <span>{date.toDateString()}</span>
+          <span>{date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}</span>
           <span>({getTimePassed(date)})</span>
         </div>
       </div>

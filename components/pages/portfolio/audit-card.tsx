@@ -117,7 +117,7 @@ const AuditCardFeature: FC<AuditCardFeatureProps> = (props) => {
         {/* date */}
         <div className="flex items-center space-x-2 text-sm text-gray-11">
           <Calendar size={16} />
-          <span>{date.toDateString()}</span>
+          <span>{date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}</span>
           <span>({getTimePassed(date)})</span>
           <span className="px-2 text-gray-10">|</span>
           <span>{duration} days</span>

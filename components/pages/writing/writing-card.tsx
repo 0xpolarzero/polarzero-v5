@@ -60,7 +60,9 @@ const WritingCardFeature: FC<WritingCardFeatureProps> = ({
         {/* date */}
         <div className="flex items-center space-x-2 text-sm text-gray-11">
           <Calendar size={16} />
-          <div>{date.toDateString()}</div>
+          <div>
+            {date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: '2-digit' })}
+          </div>
           <div>({getTimePassed(date)})</div>
         </div>
       </div>
