@@ -32,5 +32,6 @@ export const REPO_HIGHLIGHTS: HighlightedRepo[] = [
     fuzzing: [TOOLS.echidna, TOOLS.medusa],
     formalVerification: [TOOLS.certora, TOOLS.halmos],
     date: new Date('2023-12'),
+    protocol: 'Mantle LSP',
   },
 ];

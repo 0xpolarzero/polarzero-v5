@@ -100,6 +100,8 @@ export type HighlightedRepo = {
   fuzzing?: Tool[];
   formalVerification?: Tool[];
   date: Date;
+  slug?: string;
+  protocol?: string;
 };
 
 /**
