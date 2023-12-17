@@ -27,6 +27,6 @@ export const CATEGORIES: Category[] = [
   'audit competition',
   'bug bounty',
   'formal verification',
-  'ens',
-  'lending/borrowing',
+  'fuzzing/invariants',
+  'analysis',
 ];

@@ -24,28 +24,12 @@ export type Category =
   | 'solo audit'
   | 'audit competition'
   | 'bug bounty'
+  | 'analysis'
   | 'formal verification'
-  // Portfolio (protocol type)
-  | 'ens'
-  | 'lending/borrowing';
+  | 'fuzzing/invariants';
 
 export type CategoryTagProps = Omit<BadgeProps, 'variant' | 'intent'> & {
-  category:
-    | 'chainlink'
-    | 'education'
-    | 'fr'
-    | 'governance'
-    | 'immersive tech'
-    | 'infrastructure'
-    | 'NFT'
-    | 'security research'
-    | 'solidity'
-    | 'solo audit'
-    | 'audit competition'
-    | 'bug bounty'
-    | 'formal verification'
-    | 'ens'
-    | 'lending/borrowing';
+  category: Category;
 };
 
 type Intent = 'none' | 'primary' | 'success' | 'fail' | 'warning' | 'orange';
@@ -71,9 +55,8 @@ const CategoryTag: FC<CategoryTagProps> = ({ size, category, ...rest }) => {
     'audit competition': 'orange',
     'bug bounty': 'warning',
     'formal verification': 'success',
-
-    ens: 'none',
-    'lending/borrowing': 'none',
+    'fuzzing/invariants': 'success',
+    analysis: 'none',
   };
 
   const filter = useCategoriesFilters((state) => state.filter);

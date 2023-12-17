@@ -8,7 +8,7 @@ export const AUDIT_COMPETITIONS: Audit[] = [
     date: new Date('2023-10'),
     duration: 6,
     shortDesc: 'Analysis: multi delegation system for ERC20 tokens',
-    categories: ['audit competition', 'ens'],
+    categories: ['audit competition', 'analysis'],
     description: (
       <div>
         <p>Stateful fuzzing (invariant testing), manual analysis.</p>
@@ -32,7 +32,7 @@ export const AUDIT_COMPETITIONS: Audit[] = [
     date: new Date('2023-10'),
     duration: 21,
     shortDesc: 'Smart contract based Bitcoin',
-    categories: ['formal verification', 'lending/borrowing'],
+    categories: ['formal verification'],
     description: (
       <div>
         <p className="mb-2 font-medium text-gray-11">Waiting for results...</p>
