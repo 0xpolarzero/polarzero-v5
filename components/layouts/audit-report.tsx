@@ -8,7 +8,7 @@ import { NextSeo } from 'next-seo';
 import { SECTIONS } from '@/lib/constants/portfolio';
 import { PORTFOLIO_PAGES } from '@/lib/constants/portfolio';
 import { useMediaQuery } from '@/lib/hooks/useMediaQuery';
-import { Audit, BugBounty } from '@/lib/types/portfolio';
+import { BugBounty } from '@/lib/types/portfolio';
 import type { PageSlug } from '@/lib/types/site';
 
 import BaseLayout from '@/components/layouts/base';
@@ -28,13 +28,16 @@ type AuditReportLayoutProps = {
   slug: string;
 };
 
+type AuditOrBounty = BugBounty; // we're not using duration & findings that are only inside Audit
+
 // -----------------------------------------------------------------------------
 // Component
 // -----------------------------------------------------------------------------
 
 const AuditReportLayout: FC<AuditReportLayoutProps> = ({ selected, children, slug }) => {
+  const items = PORTFOLIO_PAGES as AuditOrBounty[];
   const { protocol, categories, shortDesc, url, platform } =
-    (PORTFOLIO_PAGES as Audit[] | BugBounty[]).find((page) => page.slug === slug) || {};
+    items.find((page) => page.slug === slug) || {};
   const category =
     categories?.includes('audit competition') || categories?.includes('solo audit')
       ? 'audit'
