@@ -34,4 +34,23 @@ export const REPO_HIGHLIGHTS: HighlightedRepo[] = [
     date: new Date('2023-12'),
     protocol: 'Mantle LSP',
   },
+  {
+    name: 'Superform ERC1155A',
+    details: 'Fuzzing campaign - audit competition',
+    description: (
+      <div>
+        <p>Fuzzing Superform ERC-1155 extension with a naive method.</p>
+        <p>
+          Meaning, using different degrees of control across the handlers (loose, strict,
+          discriminate). See the repo for more details.
+        </p>
+      </div>
+    ),
+    url: 'https://github.com/0xpolarzero/superform-erc1155a-fuzzing',
+    categories: ['fuzzing/invariants'],
+    fuzzing: [TOOLS.foundry],
+    formalVerification: [],
+    date: new Date('2023-11'),
+    protocol: 'Superform',
+  },
 ];
