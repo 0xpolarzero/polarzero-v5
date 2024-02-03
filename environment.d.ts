@@ -14,7 +14,7 @@ declare global {
       NEXT_PUBLIC_SUPABASE_ANON_KEY: string;
       SUPABASE_SERVICE_KEY: string;
       // Services
-      NEXT_PUBLIC_ALCHEMY_ID: string;
+      NEXT_PUBLIC_NEXT_PUBLIC_ALCHEMY_ID: string;
       WALLETCONNECT_PROJECT_ID: string;
       COINMARKETCAP_API_KEY: string;
       // Sendgrid
