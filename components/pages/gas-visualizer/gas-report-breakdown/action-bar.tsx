@@ -113,108 +113,120 @@ const GasReportBreakdownActionBar: FC<GasReportBreakdownActionBarProps> = (props
   }, [showGasInDollars, toShowGasInDollars, toShowGasInUnits]);
 
   const userActions = (
-    <>
+    <div className="flex flex-col gap-6">
+      <span className="mb-6 mt-8 block h-px w-[30%] self-center bg-gray-6" />
+
       {/* Gas in units/dollars */}
-      <div className="mb-2 h-min w-full justify-start py-1 text-base font-medium">
-        Display gas in
+      <div className="flex flex-col gap-2">
+        <div className="text-base font-medium">Display gas in</div>
+        <div className="flex w-full justify-between gap-2">
+          <Button
+            className={cn('w-full', showGasInDollars ? 'opacity-70' : '')}
+            size="sm"
+            variant={showGasInDollars ? 'secondary' : 'primary'}
+            intent="none"
+            onClick={() => {
+              setShowGasInDollars(false);
+            }}
+          >
+            Units
+          </Button>
+          <Button
+            className={cn('w-full', showGasInDollars ? '' : 'opacity-70')}
+            size="sm"
+            variant={showGasInDollars ? 'primary' : 'secondary'}
+            intent="none"
+            onClick={() => {
+              setShowGasInDollars(true);
+            }}
+          >
+            Dollars
+          </Button>
+        </div>
       </div>
-      <div className="flex w-full justify-between gap-2">
-        <Button
-          className={cn('w-full', showGasInDollars ? 'opacity-70' : '')}
-          size="sm"
-          variant={showGasInDollars ? 'secondary' : 'primary'}
-          intent="none"
-          onClick={() => {
-            setShowGasInDollars(false);
-          }}
-        >
-          Units
-        </Button>
-        <Button
-          className={cn('w-full', showGasInDollars ? '' : 'opacity-70')}
-          size="sm"
-          variant={showGasInDollars ? 'primary' : 'secondary'}
-          intent="none"
-          onClick={() => {
-            setShowGasInDollars(true);
-          }}
-        >
-          Dollars
-        </Button>
-      </div>
+
       {/* Chain */}
-      <Label htmlFor="chain" className="mb-2 mt-6 text-gray-11">
-        1. Chain
-      </Label>
-      <Select
-        id="chain"
-        className="w-full"
-        value={currentChain.info.id}
-        disabled={!showGasInDollars}
-        onChange={async (e) => {
-          const selectedChain = CHAINS.find((chain) => chain.info.id === Number(e.target.value));
-          if (selectedChain) {
-            await selectChain(selectedChain);
-            toShowGasInDollars(true);
-          }
-        }}
-      >
-        {CHAINS.filter((chain) => chain.layer === 'L1').map((chain) => (
-          <SelectItem key={chain.info.id} value={chain.info.id}>
-            {chain.info.name}
-          </SelectItem>
-        ))}
-      </Select>
-      {/* Gas price */}
-      <Label htmlFor="gasPrice" className="mb-2 mt-6 text-gray-11">
-        2. Gas price (Gwei)
-      </Label>
-      <Slider
-        className="mt-2"
-        min={Number(parseGwei('0.001'))} // 0.001 Gwei
-        max={Number(parseGwei('1000'))} // 1,000 Gwei
-        step={Number(parseGwei('0.001'))} // 0.001 Gwei
-        // defaultValue={[Number(formatGwei(BigInt(currentGasPrice)))]}
-        value={[currentGasPrice]}
-        disabled={!showGasInDollars || fetchingData}
-        onValueChange={(e) => selectGasPrice(Number(e))}
-      />
-      <Input
-        id="gasPrice"
-        className="mt-4"
-        // remove arrows
-        style={{ WebkitAppearance: 'none', MozAppearance: 'textfield' }}
-        type="number"
-        min={Number(parseGwei('0.001'))} // 0.001 Gwei
-        max={Number(parseGwei('1000'))} // 1,000 Gwei
-        value={formatGwei(BigInt(currentGasPrice || 0))}
-        disabled={!showGasInDollars || fetchingData}
-        onChange={(e) => selectGasPrice(Number(parseGwei(e.target.value)))}
-      />
-      {/* Native token price */}
-      <Label htmlFor="nativeTokenPrice" className="mb-2 mt-6 text-gray-11">
-        3. {currentChain.info.nativeCurrency.symbol} price
-      </Label>
-      <div className="relative mt-2">
-        <Input
-          id="nativeTokenPrice"
-          className="w-full pl-8"
-          type="number"
-          min={0}
-          value={currentNativeTokenPrices[currentChain.info.nativeCurrency.symbol]?.toFixed(2)}
-          disabled={!showGasInDollars || fetchingData}
-          onChange={(e) =>
-            selectNativeTokenPrices({
-              ...currentNativeTokenPrices,
-              [currentChain.info.nativeCurrency.symbol]: Number(e.target.value),
-            })
-          }
-        />
-        <span className="absolute left-3 top-[50%] translate-y-[-50%] text-gray-11">$</span>
+      <div className="flex flex-col gap-2">
+        <Label htmlFor="chain" className="text-gray-11">
+          1. Chain
+        </Label>
+        <Select
+          id="chain"
+          className="w-full"
+          value={currentChain.info.id}
+          disabled={!showGasInDollars}
+          onChange={async (e) => {
+            const selectedChain = CHAINS.find((chain) => chain.info.id === Number(e.target.value));
+            if (selectedChain) {
+              await selectChain(selectedChain);
+              toShowGasInDollars(true);
+            }
+          }}
+        >
+          {CHAINS.filter((chain) => chain.layer === 'L1').map((chain) => (
+            <SelectItem key={chain.info.id} value={chain.info.id}>
+              {chain.info.name}
+            </SelectItem>
+          ))}
+        </Select>
       </div>
+
+      {/* Gas price */}
+      <div className="flex flex-col gap-2">
+        <Label htmlFor="gasPrice" className="text-gray-11">
+          2. Gas price (Gwei)
+        </Label>
+        <Slider
+          className="mt-2"
+          min={Number(parseGwei('0.001'))} // 0.001 Gwei
+          max={Number(parseGwei('1000'))} // 1,000 Gwei
+          step={Number(parseGwei('0.001'))} // 0.001 Gwei
+          // defaultValue={[Number(formatGwei(BigInt(currentGasPrice)))]}
+          value={[currentGasPrice]}
+          disabled={!showGasInDollars || fetchingData}
+          onValueChange={(e) => selectGasPrice(Number(e))}
+        />
+        <Input
+          id="gasPrice"
+          className="mt-2"
+          // remove arrows
+          style={{ WebkitAppearance: 'none', MozAppearance: 'textfield' }}
+          type="number"
+          min={Number(parseGwei('0.001'))} // 0.001 Gwei
+          max={Number(parseGwei('1000'))} // 1,000 Gwei
+          value={formatGwei(BigInt(currentGasPrice || 0))}
+          disabled={!showGasInDollars || fetchingData}
+          onChange={(e) => selectGasPrice(Number(parseGwei(e.target.value)))}
+        />
+      </div>
+
+      {/* Native token price */}
+      <div className="flex flex-col gap-2">
+        <Label htmlFor="nativeTokenPrice" className="text-gray-11">
+          3. {currentChain.info.nativeCurrency.symbol} price
+        </Label>
+        <div className="relative mt-2">
+          <Input
+            id="nativeTokenPrice"
+            className="w-full pl-8"
+            type="number"
+            min={0}
+            value={currentNativeTokenPrices[currentChain.info.nativeCurrency.symbol]?.toFixed(2)}
+            disabled={!showGasInDollars || fetchingData}
+            onChange={(e) =>
+              selectNativeTokenPrices({
+                ...currentNativeTokenPrices,
+                [currentChain.info.nativeCurrency.symbol]: Number(e.target.value),
+              })
+            }
+          />
+          <span className="absolute left-3 top-[50%] translate-y-[-50%] text-gray-11">$</span>
+        </div>
+      </div>
+
       {/* Restore current chain data */}
       <Button
-        className="mt-6 w-full py-2"
+        className="w-full py-2"
         size="sm"
         variant="secondary"
         intent="primary"
@@ -224,7 +236,7 @@ const GasReportBreakdownActionBar: FC<GasReportBreakdownActionBarProps> = (props
         Use latest {currentChain.info.name} data
       </Button>
 
-      <span className="my-8 block h-px w-full bg-gray-6" />
+      <span className="my-4 block h-px w-[30%] self-center bg-gray-6" />
 
       {/* Simulator */}
       <div className="flex flex-col gap-2 text-justify text-sm text-muted-foreground">
@@ -244,13 +256,19 @@ const GasReportBreakdownActionBar: FC<GasReportBreakdownActionBarProps> = (props
           Simulator (soon)
         </Button>
       </div>
-    </>
+    </div>
   );
 
   return (
     <Fragment>
       <GasReportBreakdownActionBarDesktop {...props} inputs={userActions} />
-      <GasReportBreakdownActionBarMobile {...props} inputs={userActions} />
+      <GasReportBreakdownActionBarMobile
+        {...props}
+        inputs={userActions}
+        showGasInDollars={showGasInDollars}
+        currentChain={currentChain.name}
+        currentGas={Number(formatGwei(BigInt(currentGasPrice || 0))).toFixed()}
+      />
     </Fragment>
   );
 };
@@ -269,18 +287,18 @@ const GasReportBreakdownActionBarDesktop: FC<
 };
 
 const GasReportBreakdownActionBarMobile: FC<
-  GasReportBreakdownActionBarProps & { inputs: JSX.Element }
-> = ({ repoUrl, inputs }) => {
-  const pricesInDollarEnabled = true;
-  const chain = 'Ethereum';
-  const gwei = '30 Gwei';
-
+  GasReportBreakdownActionBarProps & { inputs: JSX.Element } & {
+    showGasInDollars: boolean;
+    currentChain: string;
+    currentGas: string;
+  }
+> = ({ repoUrl, inputs, showGasInDollars, currentChain, currentGas }) => {
   const [open, setOpen] = useState<boolean>(false);
   const isSmallScreen = useMediaQuery('(max-width: 768px)'); // `md` breakpoint
 
   return (
     <Dialog.Root open={open && isSmallScreen} onOpenChange={setOpen}>
-      <div className="pointer-events-auto sticky top-12 z-popover mb-6 flex h-12 w-full items-center border-b border-gray-6 bg-white px-4 dark:bg-black md:hidden">
+      <div className="pointer-events-auto sticky top-0 z-popover mb-6 flex h-12 w-full items-center border-b border-gray-6 bg-white px-4 dark:bg-black md:hidden">
         <Dialog.Trigger asChild>
           <IconButton
             variant="outline"
@@ -289,24 +307,26 @@ const GasReportBreakdownActionBarMobile: FC<
             {open ? <X /> : <Menu />}
           </IconButton>
         </Dialog.Trigger>
-        {pricesInDollarEnabled ? (
+        {showGasInDollars ? (
           <ol className="ml-4 flex text-sm">
             <li className="flex items-center text-gray-11">
-              {chain}
+              {currentChain}
               <ChevronRight className="mx-1 h-4 w-4" />
             </li>
-            <li className="font-medium text-gray-12">{gwei}</li>
+            <li className="font-medium text-gray-12">{currentGas} Gwei</li>
           </ol>
-        ) : null}
+        ) : (
+          <div className="ml-4 text-gray-11">Gas units</div>
+        )}
       </div>
 
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-overlay backdrop-brightness-50 animate-in fade-in-50 focus:outline-none md:hidden" />
         <Dialog.Content onOpenAutoFocus={(e) => e.preventDefault()} asChild>
-          <nav className="hide-scrollbar fixed inset-0 z-overlay overflow-y-scroll bg-gray-1 p-4 pt-28 animate-in slide-in-from-top-1 md:hidden">
+          <nav className="hide-scrollbar fixed inset-0 z-overlay overflow-y-scroll bg-gray-1 p-4 pt-16 animate-in slide-in-from-top-1 md:hidden">
             {/* Open external link */}
             <Button
-              className="w-full justify-self-end py-2"
+              className="mb-4 w-full justify-self-end py-2"
               size="md"
               variant="outline"
               intent="primary"
@@ -316,7 +336,6 @@ const GasReportBreakdownActionBarMobile: FC<
             >
               Open on GitHub
             </Button>
-            <div className="px-1 py-1 text-base font-medium">here</div>
             {inputs}
           </nav>
         </Dialog.Content>
@@ -342,9 +361,6 @@ const GasReportBreakdownActionBarInternal: FC<
       >
         Open on GitHub
       </Button>
-
-      <span className="my-8 block h-px w-full bg-gray-6" />
-
       {inputs}
     </Fragment>
   );
