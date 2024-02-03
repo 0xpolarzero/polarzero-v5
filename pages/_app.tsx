@@ -24,7 +24,7 @@ import { Toaster } from '@/components/ui';
 // RainbowKit + Wagmi config
 // -----------------------------------------------------------------------------
 
-const alchemyId = process.env.NEXT_PUBLIC_ALCHEMY_ID || '';
+const alchemyId = process.env.ALCHEMY_ID || '';
 const chains = CHAINS.map((chain) => chain.info);
 
 const queryClient = new QueryClient();
