@@ -10,7 +10,7 @@ import { MDXRemoteSerializeResult } from 'next-mdx-remote/dist/types';
 
 type GasReportLayoutProps = {
   readme: MDXRemoteSerializeResult<Record<string, unknown>>;
-  contracts: Record<string, string>;
+  contracts: Record<string, { code: string; url: string }>;
   repoUrl: string;
 };
 
