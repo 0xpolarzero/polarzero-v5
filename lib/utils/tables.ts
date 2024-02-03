@@ -64,12 +64,24 @@ const tables: Tables = {
         const clean = Number(match.replace(/,/g, ''));
         if (!clean) return match;
 
-        return tables
-          .calculatePriceInDollars(gasPrice, clean, nativePrice, nativeDecimals)
-          .toLocaleString('en-US', {
-            style: 'currency',
-            currency: 'USD',
-          });
+        const dollarValue = tables.calculatePriceInDollars(
+          gasPrice,
+          clean,
+          nativePrice,
+          nativeDecimals,
+        );
+
+        const decimals = Math.abs(dollarValue) < 0.001 ? 999 : Math.abs(dollarValue) < 0.01 ? 3 : 2;
+
+        if (decimals === 999) {
+          return '$<0.001';
+        }
+
+        return dollarValue.toLocaleString('en-US', {
+          style: 'currency',
+          currency: 'USD',
+          minimumFractionDigits: decimals,
+        });
       });
 
       cell.transformed = tables.replaceCellFromText(
