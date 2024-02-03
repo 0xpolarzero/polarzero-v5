@@ -13,17 +13,24 @@ import SeoBase, { type SeoBaseProps } from '@/components/templates/seo-base';
 type BaseLayoutProps = SeoBaseProps & {
   pageSlug?: PageSlug;
   children?: ReactNode;
+  external?: boolean;
 };
 
 // -----------------------------------------------------------------------------
 // Component
 // -----------------------------------------------------------------------------
 
-const BaseLayout: FC<BaseLayoutProps> = ({ title, subtitle, pageSlug, children }) => {
+const BaseLayout: FC<BaseLayoutProps> = ({
+  title,
+  subtitle,
+  pageSlug,
+  children,
+  external = false,
+}) => {
   return (
     <>
       <SeoBase title={title} subtitle={subtitle} />
-      <NavBar selected={pageSlug} />
+      <NavBar selected={pageSlug} external={external} />
       <main className="relative flex grow flex-col">{children}</main>
       <footer className="bottom-0 w-full border-t border-gray-4">
         <div className=" py-2 text-center text-sm text-gray-11">

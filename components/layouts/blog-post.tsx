@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import { type FC, isValidElement, type ReactNode } from 'react';
+import { type FC, type ReactNode } from 'react';
 
 import { MDXProvider } from '@mdx-js/react';
 import { ChevronLeft, ExternalLink } from 'lucide-react';
@@ -12,10 +11,10 @@ import type { PageSlug } from '@/lib/types/site';
 
 import BaseLayout from '@/components/layouts/base';
 import ContainerLayout from '@/components/layouts/container';
+import mdxComponents from '@/components/layouts/mdx-components';
 import BlogPostNavBar from '@/components/pages/writing/blog-post/nav-bar';
 import BlogPostPageNav from '@/components/pages/writing/blog-post/page-nav';
-import { Button, CodeBlock } from '@/components/ui';
-import type { CodeBlockProps } from '@/components/ui/code-block/types';
+import { Button } from '@/components/ui';
 
 // -----------------------------------------------------------------------------
 // Props
@@ -36,77 +35,6 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = ({ selected, children, slug }) =
     WRITING_BLOG_PAGES.find((page) => page.slug === slug) || {};
 
   const isSmallScreen = useMediaQuery('(max-width: 768px)'); // `md` breakpoint
-
-  const components = {
-    a: ({ href, children, ...rest }: JSX.IntrinsicElements['a']) => {
-      if (href && href.startsWith('/')) {
-        return (
-          <Link
-            className="mdx--link group font-medium text-indigo-9 no-underline hover:underline"
-            href={href}
-          >
-            {children}
-          </Link>
-        );
-      }
-
-      return (
-        <a
-          className="mdx--link group w-fit font-medium text-indigo-9 no-underline hover:underline"
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          {...rest}
-        >
-          {children}
-        </a>
-      );
-    },
-    blockquote: ({ children }: JSX.IntrinsicElements['blockquote']) => (
-      <blockquote className="mdx--blockquote group rounded-xl border border-indigo-6 bg-indigo-3 p-4 text-indigo-12">
-        {children}
-      </blockquote>
-    ),
-    code: ({ children }: JSX.IntrinsicElements['code']) => (
-      <code className="rounded border border-gray-6 bg-gray-3 px-1 py-0.5 font-normal text-gray-12 before:content-none after:content-none group-[.mdx--link]:text-indigo-9">
-        {children}
-      </code>
-    ),
-    h1: ({ children }: JSX.IntrinsicElements['h1']) => (
-      <h1 className="mb-4 text-3xl font-semibold tracking-tight text-gray-12 md:text-4xl">
-        {children}
-      </h1>
-    ),
-    h2: ({ children }: JSX.IntrinsicElements['h2']) => (
-      <h2 className="mb-2 text-xl font-semibold tracking-tight text-gray-12 md:mb-4 md:text-2xl">
-        {children}
-      </h2>
-    ),
-    h3: ({ children }: JSX.IntrinsicElements['h3']) => (
-      <h3 className="mb-2 mt-5 text-lg font-semibold tracking-tight text-gray-12 md:mb-4 md:mt-6 md:text-xl">
-        {children}
-      </h3>
-    ),
-    p: ({ children }: JSX.IntrinsicElements['p']) => (
-      <p className="font-light not-italic text-gray-11 before:content-none after:content-none group-[.mdx--blockquote]:my-0 group-[.mdx--blockquote]:text-indigo-12">
-        {children}
-      </p>
-    ),
-    pre: ({
-      children,
-      ...rest
-    }: JSX.IntrinsicElements['pre'] & Omit<CodeBlockProps, 'children'>) => {
-      const childrenProps = isValidElement(children) ? children.props : undefined;
-      const language = childrenProps?.className ? childrenProps.className.substring(9) : undefined;
-      const code = typeof childrenProps?.children === 'string' ? childrenProps.children.trim() : '';
-
-      return (
-        <CodeBlock language={language} {...rest}>
-          {code}
-        </CodeBlock>
-      );
-    },
-  };
 
   return (
     <>
@@ -176,15 +104,15 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = ({ selected, children, slug }) =
             <BlogPostNavBar
               slug={slug}
               selected={selected}
-              sections={SECTIONS[slug]}
+              sections={SECTIONS[slug] || []}
               category="blog"
             />
-            <MDXProvider components={components}>
+            <MDXProvider components={mdxComponents}>
               {/* Add overflow-hidden for code-blocks (too large) so add px-1 to not hide italics */}
               <article className="prose prose-gray max-w-none grow overflow-hidden px-4 text-justify dark:prose-invert md:px-1">
                 {children}
                 <hr className="mb-6 mt-6 w-full rounded-full border-gray-6 md:mt-12" />
-                <BlogPostPageNav pageSlug={selected} sections={SECTIONS[slug]} />
+                <BlogPostPageNav pageSlug={selected} sections={SECTIONS[slug] || []} />
               </article>
             </MDXProvider>
           </div>

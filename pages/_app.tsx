@@ -3,18 +3,18 @@ import { Fira_Code, Inter } from 'next/font/google';
 import { usePathname } from 'next/navigation';
 import { type FC, useEffect } from 'react';
 
-import { darkTheme, getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
+// import { darkTheme, getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import '@rainbow-me/rainbowkit/styles.css';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Analytics } from '@vercel/analytics/react';
 import clsx from 'clsx';
 import { DefaultSeo } from 'next-seo';
-import { configureChains, createClient, WagmiConfig } from 'wagmi';
+import { createConfig, http, WagmiProvider } from 'wagmi';
 import { mainnet } from 'wagmi/chains';
-import { alchemyProvider } from 'wagmi/providers/alchemy';
-import { publicProvider } from 'wagmi/providers/public';
 
 import '@/styles/globals.css';
 
+import { CHAINS } from '@/lib/constants/gas-visualizer';
 import { useImmersiveBg } from '@/lib/stores/useImmersiveBg';
 
 import Entity from '@/components/canvas/entity';
@@ -25,22 +25,23 @@ import { Toaster } from '@/components/ui';
 // RainbowKit + Wagmi config
 // -----------------------------------------------------------------------------
 
-const alchemyId = process.env.NEXT_PUBLIC_ALCHEMY_ID;
+const alchemyId = process.env.NEXT_PUBLIC_ALCHEMY_ID || '';
+const chains = CHAINS.map((chain) => chain.info);
 
-const { chains, provider } = configureChains(
-  [mainnet],
-  [alchemyProvider({ apiKey: alchemyId }), publicProvider()],
-);
+const queryClient = new QueryClient();
 
-const { connectors } = getDefaultWallets({
-  appName: 'polarzero',
-  chains: [...chains],
-});
-
-export const client = createClient({
-  autoConnect: true,
-  connectors,
-  provider,
+const wagmiConfig = createConfig({
+  chains: [chains[0], ...chains.slice(1)],
+  transports: Object.fromEntries(
+    CHAINS.map((chain) => {
+      return [
+        chain.info.id,
+        http(`${chain.baseRpc}${alchemyId}`, {
+          name: 'Alchemy',
+        }),
+      ];
+    }),
+  ),
 });
 
 // -----------------------------------------------------------------------------
@@ -116,23 +117,31 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
       <style jsx global>{`
         html {
           font-family: ${inter.style.fontFamily};
+          --inter-font: ${inter.style.fontFamily};
+          --fira-code-font: ${firaCode.style.fontFamily};
         }
       `}</style>
 
-      <WagmiConfig client={client}>
-        <RainbowKitProvider modalSize="compact" chains={chains} theme={darkTheme()}>
-          <main className={clsx(inter.variable, firaCode.variable, immersiveBg ? '' : 'bg-gray-1')}>
-            <Component {...pageProps} />
-          </main>
-          <Toaster />
+      <WagmiProvider config={wagmiConfig}>
+        <QueryClientProvider client={queryClient}>
+          {/* <RainbowKitProvider modalSize="compact" chains={chains} theme={darkTheme()}> */}
+          <div>
+            <main
+              className={clsx(inter.variable, firaCode.variable, immersiveBg ? '' : 'bg-gray-1')}
+            >
+              <Component {...pageProps} />
+            </main>
+            <Toaster />
 
-          {immersiveBg ? (
-            <Scene>
-              <Entity />
-            </Scene>
-          ) : null}
-        </RainbowKitProvider>
-      </WagmiConfig>
+            {immersiveBg ? (
+              <Scene>
+                <Entity />
+              </Scene>
+            ) : null}
+          </div>
+          {/* </RainbowKitProvider> */}
+        </QueryClientProvider>
+      </WagmiProvider>
       <Analytics />
     </>
   );

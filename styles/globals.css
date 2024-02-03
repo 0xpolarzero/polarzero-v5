@@ -69,3 +69,83 @@ div#__next > div > main {
 .recharts-cartesian-axis-tick-value {
   @apply fill-gray-11;
 }
+
+@layer base {
+  :root {
+    /* shadcn/ui */
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 216 34% 17%;
+
+    --radius: 0.5rem;
+
+    /* rehype-github-alerts */
+    --github-alert-default-color: rgb(175, 184, 193);
+    --github-alert-note-color: rgb(9, 105, 218);
+    --github-alert-important-color: rgb(130, 80, 223);
+    --github-alert-warning-color: rgb(154, 103, 0);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+}
+
+/* rehype-github-alerts */
+.markdown-alert {
+  padding: 0 1em;
+  margin-bottom: 16px;
+  border-left: 0.25em solid var(--github-alert-default-color);
+}
+
+.markdown-alert-note {
+  border-left-color: var(--github-alert-note-color);
+}
+
+.markdown-alert-important {
+  border-left-color: var(--github-alert-important-color);
+}
+
+.markdown-alert-warning {
+  border-left-color: var(--github-alert-warning-color);
+}
+
+.markdown-alert-header {
+  display: inline-flex;
+  margin-bottom: 4px;
+  align-items: center;
+}
+
+.markdown-alert-header > svg {
+  margin-right: 8px;
+}
