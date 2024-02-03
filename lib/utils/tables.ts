@@ -89,7 +89,6 @@ const tables: Tables = {
   /* -------------------------------------------------------------------------- */
 
   updateCellsDOM: (document, cells, type) => {
-    console.log('Updating DOM', type);
     const cellsDOM = document.querySelector('article')?.querySelectorAll('td');
     cellsDOM?.forEach((cellDOM, index) => {
       type === 'restore'
