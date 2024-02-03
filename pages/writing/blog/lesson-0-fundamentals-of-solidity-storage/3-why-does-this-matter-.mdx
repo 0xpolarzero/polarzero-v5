@@ -20,33 +20,28 @@ Consider a simple example with two smart contracts, one with a suboptimal storag
 pragma solidity ^0.8.0;
 
 contract SuboptimalStructLayout {
-struct Data {
-uint256 a; // takes a full storage slot (32 bytes)
-uint8 b; // takes only 1 byte but occupies a full storage slot (32 bytes reserved)
-uint256 c; // needs a new slot, takes a full storage slot (32 bytes) - explains the previous full slot
-uint8 d; // takes only 1 byte but occupies a full storage slot (32 bytes reserved)
-}
-
-    Data public data;
+    struct Data {
+        uint256 a; // takes a full storage slot (32 bytes)
+        uint8 b; // takes only 1 byte but occupies a full storage slot (32 bytes reserved)
+        uint256 c; // needs a new slot, takes a full storage slot (32 bytes) - explains the previous full slot
+        uint8 d; // takes only 1 byte but occupies a full storage slot (32 bytes reserved)
+    }
 
     // This layout uses 4 storage slots due to non-optimized arrangement in the struct
-
+    Data public data;
 }
 
 contract OptimizedStructLayout {
-struct Data {
-uint256 a; // takes a full storage slot (32 bytes)
-uint256 c; // needs a new slot, takes a full storage slot (32 bytes)
-uint8 b; // takes 1 byte, packed in the same slot with the next variable
-uint8 d; // takes 1 byte, packed in the same slot with the previous variable (2 bytes used, 30 bytes free)
-}
-
-    Data public data;
+    struct Data {
+        uint256 a; // takes a full storage slot (32 bytes)
+        uint256 c; // needs a new slot, takes a full storage slot (32 bytes)
+        uint8 b; // takes 1 byte, packed in the same slot with the next variable
+        uint8 d; // takes 1 byte, packed in the same slot with the previous variable (2 bytes used, 30 bytes free)
+    }
 
     // This layout uses 3 storage slots due to optimized arrangement in the struct
-
+    Data public data;
 }
-
 ```
 
 In the example above, reordering the variables within the struct in `OptimizedStructLayout` results in more efficient storage packing compared to `SuboptimalStructLayout`.
@@ -62,7 +57,7 @@ Here’s a very basic example:
 ```solidity
 // TokenV1.sol
 contract TokenV1 {
-error InsufficientBalance();
+    error InsufficientBalance();
 
     uint256 public totalSupply;
     mapping(address => uint256) public balances;
@@ -83,8 +78,8 @@ error InsufficientBalance();
 
 // TokenV2.sol
 contract TokenV2 {
-error InsufficientBalance();
-error ExceedsMaxTransferAmount(); // New feature
+    error InsufficientBalance();
+    error ExceedsMaxTransferAmount(); // New feature
 
     uint256 public totalSupply;
     mapping(address => uint256) public balances;
@@ -106,9 +101,7 @@ error ExceedsMaxTransferAmount(); // New feature
         balances[msg.sender] -= _value;
         balances[_to] += _value;
     }
-
 }
-
 ```
 
 In this example, `TokenV2` has a new state variable `maxTransferAmount`, but it is appended after the existing ones. This means the storage layout remains compatible.
