@@ -1,14 +1,12 @@
 import { type FC } from 'react';
 
 import GasReportBreakdownActionBar from './action-bar';
-import { ExternalLink } from 'lucide-react';
 import { MDXRemote } from 'next-mdx-remote';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote/dist/types';
 
 import { useMediaQuery } from '@/lib/hooks/useMediaQuery';
 
 import mdxComponents from '@/components/layouts/mdx-components';
-import { Button } from '@/components/ui';
 
 // -----------------------------------------------------------------------------
 // Props
@@ -26,9 +24,6 @@ type GasReportBreakdownProps = {
 
 const GasReportBreakdown: FC<GasReportBreakdownProps> = ({ readme, contracts, repoUrl }) => {
   const isSmallScreen = useMediaQuery('(max-width: 768px)'); // `md` breakpoint
-
-  // TODO CHANGE THIS
-  const platform = 'GitHub';
 
   const hrefRegex = /href:\s*["']([^"']+\.sol(?:#L\d+(?:-\d+)?)?)["']/g;
   const modifiedSource = readme.compiledSource

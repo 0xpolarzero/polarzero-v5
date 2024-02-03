@@ -7,8 +7,7 @@ import { cn, getTimePassed } from '@/lib/utils';
 
 import CategoryTag from '@/components/templates/category-tag';
 import FeatureDisplay from '@/components/templates/feature-display';
-import { Badge, Button, Tooltip } from '@/components/ui';
-import { Table as TableComponent } from '@/components/ui';
+import { Button } from '@/components/ui';
 
 type FuzzingFVFeatureProps = HighlightedRepo & {
   className?: string;
@@ -48,7 +47,7 @@ const FuzzingFVFeature: FC<FuzzingFVFeatureProps> = ({
         {/* fuzzing */}
         {tools ? (
           <div className="flex items-center space-x-2 text-gray-11">
-            <Wrench size={16} /> <span>{tools.map((tool, i) => tool.name).join(', ')}</span>
+            <Wrench size={16} /> <span>{tools.map((tool) => tool.name).join(', ')}</span>
           </div>
         ) : null}
         {/* date */}

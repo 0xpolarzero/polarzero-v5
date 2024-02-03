@@ -10,7 +10,6 @@ import { Analytics } from '@vercel/analytics/react';
 import clsx from 'clsx';
 import { DefaultSeo } from 'next-seo';
 import { createConfig, http, WagmiProvider } from 'wagmi';
-import { mainnet } from 'wagmi/chains';
 
 import '@/styles/globals.css';
 

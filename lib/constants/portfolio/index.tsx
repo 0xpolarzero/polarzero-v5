@@ -1,6 +1,4 @@
 import { AUDIT_COMPETITIONS } from './audit-competitions';
-import { AUDIT_SOLOS } from './audit-solos';
-import { BUG_BOUNTIES } from './bug-bounties';
 import { REPO_HIGHLIGHTS } from './repo-highlights';
 import BADGER_EBTC_2023_10 from './sections/2023-10-badger-ebtc-audit-certora-formal-verification-competition';
 import ENS_2023_10 from './sections/2023-10-ens';

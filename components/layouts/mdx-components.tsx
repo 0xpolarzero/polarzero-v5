@@ -1,7 +1,6 @@
-import Link from 'next/link';
 import { isValidElement, ReactNode } from 'react';
 
-import { Button, CodeBlock } from '@/components/ui';
+import { CodeBlock } from '@/components/ui';
 import { CodeBlockProps } from '@/components/ui/code-block/types';
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 

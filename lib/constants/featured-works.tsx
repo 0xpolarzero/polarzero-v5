@@ -3,9 +3,8 @@ import { ReactNode } from 'react';
 import { PORTFOLIO_PAGES } from './portfolio';
 import { WRITING_BLOG_PAGES } from './writing';
 
-import { Audit, HighlightedRepo } from '@/lib/types/portfolio';
+import { HighlightedRepo } from '@/lib/types/portfolio';
 
-import AuditCardFeature from '@/components/pages/portfolio/audit-card';
 import FuzzingFVFeature from '@/components/pages/portfolio/fuzzing-fv';
 import WritingCardFeature from '@/components/pages/writing/writing-card';
 

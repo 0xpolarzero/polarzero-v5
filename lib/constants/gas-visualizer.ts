@@ -1,4 +1,4 @@
-import { arbitrum, base, mainnet, optimism, polygon } from 'viem/chains';
+import { arbitrum, base, mainnet, optimism, polygon } from 'wagmi/chains';
 
 import { Chain, Currency } from '@/lib/types/gas-visualizer';
 

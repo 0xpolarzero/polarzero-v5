@@ -36,6 +36,8 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = ({ selected, children, slug }) =
 
   const isSmallScreen = useMediaQuery('(max-width: 768px)'); // `md` breakpoint
 
+  const components = mdxComponents(isSmallScreen, url);
+
   return (
     <>
       <NextSeo
@@ -107,7 +109,7 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = ({ selected, children, slug }) =
               sections={SECTIONS[slug] || []}
               category="blog"
             />
-            <MDXProvider components={mdxComponents}>
+            <MDXProvider components={components}>
               {/* Add overflow-hidden for code-blocks (too large) so add px-1 to not hide italics */}
               <article className="prose prose-gray max-w-none grow overflow-hidden px-4 text-justify dark:prose-invert md:px-1">
                 {children}
