@@ -50,6 +50,7 @@ const mdxComponents = (isMobile = false, repoUrl = '') => {
               <DialogContent>
                 <DialogTitle>{contractName}.sol</DialogTitle>
                 <CodeBlock
+                  className="border-none"
                   language="solidity"
                   highlightLines={highlightLines.length ? highlightLines : []}
                 >
