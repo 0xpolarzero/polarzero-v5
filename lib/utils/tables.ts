@@ -103,6 +103,8 @@ const tables: Tables = {
   updateCellsDOM: (document, cells, type) => {
     const cellsDOM = document.querySelector('article')?.querySelectorAll('td');
     cellsDOM?.forEach((cellDOM, index) => {
+      if (!cells[index].marked) return;
+
       type === 'restore'
         ? cellDOM.replaceWith(cells[index].original)
         : type === 'update'
