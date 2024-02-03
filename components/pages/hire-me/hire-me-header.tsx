@@ -21,9 +21,13 @@ const HireMeHeader: FC = () => {
   return (
     <div className="mt-0.5 flex flex-col space-y-2 px-3 text-sm text-gray-11 md:px-6 md:text-base">
       <p className="text-gray-12">
-        If you would like to <span className="font-medium">integrate smart contracts</span> into
-        your project, or if you need a <span className="font-medium">security review/audit</span>,
-        reach out to me for a quote.
+        I&apos;m available for freelance/contract work. Especially interested in:
+        <ul className="ml-4 list-none">
+          <li>- smart contracts/protocol development</li>
+          <li>- fuzzing/invariants testing suites</li>
+          <li>- formal verification campaigns</li>
+        </ul>
+        If you need help with any of the above, or have a project in mind, please get in touch.
       </p>
       <p>
         Kindly share as much information as possible about your project upfront. This includes
