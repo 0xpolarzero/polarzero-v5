@@ -6,8 +6,24 @@ import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@/components/
 
 const mdxComponents = (isMobile = false, repoUrl = '') => {
   return {
-    a: ({ href, children, ...rest }: JSX.IntrinsicElements['a'] & { custom?: string }) => {
-      if (href && rest?.custom) {
+    a: ({
+      href,
+      children,
+      ...rest
+    }: JSX.IntrinsicElements['a'] & { code?: string; highlight?: string[] }) => {
+      if (href && rest?.code) {
+        let highlightLines: number[] = [];
+        if (rest.highlight) {
+          const [start, end] = rest.highlight;
+          if (end) {
+            for (let i = Number(start); i <= Number(end); i++) {
+              highlightLines.push(Number(i));
+            }
+          } else {
+            highlightLines = [Number(start)];
+          }
+        }
+
         if (isMobile) {
           const url = new URL(href, `${repoUrl}/tree/main/`);
           return (
@@ -33,7 +49,12 @@ const mdxComponents = (isMobile = false, repoUrl = '') => {
 
               <DialogContent>
                 <DialogTitle>{contractName}.sol</DialogTitle>
-                <CodeBlock language="solidity">{decodeURIComponent(rest.custom)}</CodeBlock>
+                <CodeBlock
+                  language="solidity"
+                  highlightLines={highlightLines.length ? highlightLines : []}
+                >
+                  {decodeURIComponent(rest.code)}
+                </CodeBlock>
               </DialogContent>
             </Dialog>
           );

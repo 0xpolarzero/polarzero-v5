@@ -69,7 +69,8 @@ const fetchGithubAndFormat = async (author: string, repo: string): Promise<Respo
     // Keep only links to .sol files inside the repository
     .filter(
       (url) =>
-        url.endsWith('.sol') && (url.startsWith('./') || dirs.some((dir) => url.startsWith(dir))),
+        url.match(/\.sol(?:#L\d+(?:-\d+)?)?$/) &&
+        (url.startsWith('./') || dirs.some((dir) => url.startsWith(dir))),
     )
     // Keep only unique links and get both the contract name and the full URL
     .reduce((acc: { [contractName: string]: string }, url) => {
@@ -92,13 +93,18 @@ const fetchGithubAndFormat = async (author: string, repo: string): Promise<Respo
   const files: Record<string, string> = await Promise.all(
     Object.entries(urls).map(async ([contractName, url]) => {
       const response = await fetch(url);
-      const content = await response.text();
-      return [contractName, content];
+      const code = await response.text();
+      const nameFormatted = contractName.replace(/#L\d+(?:-\d+)?(\.sol)?$/, '');
+
+      return [nameFormatted, { url, code }];
     }),
   ).then((arr) => Object.fromEntries(arr));
 
   return {
-    data: { ...files, readme: readMeContentCellsMarked },
+    data: {
+      ...files,
+      readme: readMeContentCellsMarked,
+    },
     status: 200,
     error: null,
   };

@@ -14,7 +14,7 @@ import mdxComponents from '@/components/layouts/mdx-components';
 
 type GasReportBreakdownProps = {
   readme: MDXRemoteSerializeResult<Record<string, unknown>>;
-  contracts: Record<string, string>;
+  contracts: Record<string, { code: string; url: string }>;
   repoUrl: string;
 };
 
@@ -31,9 +31,17 @@ const GasReportBreakdown: FC<GasReportBreakdownProps> = ({ readme, contracts, re
     .replace(hrefRegex, (match, href) => {
       if (!href.startsWith('http')) {
         const property = Object.keys(contracts).find((key) => href.includes(key));
-        const contractCode = contracts[property as string];
+        const contractInfo = contracts[property as string];
+        const contractCode = contractInfo?.code;
+        // Get line numbers
+        const lineNumbers = href.match(/#L(\d+)(?:-(\d+))?/);
+        const startLine = lineNumbers ? lineNumbers[1] : null;
+        const endLine = lineNumbers ? lineNumbers[2] : null;
+        const highlight = endLine ? [startLine, endLine] : [startLine];
 
-        return `href: "${href}", custom: "${encodeURIComponent(contractCode)}"`;
+        return `href: "${href}", code: "${encodeURIComponent(
+          contractCode,
+        )}", highlight: ${JSON.stringify(highlight)}`;
       }
 
       return match;
