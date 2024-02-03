@@ -1,5 +1,7 @@
 import { type Chain as ViemChain } from 'viem/chains';
 
+export type DOMUpdateType = 'update' | 'restore' | 'loading';
+
 export type Cell = {
   marked: boolean;
   original: Element;
@@ -7,7 +9,7 @@ export type Cell = {
   loading: Element;
 };
 
-export type DOMUpdateType = 'update' | 'restore' | 'loading';
+export type Layer = 'L1' | 'L2';
 
 export type Currency = {
   name: string;
@@ -20,5 +22,6 @@ export type Chain = {
   name: string;
   nativeToken: Currency;
   info: ViemChain;
+  layer: Layer;
   baseRpc: string;
 };

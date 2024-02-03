@@ -58,7 +58,7 @@ const tables: Tables = {
       if (!cell.marked) return cell;
 
       // Match numbers (exclude %, use comma as thousands separator, and allow negative numbers)
-      const numberRegex = /-?\d{1,3}(,\d{3})*(\.\d+)?(?![\d,.]*%)/g;
+      const numberRegex = /-?\d+(?:,\d{3})*(?:\.\d+)?(?![\d,.]*%)/g;
 
       const newText = cell.original.textContent?.replace(numberRegex, (match) => {
         const clean = Number(match.replace(/,/g, ''));

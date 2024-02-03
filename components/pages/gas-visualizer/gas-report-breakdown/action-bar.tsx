@@ -174,7 +174,7 @@ const GasReportBreakdownActionBar: FC<GasReportBreakdownActionBarProps> = (props
           }
         }}
       >
-        {CHAINS.map((chain) => (
+        {CHAINS.filter((chain) => chain.layer === 'L1').map((chain) => (
           <SelectItem key={chain.info.id} value={chain.info.id}>
             {chain.info.name}
           </SelectItem>
@@ -186,7 +186,7 @@ const GasReportBreakdownActionBar: FC<GasReportBreakdownActionBarProps> = (props
       </Label>
       <Slider
         className="mt-2"
-        min={Number(parseGwei('0.001'))} // 0.001 Gwei for L2s
+        min={Number(parseGwei('0.001'))} // 0.001 Gwei
         max={Number(parseGwei('1000'))} // 1,000 Gwei
         step={Number(parseGwei('0.001'))} // 0.001 Gwei
         // defaultValue={[Number(formatGwei(BigInt(currentGasPrice)))]}
@@ -200,7 +200,7 @@ const GasReportBreakdownActionBar: FC<GasReportBreakdownActionBarProps> = (props
         // remove arrows
         style={{ WebkitAppearance: 'none', MozAppearance: 'textfield' }}
         type="number"
-        min={Number(parseGwei('0.001'))} // 0.001 Gwei for L2s
+        min={Number(parseGwei('0.001'))} // 0.001 Gwei
         max={Number(parseGwei('1000'))} // 1,000 Gwei
         value={formatGwei(BigInt(currentGasPrice || 0))}
         disabled={!showGasInDollars || fetchingData}
@@ -229,7 +229,7 @@ const GasReportBreakdownActionBar: FC<GasReportBreakdownActionBarProps> = (props
       </div>
       {/* Restore current chain data */}
       <Button
-        className="mt-6 w-full"
+        className="mt-6 w-full py-2"
         size="sm"
         variant="secondary"
         intent="primary"
@@ -238,6 +238,23 @@ const GasReportBreakdownActionBar: FC<GasReportBreakdownActionBarProps> = (props
       >
         Use latest {currentChain.info.name} data
       </Button>
+      <div className="mt-6 flex flex-col text-justify text-sm text-muted-foreground">
+        <span>
+          Price are not available in dollars for L2s, due to the cost of submitting transactions to
+          the underlying L1.
+        </span>
+        <span>
+          But you can use <span className="font-medium">the simulator</span> to predict the most
+          optimized solution for a specific transaction.
+        </span>
+        <Button
+          className="mt-2 w-full cursor-not-allowed py-2 opacity-50"
+          variant="secondary"
+          intent="orange"
+        >
+          Simulator (soon)
+        </Button>
+      </div>
     </>
   );
 
@@ -300,10 +317,10 @@ const GasReportBreakdownActionBarMobile: FC<
           <nav className="hide-scrollbar fixed inset-0 z-overlay overflow-y-scroll bg-gray-1 p-4 pt-28 animate-in slide-in-from-top-1 md:hidden">
             {/* Open external link */}
             <Button
-              className="justify-self-end"
+              className="w-full justify-self-end py-2"
               size="md"
               variant="outline"
-              intent="orange"
+              intent="primary"
               href={repoUrl}
               rightIcon={<ExternalLink />}
               newTab
@@ -326,10 +343,10 @@ const GasReportBreakdownActionBarInternal: FC<
     <Fragment>
       {/* Open external link */}
       <Button
-        className="justify-self-end"
+        className="w-full justify-self-end py-2"
         size="md"
         variant="outline"
-        intent="orange"
+        intent="primary"
         href={repoUrl}
         rightIcon={<ExternalLink />}
         newTab
