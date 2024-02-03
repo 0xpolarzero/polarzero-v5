@@ -17,7 +17,7 @@ import GasReportLayout from '@/components/pages/gas-visualizer/gas-report';
 
 type GasVisualizerPageProps = {
   githubReadme: MDXRemoteSerializeResult<Record<string, unknown>>;
-  githubContracts: Record<string, string>;
+  githubContracts: Record<string, { code: string; url: string }>;
   githubUrl: string;
 };
 
@@ -78,7 +78,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   }
 
   const url = `https://github.com/${author}/${repo}`;
-  const readmeMdx = await serialize(data['readme'], {
+  const readmeMdx = await serialize(data['readme'].code, {
     mdxOptions: {
       remarkPlugins: [remarkGfm],
     },

@@ -18,7 +18,7 @@ type File = {
 };
 
 type Response = {
-  data: Record<string, string>;
+  data: Record<string, { url: string; code: string }>;
   status: number;
   error: Error | null;
 };
@@ -103,7 +103,7 @@ const fetchGithubAndFormat = async (author: string, repo: string): Promise<Respo
   return {
     data: {
       ...files,
-      readme: readMeContentCellsMarked,
+      readme: { url: readMe?.download_url || '', code: readMeContentCellsMarked },
     },
     status: 200,
     error: null,
