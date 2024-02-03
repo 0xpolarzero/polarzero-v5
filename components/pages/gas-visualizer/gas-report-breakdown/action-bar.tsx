@@ -11,6 +11,7 @@ import { Cell, Chain } from '@/lib/types/gas-visualizer';
 import { cn, tables } from '@/lib/utils';
 import { fetchFiatRates } from '@/lib/utils';
 
+import Logo from '@/components/common/logo';
 import { Button, IconButton, Input, Label, Select, Slider } from '@/components/ui';
 import { SelectItem } from '@/components/ui/select';
 
@@ -318,6 +319,7 @@ const GasReportBreakdownActionBarMobile: FC<
         ) : (
           <div className="ml-4 text-gray-11">Gas units</div>
         )}
+        <Logo className="ml-auto" overrideBg="#000000" />
       </div>
 
       <Dialog.Portal>

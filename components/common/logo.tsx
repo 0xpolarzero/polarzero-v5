@@ -10,13 +10,14 @@ import { cn } from '@/lib/utils';
 type LogoProps = {
   className?: string;
   href?: string;
+  overrideBg?: string;
 };
 
 // -----------------------------------------------------------------------------
 // Component
 // -----------------------------------------------------------------------------
 
-const Logo: FC<LogoProps> = ({ className, href = '/' }) => {
+const Logo: FC<LogoProps> = ({ className, href = '/', overrideBg }) => {
   return (
     <Link href={href} className={cn('h-8 w-8 hover:brightness-75', className)} aria-label="Home">
       <svg
@@ -29,7 +30,7 @@ const Logo: FC<LogoProps> = ({ className, href = '/' }) => {
       >
         <title>polarzero</title>
         <desc>polarzero logo.</desc>
-        <rect x="1" y="1" width="2558" height="2558" rx="15" fill="#161616" />
+        <rect x="1" y="1" width="2558" height="2558" rx="15" fill={overrideBg || '#161616'} />
 
         <g
           transform="translate(0.000000,2560.000000) scale(0.100000,-0.100000)"
