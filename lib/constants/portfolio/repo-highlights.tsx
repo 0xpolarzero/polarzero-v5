@@ -23,14 +23,14 @@ export const REPO_HIGHLIGHTS: HighlightedRepo[] = [
     details: 'Bug bounty',
     description: (
       <div>
-        Fuzzing and formally veryfing Mantle LSP Staking contract, to try to optimize for the
+        Fuzzing and formally verifying Mantle LSP Staking contract, to try to optimize for the
         highest extracted ETH and mETH value, as part of their bug bounty program.
       </div>
     ),
     url: 'https://github.com/0xpolarzero/mantle-lsp-fuzzing-formal-verification',
     categories: ['fuzzing/invariants', 'formal verification'],
-    fuzzing: [TOOLS.echidna, TOOLS.medusa],
-    formalVerification: [TOOLS.certora, TOOLS.halmos],
+    fuzzing: [TOOLS.echidna],
+    formalVerification: [TOOLS.halmos],
     date: new Date('2023-12'),
     protocol: 'Mantle LSP',
   },
@@ -52,5 +52,23 @@ export const REPO_HIGHLIGHTS: HighlightedRepo[] = [
     formalVerification: [],
     date: new Date('2023-11'),
     protocol: 'Superform',
+  },
+  {
+    name: 'Airdrop patterns and solutions',
+    details: 'Gas benchmarks',
+    description: (
+      <div>
+        <p>
+          Measuring gas usage for popular airdrop patterns with various token standards and airdrop
+          mechanisms.
+        </p>
+        <p>Including native tokens, ERC20, ERC721 and ERC1155.</p>
+      </div>
+    ),
+    url: 'https://github.com/0xpolarzero/airdrop-gas-benchmarks',
+    categories: ['analysis'],
+    fuzzing: [TOOLS.foundry],
+    formalVerification: [],
+    date: new Date('2024-01'),
   },
 ];
