@@ -112,21 +112,6 @@ const GasReportBreakdownActionBar: FC<GasReportBreakdownActionBarProps> = (props
     }
   }, [showGasInDollars, toShowGasInDollars, toShowGasInUnits]);
 
-  // TODO Create functions "handleChainChange" and "handleGasPriceChange", etc
-  // Check if data is already fetched, if not, fetch it, if yes just take it
-  // Only change dom if currently price in dollars, otherwise not
-  // TODO Use showGasInDollars callback on useEffect to trigger these as well
-
-  // - disable all buttons (everything but open on github)) if "Dollars" not selected
-  // - On first dollars selection, fetch data and update cells
-  // - On click on "Use latest chain data/current data, gas price" refetch everything and update
-  // - On chain change, refetch everything and update
-  // - Otherwise, on manual gas price change or native token price change, just update cells
-
-  // TODO On click (when needed to fetch), set cells to Skeleton directly,
-  // TODO then update when data is here
-  // ! Same for inputs when using latest data
-
   const userActions = (
     <>
       {/* Gas in units/dollars */}
@@ -238,15 +223,19 @@ const GasReportBreakdownActionBar: FC<GasReportBreakdownActionBarProps> = (props
       >
         Use latest {currentChain.info.name} data
       </Button>
-      <div className="mt-6 flex flex-col text-justify text-sm text-muted-foreground">
-        <span>
+
+      <span className="my-8 block h-px w-full bg-gray-6" />
+
+      {/* Simulator */}
+      <div className="flex flex-col gap-2 text-justify text-sm text-muted-foreground">
+        <p>
           Price are not available in dollars for L2s, due to the cost of submitting transactions to
           the underlying L1.
-        </span>
-        <span>
+        </p>
+        <p>
           But you can use <span className="font-medium">the simulator</span> to predict the most
           optimized solution for a specific transaction.
-        </span>
+        </p>
         <Button
           className="mt-2 w-full cursor-not-allowed py-2 opacity-50"
           variant="secondary"
@@ -353,7 +342,7 @@ const GasReportBreakdownActionBarInternal: FC<
       >
         Open on GitHub
       </Button>
-      {/* separator */}
+
       <span className="my-8 block h-px w-full bg-gray-6" />
 
       {inputs}

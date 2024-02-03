@@ -54,7 +54,7 @@ const GasVisualizerPage: NextPage<GasVisualizerPageProps> = ({
       />
 
       <BaseLayout subtitle="Gas visualizer" pageSlug="/gas-visualizer" external>
-        <ContainerLayout className="relative flex max-w-[90rem] flex-col gap-8 px-0 pt-0">
+        <ContainerLayout className="relative flex max-w-[100rem] flex-col gap-8 px-0 pt-0">
           <GasReportLayout readme={githubReadme} contracts={githubContracts} repoUrl={githubUrl} />
         </ContainerLayout>
       </BaseLayout>
