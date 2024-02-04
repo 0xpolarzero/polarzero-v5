@@ -11,6 +11,7 @@ import { Button } from '@/components/ui';
 
 type FuzzingFVFeatureProps = HighlightedRepo & {
   className?: string;
+  internalLink?: string;
 };
 
 const FuzzingFVFeature: FC<FuzzingFVFeatureProps> = ({
@@ -18,6 +19,7 @@ const FuzzingFVFeature: FC<FuzzingFVFeatureProps> = ({
   details,
   description,
   url,
+  internalLink = '',
   categories,
   fuzzing,
   formalVerification,
@@ -40,6 +42,7 @@ const FuzzingFVFeature: FC<FuzzingFVFeatureProps> = ({
       tags={categories.map((tag, i) => (
         <CategoryTag key={i} size="md" category={tag} />
       ))}
+      internalLink={internalLink ?? null}
     >
       <div className="flex h-full flex-col space-y-4 p-4 text-[0.92rem]">
         {/* description */}

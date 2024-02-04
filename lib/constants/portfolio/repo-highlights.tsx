@@ -66,6 +66,7 @@ export const REPO_HIGHLIGHTS: HighlightedRepo[] = [
       </div>
     ),
     url: 'https://github.com/0xpolarzero/airdrop-gas-benchmarks',
+    internalLink: '/gas-visualizer?author=0xpolarzero&repo=airdrop-gas-benchmarks',
     categories: ['analysis'],
     fuzzing: [TOOLS.foundry],
     formalVerification: [],

@@ -101,6 +101,7 @@ export type HighlightedRepo = {
   formalVerification?: Tool[];
   date: Date;
   slug?: string;
+  internalLink?: string;
   protocol?: string;
 };
 
