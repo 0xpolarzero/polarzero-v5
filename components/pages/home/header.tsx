@@ -29,7 +29,8 @@ const PolarzeroHeader: FC = () => {
         <div>
           <div className="text-base font-semibold md:text-2xl">polarzero</div>
           <span className="mt-0.5 text-sm text-gray-11 md:mt-1 md:text-base">
-            <span className="font-medium">Smart contracts developer</span>.<br />
+            <span className="font-medium">EVM developer</span> (smart contracts, frontend, tooling).
+            <br />
             {/* Fuzzing and formal verification. */}
           </span>
         </div>

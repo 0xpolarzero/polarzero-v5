@@ -23,9 +23,9 @@ const HireMeHeader: FC = () => {
       <p className="text-gray-12">
         I&apos;m available for freelance/contract work. Especially interested in:
         <ul className="ml-4 list-none">
-          <li>- smart contracts/protocol development</li>
-          <li>- fuzzing/invariants testing suites</li>
-          <li>- formal verification campaigns</li>
+          <li>- smart contracts/protocol development;</li>
+          <li>- frontend development, blockchain integration;</li>
+          <li>- fuzzing/invariants testing, formal verification campaigns.</li>
         </ul>
         If you need help with any of the above, or have a project in mind, please get in touch.
       </p>
