@@ -48,6 +48,7 @@ export type ResumeAttributes = Record<
  * Type for the about section of the resume
  */
 export type ResumeAbout = {
+  name: string;
   age: number;
   location: ReactNode;
   locationMin: string;

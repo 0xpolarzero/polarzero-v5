@@ -39,11 +39,13 @@ const ResumeTable: FC<ResumeTableProps> = ({ items, tab }) => {
   if (tab === 'me') {
     return (
       <div className="grid grid-cols-[min-content_1fr] gap-x-6 gap-y-3 font-sans text-sm">
+        <span className="font-medium text-muted-foreground">name</span>
+        <span>{RESUME_ABOUT.name}</span>
         <span className="font-medium text-muted-foreground">age</span>
         <span className="font-mono">{RESUME_ABOUT.age.toFixed(4)}</span>
         <span className="whitespace-nowrap font-medium text-muted-foreground">location</span>
         {RESUME_ABOUT.location}
-        <span className="text-muted-foreground">like</span>
+        <span className="font-medium text-muted-foreground">like</span>
         <div className="flex flex-wrap gap-2">
           {RESUME_ABOUT.like.map((like, index) => (
             <Badge

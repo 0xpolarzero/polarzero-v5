@@ -609,6 +609,7 @@ export const RESUME_TABS: Record<ResumeTab, ResumeItem['status'][]> = {
  * About section of the resume (me).
  */
 export const RESUME_ABOUT: ResumeAbout = {
+  name: 'Antton',
   age: (new Date().getTime() - new Date('1998-12-04').getTime()) / 1000 / 60 / 60 / 24 / 365.25,
   location: (
     <div className="flex flex-col gap-1">

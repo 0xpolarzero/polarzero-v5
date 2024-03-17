@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
 
-import { Mail } from 'lucide-react';
+import { Github } from 'lucide-react';
 import { NextSeo } from 'next-seo';
 
 import { RESUME_ITEMS, RESUME_TABS, WEBSITE_VERSIONS } from '@/lib/constants/resume';
@@ -121,11 +121,11 @@ const ResumePage: NextPage = () => {
                   className="space-x-0 md:space-x-1"
                   variant="outline"
                   size="sm"
-                  href={`mailto:${CONTACT_LINKS.email}`}
+                  href={CONTACT_LINKS.github}
                   newTab
-                  leftIcon={<Mail />}
+                  leftIcon={<Github />}
                 >
-                  <span className="hidden md:inline">contact@polarzero.xyz</span>
+                  <span className="hidden md:inline">0xpolarzero</span>
                 </Button>
                 <Button
                   className="space-x-0 md:space-x-1"

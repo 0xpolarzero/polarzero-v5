@@ -93,6 +93,11 @@ const Header = () => (
     <View style={tw('flex flex-row gap-2 text-xs')}>
       <LinkStyled href={CONTACT_LINKS.twitter} label={`@${CONTACT_LINKS.twitter.split('/')[3]}`} />
       <Text style={tw('text-gray-700')}>/</Text>
+      <LinkStyled
+        href={CONTACT_LINKS.github}
+        label={CONTACT_LINKS.github.replace('https://', '')}
+      />
+      <Text style={tw('text-gray-700')}>/</Text>
       <LinkStyled href={SITE_URL} label={SITE_URL.replace('https://', '')} />
     </View>
   </View>
@@ -183,6 +188,10 @@ const About = () => (
   <>
     <Text style={tw('mt-4 text-lg font-medium')}>me</Text>
     <View style={tw('flex flex-col gap-2 text-xs')}>
+      <Text>
+        <Text style={tw('font-medium text-muted-foreground')}>name:</Text>{' '}
+        <Text>{RESUME_ABOUT.name}</Text>
+      </Text>
       <Text>
         <Text style={tw('font-medium text-muted-foreground')}>age:</Text>{' '}
         <Text>{RESUME_ABOUT.age.toFixed()}</Text>

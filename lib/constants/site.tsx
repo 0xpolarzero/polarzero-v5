@@ -26,4 +26,5 @@ export const CONTACT_LINKS: Record<string, string> = {
   email: 'contact@polarzero.xyz',
   twitter: 'https://twitter.com/0xpolarzero',
   telegram: 'https://t.me/polarzer0',
+  github: 'https://github.com/0xpolarzero',
 };
