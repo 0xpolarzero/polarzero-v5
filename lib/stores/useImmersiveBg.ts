@@ -1,3 +1,5 @@
+import { ReadonlyURLSearchParams } from 'next/navigation';
+
 import { create } from 'zustand';
 
 interface ImmersiveBgState {
@@ -6,7 +8,7 @@ interface ImmersiveBgState {
   disable: () => void;
 
   enabledWithConditions: boolean;
-  toggleWithConditions: (isMobile: boolean, path: string) => void;
+  toggleWithConditions: (isMobile: boolean, path: string, query?: ReadonlyURLSearchParams) => void;
 }
 
 export const useImmersiveBg = create<ImmersiveBgState>((set, get) => ({
@@ -15,12 +17,17 @@ export const useImmersiveBg = create<ImmersiveBgState>((set, get) => ({
   disable: () => set({ enabled: false }),
 
   enabledWithConditions: false,
-  toggleWithConditions: (isMobile, path) => {
+  toggleWithConditions: (isMobile, path, query) => {
     set({
       enabledWithConditions:
         get().enabled &&
         !isMobile &&
-        (path === '/' || path === '/writing' || path === '/portfolio' || path === '/hire-me'),
+        !query?.get('pdf') &&
+        (path === '/' ||
+          path === '/writing' ||
+          path === '/portfolio' ||
+          path === '/hire-me' ||
+          path === '/resume'),
     });
   },
 }));

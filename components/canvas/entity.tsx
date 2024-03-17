@@ -65,7 +65,8 @@ const Entity = () => {
     shaderMaterial.uniforms.uTime.value = clock.getElapsedTime();
 
     // Placement
-    ref.current.position.x = type === '/' || type === '/hire-me' ? viewport.width / 4 : 0;
+    ref.current.position.x =
+      type === '/' || type === '/hire-me' || type === '/resume' ? viewport.width / 4 : 0;
   });
 
   useEffect(() => {

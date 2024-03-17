@@ -46,27 +46,31 @@ const DesktopNavBar: FC<NavBarProps> = ({ selected, external }) => {
             const pageSelected = selected === page.slug;
 
             return (
-              <Button
-                key={page.slug}
-                className={cn('ml-2', pageSelected ? 'cursor-default bg-gray-4' : '')}
-                variant="ghost"
-                href={page.slug}
-                disabled={pageSelected}
-              >
-                {page.name}
-              </Button>
+              <>
+                {page.slug === '/resume' ? <div className="grow" /> : null}
+                <Button
+                  key={page.slug}
+                  className={cn(
+                    page.slug === '/resume' ? 'mr-2 font-normal' : 'ml-2',
+                    pageSelected && 'cursor-default bg-gray-4',
+                  )}
+                  variant="ghost"
+                  href={page.slug}
+                  disabled={pageSelected}
+                >
+                  {page.name}
+                </Button>
+              </>
             );
           })}
-      <div className="flex-grow" />
       {external ? null : <ImmersiveSwitch />}
     </nav>
   );
 };
 
 const MobileNavBar: FC<NavBarProps> = ({ selected }) => {
-  const [isMounted, setIsMounted] = useState(false);
-  useEffect(() => setIsMounted(true), []);
-  const isMobile = isMounted ? /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) : false;
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => setIsMobile(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)), []);
 
   return (
     <nav className="pointer-events-auto sticky top-0 z-popover flex h-12 items-center border-b border-gray-6 bg-white px-4 dark:bg-black md:hidden">

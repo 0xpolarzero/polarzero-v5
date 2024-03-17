@@ -1,6 +1,6 @@
 import { Vector3 } from 'three';
 
-export type EntityType = '/' | '/writing' | '/portfolio' | '/hire-me';
+export type EntityType = '/' | '/writing' | '/portfolio' | '/hire-me' | '/resume' | '';
 
 export type EntityUniform = {
   uTime: {

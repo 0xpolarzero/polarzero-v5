@@ -9,5 +9,9 @@
   "eslint.validate": ["javascript", "javascriptreact"],
   "typescript.updateImportsOnFileMove.enabled": "always",
   "editor.inlineSuggest.enabled": true,
-  "tailwindCSS.experimental.classRegex": [["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]]
+  "tailwindCSS.experimental.classRegex": [["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]],
+  "search.exclude": {
+    "**/node_modules": false
+  },
+  "search.useIgnoreFiles": true
 }

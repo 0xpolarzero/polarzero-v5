@@ -37,4 +37,21 @@ const getTimePassed = (date: Date): string => {
     : `${yearDiff} years ago`;
 };
 
+const getDurationApprox = (start: Date, end?: Date): string => {
+  // Get the duration in various units
+  const days = end
+    ? Math.floor((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24) + 1)
+    : Math.floor((new Date().getTime() - start.getTime()) / (1000 * 60 * 60 * 24) + 1);
+  const months = Math.floor(days / 30) + 1;
+  const years = Math.floor(days / 365) + 1;
+
+  // The displayed duration
+  return days < 60
+    ? `${days} day${days > 1 ? 's' : ''}`
+    : months < 10
+    ? `${months} month${months > 1 ? 's' : ''}`
+    : `${years} year${years > 1 ? 's' : ''}`;
+};
+
 export default getTimePassed;
+export { getDurationApprox };

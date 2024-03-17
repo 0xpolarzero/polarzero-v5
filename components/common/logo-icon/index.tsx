@@ -5,12 +5,14 @@ import {
   HashnodeIcon,
   ImmunefiIcon,
   MediumIcon,
+  TelegramIcon,
   XIcon,
 } from './icons';
 
 const LogoIcon = () => null;
 
 LogoIcon.X = XIcon;
+LogoIcon.Telegram = TelegramIcon;
 LogoIcon.Medium = MediumIcon;
 LogoIcon.Hashnode = HashnodeIcon;
 LogoIcon.Code4rena = Code4renaIcon;
