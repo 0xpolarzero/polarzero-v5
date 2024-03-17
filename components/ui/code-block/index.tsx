@@ -45,11 +45,7 @@ const CodeBlock: FC<CodeBlockProps> = ({
   ...rest
 }) => {
   const [copied, setCopied] = useState<boolean>(false);
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => setIsMounted(true), []);
-
-  const isMobile = isMounted ? /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) : false;
+  const [isMobile, setIsMobile] = useState(false);
 
   const hasFileName = fileName !== undefined;
 
@@ -77,6 +73,8 @@ const CodeBlock: FC<CodeBlockProps> = ({
     }
     navigator.clipboard.writeText(children);
   };
+
+  useEffect(() => setIsMobile(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)), []);
 
   return (
     <div className={cn(codeBlockContainerVariants({ roundedTop }), className)}>

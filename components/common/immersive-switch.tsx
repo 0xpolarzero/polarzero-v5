@@ -15,12 +15,12 @@ const ImmersiveSwitch: FC = () => {
   return (
     <Tooltip
       content={immersiveBgEnabled ? 'Disable immersive background' : 'Enable immersive background'}
+      className="grow justify-self-end"
     >
       <Button
         size="sm"
         variant="secondary"
         intent={immersiveBgEnabled ? 'primary' : 'warning'}
-        className=""
         onClick={toggleImmersiveBg}
       >
         {immersiveBgEnabled ? <Check size={16} /> : <X size={16} />}

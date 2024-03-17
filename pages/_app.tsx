@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app';
 import { Fira_Code, Inter } from 'next/font/google';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import { type FC, useEffect } from 'react';
 
 // import { darkTheme, getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
@@ -65,6 +65,8 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
   const DESCRIPTION = 'personal website';
 
   const path = usePathname();
+  const queryParams = useSearchParams();
+
   const { immersiveBg, immersiveBgControlEnabled, toggleImmersiveBg } = useImmersiveBg((state) => ({
     immersiveBg: state.enabledWithConditions,
     immersiveBgControlEnabled: state.enabled,
@@ -73,8 +75,8 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
 
   useEffect(() => {
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    toggleImmersiveBg(isMobile, path);
-  }, [path, immersiveBgControlEnabled, toggleImmersiveBg]);
+    toggleImmersiveBg(isMobile, path, queryParams);
+  }, [path, queryParams, immersiveBgControlEnabled, toggleImmersiveBg]);
 
   return (
     <>
