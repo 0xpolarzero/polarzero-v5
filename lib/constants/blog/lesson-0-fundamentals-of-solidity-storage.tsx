@@ -28,7 +28,7 @@ const sections: BlogPostSection[] = [
   },
   {
     title: '3. Why Does This Matter?',
-    slug: '3-why-does-this-matter-',
+    slug: '3-why-does-this-matter',
     subsections: [
       {
         title: 'Efficient storage packing to minimize gas costs',
