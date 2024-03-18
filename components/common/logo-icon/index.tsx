@@ -1,10 +1,11 @@
 import {
-  BadgerDAOIcon,
-  Code4renaIcon,
-  ENSIcon,
+  ChainlinkIcon,
+  GliderIcon,
   HashnodeIcon,
-  ImmunefiIcon,
   MediumIcon,
+  PmndrsIcon,
+  PromiseIcon,
+  SavvyIcon,
   TelegramIcon,
   XIcon,
 } from './icons';
@@ -13,12 +14,15 @@ const LogoIcon = () => null;
 
 LogoIcon.X = XIcon;
 LogoIcon.Telegram = TelegramIcon;
+// writing
 LogoIcon.Medium = MediumIcon;
 LogoIcon.Hashnode = HashnodeIcon;
-LogoIcon.Code4rena = Code4renaIcon;
-LogoIcon.Immunefi = ImmunefiIcon;
-LogoIcon.Ens = ENSIcon;
-LogoIcon.BadgerDAO = BadgerDAOIcon;
+// portfolio
+LogoIcon.savvy = SavvyIcon;
+LogoIcon.pmndrs = PmndrsIcon;
+LogoIcon.promise = PromiseIcon;
+LogoIcon.chainlink = ChainlinkIcon;
+LogoIcon.glider = GliderIcon;
 
 LogoIcon.displayName = 'LogoIcon';
 

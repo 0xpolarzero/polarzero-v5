@@ -34,12 +34,14 @@ const FilterCategories: FC<FilterCategoriesProps> = ({ categories }) => {
         intent="none"
         value={currentFilter ? currentFilter : 'All categories'}
         onChange={(e) =>
-          e.target.value == 'All categories' ? filter(null) : filter(e.target.value as Category)
+          e.target.value == 'All categories'
+            ? filter(null)
+            : filter(e.target.value as Category['name'])
         }
       >
         <option>All categories</option>
         {categories.map((category) => (
-          <option key={category}>{category}</option>
+          <option key={category.name}>{category.name}</option>
         ))}
       </Select>
       <Button size="md" variant="ghost" intent="none" onClick={() => filter(null)}>

@@ -17,6 +17,7 @@ export type ResumeItem = {
     | 'course'
     | 'research-work'
     | 'research-education';
+  categories: string[];
   title: string;
   description: ReactNode | string;
   startDate: Date;
@@ -27,7 +28,10 @@ export type ResumeItem = {
   demoUrl?: string;
   documentationUrl?: string;
   articleUrl?: string;
+  slug?: string;
   stack?: { name: string; url?: string }[];
+  symbol?: JSX.Element;
+  starred?: boolean;
 };
 
 /**

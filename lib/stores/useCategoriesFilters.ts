@@ -3,8 +3,8 @@ import { create } from 'zustand';
 import { Category } from '@/components/templates/category-tag';
 
 interface CategoriesFiltersState {
-  currentFilter: Category | null;
-  filter: (category: Category | null) => void;
+  currentFilter: Category['name'] | null;
+  filter: (category: Category['name'] | null) => void;
 }
 
 export const useCategoriesFilters = create<CategoriesFiltersState>((set) => ({

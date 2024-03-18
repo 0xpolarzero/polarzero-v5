@@ -1,9 +1,15 @@
 import { RESUME_ITEMS } from '@/lib/constants/resume';
 import { ResumeItem } from '@/lib/types/resume';
 
-const writingFilters: ResumeItem['status'][] = ['writing', 'research-education'];
+const portfolioFilters: ResumeItem['status'][] = [
+  'work',
+  'contribution',
+  'idea',
+  'hackathon',
+  'research-work',
+];
 
-export const WRITING_PAGES = Object.entries(RESUME_ITEMS())
+export const PORTFOLIO_PAGES = Object.entries(RESUME_ITEMS())
   // sort by year (desc)
   .sort((a, b) => Number(b[0]) - Number(a[0]))
   .map(([, items]) => {
@@ -21,4 +27,4 @@ export const WRITING_PAGES = Object.entries(RESUME_ITEMS())
     return items;
   })
   .flat()
-  .filter((item) => writingFilters.includes(item.status));
+  .filter((item) => portfolioFilters.includes(item.status));

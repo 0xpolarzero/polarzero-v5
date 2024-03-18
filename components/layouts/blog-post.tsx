@@ -12,8 +12,8 @@ import type { PageSlug } from '@/lib/types/site';
 import BaseLayout from '@/components/layouts/base';
 import ContainerLayout from '@/components/layouts/container';
 import mdxComponents from '@/components/layouts/mdx-components';
-import BlogPostNavBar from '@/components/pages/writing/blog-post/nav-bar';
-import BlogPostPageNav from '@/components/pages/writing/blog-post/page-nav';
+import BlogPostNavBar from '@/components/pages/blog-post/nav-bar';
+import BlogPostPageNav from '@/components/pages/blog-post/page-nav';
 import { Button } from '@/components/ui';
 
 // -----------------------------------------------------------------------------

@@ -1,29 +1,10 @@
-import { ReactNode } from 'react';
+import { PORTFOLIO_PAGES } from '@/lib/constants/portfolio';
+import { WRITING_PAGES } from '@/lib/constants/writing';
+import { ResumeItem } from '@/lib/types/resume';
 
-import { PORTFOLIO_PAGES } from './portfolio';
-import { WRITING_BLOG_PAGES } from './writing';
-
-import { HighlightedRepo } from '@/lib/types/portfolio';
-
-import FuzzingFVFeature from '@/components/pages/portfolio/fuzzing-fv';
-import WritingCardFeature from '@/components/pages/writing/writing-card';
-
-export const FEATURED_WORKS: ReactNode[] = [
-  <FuzzingFVFeature
-    key={2}
-    {...(PORTFOLIO_PAGES[0] as HighlightedRepo)}
-    className="col-span-2 w-full min-[960px]:col-span-4"
-  />,
-  <WritingCardFeature key={0} {...WRITING_BLOG_PAGES[0]} />,
-  <WritingCardFeature key={1} {...WRITING_BLOG_PAGES[2]} />,
-  <FuzzingFVFeature
-    key={2}
-    {...(PORTFOLIO_PAGES[1] as HighlightedRepo)}
-    className="col-span-2 w-full min-[960px]:col-span-4"
-  />,
-  // <AuditCardFeature
-  //   key={3}
-  //   {...(PORTFOLIO_PAGES[2] as Audit)}
-  //   className="col-span-2 w-full min-[960px]:col-span-4"
-  // />,
-];
+export const FEATURED_WORKS: ResumeItem[] = [
+  PORTFOLIO_PAGES.find((item) => item.title === 'savvy'),
+  PORTFOLIO_PAGES.find((item) => item.title === 'airdrop gas benchmarks'),
+  WRITING_PAGES.find((item) => item.slug === 'blockchain-but-for-real'),
+  WRITING_PAGES.find((item) => item.slug === 'decentralized-systems-end-the-cycle-of-indifference'),
+] as ResumeItem[];

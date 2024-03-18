@@ -1,7 +1,16 @@
-import { CastleIcon, LucideIcon, SparkleIcon, TimerIcon } from 'lucide-react';
+import {
+  CastleIcon,
+  FileText,
+  Github,
+  LucideIcon,
+  SparkleIcon,
+  TimerIcon,
+  Waves,
+} from 'lucide-react';
 
 import { ResumeAbout, ResumeAttributes, ResumeItem, ResumeTab } from '@/lib/types/resume';
 
+import LogoIcon from '@/components/common/logo-icon';
 import { Italic, Link } from '@/components/pages/resume/converters';
 
 /**
@@ -16,6 +25,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
   2024: [
     {
       status: 'work',
+      categories: ['evm', 'tooling', 'optimization', 'data visualization', 'fullstack'],
       title: 'savvy',
       description:
         'an interface for the EVM on the browser, to simulate & visualize onchain activity.',
@@ -27,9 +37,12 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
         { name: 'Tevm', url: 'https://tevm.sh' },
         { name: 'WhatsABI', url: 'https://github.com/shazow/whatsabi' },
       ],
+      symbol: <LogoIcon.savvy />,
+      starred: true,
     },
     {
       status: 'contribution',
+      categories: ['evm', 'tooling', 'fullstack'],
       title: 'Tevm',
       description: 'lately with a Next.js example integrating Tevm.',
       startDate: new Date('2024-02-19'),
@@ -41,6 +54,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
     },
     {
       status: 'research-work',
+      categories: ['evm', 'optimization'],
       title: 'airdrop gas benchmarks',
       description:
         'a series of tests to measure gas usage for popular airdrop patterns with various token standards and airdrop mechanisms.',
@@ -52,9 +66,11 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       websiteUrl:
         'https://polarzero.xyz/gas-visualizer?author=0xpolarzero&repo=airdrop-gas-benchmarks',
       stack: [{ name: 'Foundry', url: 'https://getfoundry.sh/' }],
+      symbol: <Github />,
     },
     {
       status: 'research-work',
+      categories: ['evm', 'tooling', 'optimization'],
       title: 'gas metering comparison',
       description:
         'measuring how various libraries/frameworks report gas usage against testnet transactions, for a specific set of calldata.',
@@ -68,6 +84,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
         { name: 'Tevm', url: 'https://tevm.sh' },
         { name: 'forge-gas-metering', url: 'https://github.com/emo-eth/forge-gas-metering' },
       ],
+      symbol: <Github />,
     },
   ],
   /* -------------------------------------------------------------------------- */
@@ -76,6 +93,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
   2023: [
     {
       status: 'contribution',
+      categories: ['evm', 'tooling', 'security'],
       title: 'Glider',
       description:
         'testing the tool from Hexens during a Secureum workshop, contributing to the documentation.',
@@ -84,9 +102,11 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       mainUrl: 'https://glide.r.xyz',
       websiteUrl: 'https://glide.r.xyz',
       stack: [{ name: 'Glider', url: 'https://glide.r.xyz' }],
+      symbol: <LogoIcon.glider />,
     },
     {
       status: 'idea',
+      categories: ['evm', 'immersive', 'spatial audio', 'music', 'NFTs', 'fullstack'],
       title: 'echoes',
       description:
         'a contemplative yet interactive collectible, made of particles, as part of an immersive audiovisual experience.',
@@ -109,9 +129,11 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
           url: 'https://thegraph.com/',
         },
       ],
+      symbol: <LogoIcon.pmndrs />,
     },
     {
       status: 'idea',
+      categories: ['immersive', 'data visualization', 'fullstack'],
       title: 'poligraph',
       description:
         'a 3D graph to help visualize political relationships in the French Assemblée Nationale.',
@@ -126,9 +148,11 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
           url: 'https://docs.pmnd.rs/react-three-fiber/getting-started/introduction',
         },
       ],
+      symbol: <LogoIcon.pmndrs />,
     },
     {
       status: 'research-work',
+      categories: ['evm', 'security', 'formal verification', 'fuzzing'],
       title: 'storage collision',
       description:
         'an example of how some automated testing tools will behave with a very precise storage collision exploit.',
@@ -141,9 +165,11 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
         { name: 'Certora', url: 'https://www.certora.com/' },
         { name: 'Halmos', url: 'https://github.com/a16z/halmos' },
       ],
+      symbol: <Github />,
     },
     {
       status: 'research-work',
+      categories: ['evm', 'security', 'fuzzing'],
       title: 'ERC1155A',
       description: (
         <>
@@ -156,9 +182,11 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       mainUrl: 'https://github.com/0xpolarzero/superform-erc1155a-fuzzing/',
       githubUrl: 'https://github.com/0xpolarzero/superform-erc1155a-fuzzing/',
       stack: [{ name: 'Foundry', url: 'https://getfoundry.sh/' }],
+      symbol: <Github />,
     },
     {
       status: 'work',
+      categories: ['immersive', 'spatial audio', 'music', 'fullstack'],
       title: 'metaverse',
       description: 'an example of 3D audio integration in a virtual world on the browser.',
       startDate: new Date('2022-04-11'),
@@ -175,9 +203,11 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
           url: 'https://atmoky.com/',
         },
       ],
+      symbol: <LogoIcon.pmndrs />,
     },
     {
       status: 'hackathon',
+      categories: ['evm', 'tooling', 'fullstack'],
       title: 'cascade',
       description:
         '(just another attempt at a) decentralized automated crowdfunding platform, with automated and flexible recurring payments.',
@@ -201,9 +231,11 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
           url: 'https://thegraph.com/',
         },
       ],
+      symbol: <Waves />,
     },
     {
       status: 'idea',
+      categories: ['immersive', 'music', 'NFTs', 'fullstack'],
       title: 'esthesis',
       description: 'an immersive 3D visualizer for music NFTs across different platforms',
       startDate: new Date('2023-02-22'),
@@ -221,9 +253,11 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
           url: 'https://www.spinamp.xyz/',
         },
       ],
+      symbol: <LogoIcon.pmndrs />,
     },
     {
       status: 'contribution',
+      categories: ['evm', 'tooling', 'fullstack'],
       title: 'Chainlink Functions',
       description: (
         <>
@@ -266,9 +300,11 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
           url: 'https://chain.link/functions',
         },
       ],
+      symbol: <LogoIcon.chainlink />,
     },
     {
       status: 'course',
+      categories: ['evm'],
       title: 'Alchemy University',
       description:
         'a seven-week Ethereum bootcamp; cryptography fundamentals, data structures, UTXO/account-based models, smart contracts...',
@@ -280,6 +316,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
     },
     {
       status: 'writing',
+      categories: ['evm', 'education'],
       title: 'Blockchain, but for real',
       description:
         'some explanations about blockchain: current perception, what is it actually, how it works, perspectives for the future, and what to do now.',
@@ -293,9 +330,12 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
         { name: 'EN' },
         { name: '~19 min read' },
       ],
+      slug: 'blockchain-but-for-real',
+      symbol: <LogoIcon.Medium />,
     },
     {
       status: 'writing',
+      categories: ['evm', 'education'],
       title: 'La blockchain, mais pour de vrai',
       description: (
         <>
@@ -313,9 +353,12 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
         { name: 'FR' },
         { name: '~22 min read' },
       ],
+      slug: 'blockchain-mais-pour-de-vrai',
+      symbol: <LogoIcon.Medium />,
     },
     {
       status: 'writing',
+      categories: ['evm', 'education'],
       title: 'Decentralized systems, End the Cycle of Indifference',
       description:
         'how traditional democracies tend to favor indifference, through delegation of knowledge and awareness, and how decentralized systems can help by incentivizing active participation in governance.',
@@ -331,9 +374,12 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
         { name: 'EN' },
         { name: '~16 min read' },
       ],
+      slug: 'decentralized-systems-end-the-cycle-of-indifference',
+      symbol: <LogoIcon.Medium />,
     },
     {
       status: 'writing',
+      categories: ['evm', 'tooling'],
       title: "Chainlink's New Dawn",
       description: (
         <>
@@ -351,9 +397,12 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
         { name: 'EN' },
         { name: '~6 min read' },
       ],
+      slug: 'chainlink-new-dawn',
+      symbol: <LogoIcon.Medium />,
     },
     {
       status: 'writing',
+      categories: ['evm', 'security', 'education'],
       title: 'Smart Contract Security, Terminology of a Review',
       description: (
         <>
@@ -373,9 +422,12 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
         { name: 'EN' },
         { name: '~4 min read' },
       ],
+      slug: 'smart-contract-security-terminology-of-a-review',
+      symbol: <LogoIcon.Medium />,
     },
     {
       status: 'writing',
+      categories: ['evm', 'education'],
       title: 'Lesson #0, Fundamentals of Solidity Storage',
       description:
         'the storage layout in the EVM, how data is meticulously stored and managed with Solidity.',
@@ -389,6 +441,8 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
         { name: 'EN' },
         { name: '~7 min read' },
       ],
+      slug: 'lesson-0-fundamentals-of-solidity-storage',
+      symbol: <LogoIcon.Medium />,
     },
   ],
   /* -------------------------------------------------------------------------- */
@@ -397,6 +451,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
   2022: [
     {
       status: 'hackathon',
+      categories: ['evm', 'tooling', 'fullstack'],
       title: 'promise',
       description: (
         <>
@@ -426,9 +481,11 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
           url: 'https://thegraph.com/',
         },
       ],
+      symbol: <LogoIcon.promise className="h-6 w-8" />,
     },
     {
       status: 'course',
+      categories: ['immersive'],
       title: 'Three.js Journey',
       description:
         'an extensive introduction to Web-based 3D with WebGL, using Three.js and React Three Fiber: physics, modeling, interactions, shaders, post-processing, optimization, R3F and Drei...',
@@ -440,6 +497,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
     },
     {
       status: 'course',
+      categories: ['evm', 'fullstack'],
       title: '"Full blockchain Solidity/JavaScript course"',
       description:
         'a comprehensive introduction to all the core concepts related to blockchain, and developing smart contracts with JavaScript and Solidity.',
@@ -451,6 +509,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
     },
     {
       status: 'course',
+      categories: ['javascript', 'fullstack'],
       title: 'The Odin Project, full stack curriculum',
       description:
         'an open-source curriculum for learning web development with JavaScript, Node.js, Express, MongoDB, React...',
@@ -461,6 +520,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
     },
     {
       status: 'education',
+      categories: ['spatial audio'],
       title: 'Master in Music and Music Production',
       description:
         'sound engineering, music theory, mixing, mastering, arrangement and orchestration...',
@@ -475,6 +535,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
     },
     {
       status: 'writing',
+      categories: ['immersive', 'education'],
       title: 'What is the metaverse anyway?',
       description: 'breaking through some of the most common misconceptions.',
       startDate: new Date('2022-05-10'),
@@ -487,9 +548,12 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
         { name: 'EN' },
         { name: '~11 min read' },
       ],
+      slug: 'what-is-the-metaverse-anyway',
+      symbol: <LogoIcon.Hashnode />,
     },
     {
       status: 'research-education',
+      categories: ['immersive', 'music', 'spatial audio', 'NFTs', 'education'],
       title: "L'audio immersif dans les mondes virtuels",
       description:
         'une place pour l’audio immersif dans le Web 3.0 : intégration dans le métavers; adaptation à un nouveau modèle, immersion dans un espace en pleine expansion, expériences immersives accessibles et avancées...',
@@ -509,6 +573,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
         { name: 'FR' },
         { name: '~painfully long read' },
       ],
+      symbol: <FileText />,
     },
   ],
   /* -------------------------------------------------------------------------- */
@@ -517,6 +582,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
   2020: [
     {
       status: 'education',
+      categories: ['music'],
       title: 'Bachelor in Music and Sound Engineering',
       description:
         'musicology, harmony, acoustics, history of music, audio engineering, sound design...',
@@ -535,6 +601,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
   2019: [
     {
       status: 'education',
+      categories: ['music'],
       title: 'Advanced Technician Certificate in Audiovisual Production',
       description: (
         <>

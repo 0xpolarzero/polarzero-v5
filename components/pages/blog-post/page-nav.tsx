@@ -4,8 +4,8 @@ import { type FC, useMemo } from 'react';
 
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
+import { BlogPostSection } from '@/lib/types/blog-post';
 import type { PageSlug } from '@/lib/types/site';
-import { BlogPostSection } from '@/lib/types/writing';
 
 // -----------------------------------------------------------------------------
 // Props

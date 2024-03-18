@@ -9,56 +9,18 @@ import type { BadgeProps } from '@/components/ui/badge/types';
 // Props
 // -----------------------------------------------------------------------------
 
-export type Category =
-  // Blog post
-  | 'chainlink'
-  | 'education'
-  | 'fr'
-  | 'governance'
-  | 'immersive tech'
-  | 'infrastructure'
-  | 'NFT'
-  | 'security research'
-  | 'solidity'
-  // Portfolio (type)
-  | 'solo audit'
-  | 'audit competition'
-  | 'bug bounty'
-  | 'analysis'
-  | 'formal verification'
-  | 'fuzzing/invariants';
+export type Category = { name: string; intent: BadgeProps['intent'] };
 
-export type CategoryTagProps = Omit<BadgeProps, 'variant' | 'intent'> & {
+export type CategoryTagProps = BadgeProps & {
   category: Category;
 };
-
-type Intent = 'none' | 'primary' | 'success' | 'fail' | 'warning' | 'orange';
 
 // -----------------------------------------------------------------------------
 // Component
 // -----------------------------------------------------------------------------
 
+// Known categories
 const CategoryTag: FC<CategoryTagProps> = ({ size, category, ...rest }) => {
-  const CATEGORY_TO_COLORS: Record<typeof category, Intent> = {
-    // none, primary, success, fail, warning, orange
-    chainlink: 'primary', // 1
-    education: 'success', // 2
-    fr: 'none', // 3
-    governance: 'warning', // 4
-    'immersive tech': 'none', // 3
-    infrastructure: 'fail', // 6
-    NFT: 'warning', // 4
-    'security research': 'orange', // 5
-    solidity: 'fail', // 6
-
-    'solo audit': 'primary',
-    'audit competition': 'primary',
-    'bug bounty': 'primary',
-    'formal verification': 'warning',
-    'fuzzing/invariants': 'orange',
-    analysis: 'none',
-  };
-
   const filter = useCategoriesFilters((state) => state.filter);
 
   return (
@@ -67,12 +29,12 @@ const CategoryTag: FC<CategoryTagProps> = ({ size, category, ...rest }) => {
     <Badge
       size={size}
       variant="secondary"
-      intent={CATEGORY_TO_COLORS[category]}
+      intent={category.intent || 'none'}
       className="hover:cursor-pointer hover:underline"
       onClick={() => filter(category)}
       {...rest}
     >
-      {category}
+      {category.name}
     </Badge>
   );
 };

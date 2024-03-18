@@ -15,11 +15,11 @@ type FeatureDisplayProps = {
   name: string;
   description: string;
   symbol: ReactNode;
+  highlight?: boolean;
   tags?: ReactNode[];
-  button?: ReactNode;
+  buttons?: ReactNode[];
   children: ReactNode;
-  internalLink?: string;
-  addUrl?: string;
+  header: { url: string; internal: boolean };
   bgBase?: string;
   bgImmersive?: string;
 };
@@ -33,11 +33,11 @@ const FeatureDisplay: FC<FeatureDisplayProps> = ({
   name,
   description,
   symbol,
+  highlight,
   tags,
-  button,
+  buttons,
   children,
-  internalLink,
-  addUrl,
+  header,
   bgBase = 'bg-gray',
   bgImmersive = 'bg-white',
 }) => {
@@ -47,21 +47,22 @@ const FeatureDisplay: FC<FeatureDisplayProps> = ({
   const { immersiveBg } = useImmersiveBg((state) => ({ immersiveBg: state.enabled }));
 
   const handleClick = () => {
-    if (addUrl) {
-      window.open(addUrl, '_blank');
-    } else if (internalLink) {
-      router.push(internalLink);
+    if (header.internal) {
+      router.push(header.url);
+    } else {
+      window.open(header.url, '_blank');
     }
   };
 
   return (
     <div
       className={cn(
-        'flex h-max w-64 flex-col overflow-hidden rounded-xl border border-gray-6 md:h-full',
+        'flex h-max w-64 flex-col overflow-hidden rounded-xl border md:h-full',
         immersiveBg
           ? `${bgImmersive}-9/20 bg-clip-padding backdrop-blur-[2px] transition-all duration-100 hover:backdrop-blur-md`
           : '',
         className,
+        highlight ? 'border-orange-6' : 'border-gray-6',
       )}
     >
       {/* Header */}
@@ -108,7 +109,7 @@ const FeatureDisplay: FC<FeatureDisplayProps> = ({
       </div>
 
       {/* Footer */}
-      {tags || button ? (
+      {tags || buttons ? (
         <div
           className={cn(
             'flex h-min flex-wrap items-center justify-between border-t border-gray-6 p-2 transition duration-200 ease-in-out sm:flex-nowrap',
@@ -121,8 +122,8 @@ const FeatureDisplay: FC<FeatureDisplayProps> = ({
             {tags ? tags.map((tag) => tag) : null}
           </div>
 
-          {/* Button */}
-          <div className="whitespace-nowrap">{button}</div>
+          {/* Buttons */}
+          <div className="flex gap-1">{buttons}</div>
         </div>
       ) : null}
     </div>

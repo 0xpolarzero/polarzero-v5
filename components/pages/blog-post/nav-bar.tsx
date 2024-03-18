@@ -3,11 +3,10 @@ import { type FC, Fragment, useMemo, useState } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
 import { ChevronRight, Menu, X } from 'lucide-react';
 
-import { PORTFOLIO_PAGES } from '@/lib/constants/portfolio';
-import { WRITING_BLOG_PAGES } from '@/lib/constants/writing';
+import { WRITING_PAGES } from '@/lib/constants/writing';
 import { useMediaQuery } from '@/lib/hooks/useMediaQuery';
+import { BlogPostSection } from '@/lib/types/blog-post';
 import type { PageSlug } from '@/lib/types/site';
-import { BlogPostSection } from '@/lib/types/writing';
 import { cn } from '@/lib/utils';
 
 import { Button, IconButton } from '@/components/ui';
@@ -53,10 +52,7 @@ const BlogPostNavBarDesktop: FC<BlogPostNavBarProps> = ({ selected, sections, sl
 };
 
 const BlogPostNavBarMobile: FC<BlogPostNavBarProps> = ({ selected, sections, slug, category }) => {
-  const title =
-    category === 'blog'
-      ? WRITING_BLOG_PAGES.find((page) => page.slug === slug)?.title || ''
-      : PORTFOLIO_PAGES.find((page) => page.slug === slug)?.protocol || '';
+  const title = WRITING_PAGES.find((page) => page.slug === slug)?.title || '';
 
   const [open, setOpen] = useState<boolean>(false);
   const isSmallScreen = useMediaQuery('(max-width: 768px)'); // `md` breakpoint
