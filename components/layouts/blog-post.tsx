@@ -5,7 +5,7 @@ import { ChevronLeft, ExternalLink } from 'lucide-react';
 import { NextSeo } from 'next-seo';
 
 import { SECTIONS } from '@/lib/constants/blog';
-import { WRITING_BLOG_PAGES } from '@/lib/constants/writing';
+import { WRITING_PAGES } from '@/lib/constants/writing';
 import { useMediaQuery } from '@/lib/hooks/useMediaQuery';
 import type { PageSlug } from '@/lib/types/site';
 
@@ -31,12 +31,21 @@ type BlogPostLayoutProps = {
 // -----------------------------------------------------------------------------
 
 const BlogPostLayout: FC<BlogPostLayoutProps> = ({ selected, children, slug }) => {
-  const { title, subtitle, description, url, platform } =
-    WRITING_BLOG_PAGES.find((page) => page.slug === slug) || {};
+  const { title, description, stack, articleUrl } =
+    WRITING_PAGES.find((page) => page.slug === slug) || {};
+
+  const readTime = stack?.find((item) => item.name.includes('read'))?.name;
+  const platform = articleUrl
+    ? articleUrl.includes('medium.com')
+      ? 'Medium'
+      : articleUrl.includes('blog.polarzero.xyz')
+      ? 'Hashnode'
+      : undefined
+    : undefined;
 
   const isSmallScreen = useMediaQuery('(max-width: 768px)'); // `md` breakpoint
 
-  const components = mdxComponents(isSmallScreen, url);
+  const components = mdxComponents(isSmallScreen, articleUrl);
 
   return (
     <>
@@ -44,15 +53,15 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = ({ selected, children, slug }) =
         openGraph={{
           type: 'website',
           locale: 'en_US',
-          title: `${title}; ${subtitle} - polarzero writing`,
+          title: `${title} - polarzero writing`,
           description:
-            description ||
+            description?.toString() ||
             'A blog on blockchain & distributed systems; accessibility, security and adoption.',
           url: 'https://polarzero.xyz/writing',
           site_name: 'polarzero',
           images: [
             {
-              url: `https://polarzero.xyz/api/og/blog-post?category=writing&title=${title}&subtitle=${subtitle}&description=${description}`,
+              url: `https://polarzero.xyz/api/og/blog-post?category=writing&title=${title}&subtitle=${readTime}&description=${description}`,
               width: 1200,
               height: 630,
               alt: 'polarzero writing docs open-graph image',
@@ -61,7 +70,7 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = ({ selected, children, slug }) =
         }}
       />
 
-      <BaseLayout title={title} subtitle={subtitle} pageSlug="/writing">
+      <BaseLayout title={title} pageSlug="/writing">
         {/* Note: `pb-6` overrides `pb-4` on small devices. `<BlogPostNavBar />`
             has a `mb-6` when displayed on small screens, so the ``margin''
             above/below the article content is symmetrical. We do this instead
@@ -86,18 +95,20 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = ({ selected, children, slug }) =
                 Return to Writing
               </Button>
               {/* Subtitle */}
-              <h2 className="text-xl font-medium tracking-tight text-gray-11">{subtitle}</h2>
+              <h2 className="text-md font-medium tracking-tight text-gray-11">{readTime}</h2>
               {/* Open external link */}
-              <Button
-                className="justify-self-end"
-                size="md"
-                variant="ghost"
-                href={url}
-                rightIcon={<ExternalLink />}
-                newTab
-              >
-                {platform === 'PDF' ? 'Read PDF' : `Read on ${platform}`}
-              </Button>
+              {platform ? (
+                <Button
+                  className="justify-self-end"
+                  size="md"
+                  variant="ghost"
+                  href={articleUrl}
+                  rightIcon={<ExternalLink />}
+                  newTab
+                >
+                  {`Read on ${platform}`}
+                </Button>
+              ) : null}
             </div>
           )}
 

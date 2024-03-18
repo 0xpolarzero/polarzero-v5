@@ -6,7 +6,7 @@ import LESSON_0_FUNDAMENTALS_OF_SOLIDITY_STORAGE from './lesson-0-fundamentals-o
 import SMART_CONTRACT_SECURITY_TERMINOLOGY_OF_A_REVIEW from './smart-contract-security-terminology-of-a-review';
 import WHAT_IS_THE_METAVERSE_ANYWAY from './what-is-the-metaverse-anyway';
 
-import { BlogPostSection } from '@/lib/types/writing';
+import { BlogPostSection } from '@/lib/types/blog-post';
 
 export const SECTIONS: Record<string, BlogPostSection[]> = {
   'blockchain-but-for-real': BLOCKCHAIN_BUT_FOR_REAL,

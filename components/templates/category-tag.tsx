@@ -31,7 +31,7 @@ const CategoryTag: FC<CategoryTagProps> = ({ size, category, ...rest }) => {
       variant="secondary"
       intent={category.intent || 'none'}
       className="hover:cursor-pointer hover:underline"
-      onClick={() => filter(category)}
+      onClick={() => filter(category.name)}
       {...rest}
     >
       {category.name}

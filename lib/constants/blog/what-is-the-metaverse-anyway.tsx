@@ -1,4 +1,4 @@
-import { BlogPostSection } from '@/lib/types/writing';
+import { BlogPostSection } from '@/lib/types/blog-post';
 
 const sections: BlogPostSection[] = [
   {
