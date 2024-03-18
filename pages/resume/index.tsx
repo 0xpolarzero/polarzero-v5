@@ -99,7 +99,7 @@ const ResumePage: NextPage = () => {
         <ResumePdf items={sortedItems} />
       ) : (
         <>
-          <div className="flex w-full items-end justify-between gap-4 bg-gray-1 px-4 py-2 md:sticky md:top-0 md:z-10 md:mx-auto md:mt-2 md:max-w-[80rem] md:px-20">
+          <div className="sticky top-0 z-10 mx-auto mt-2 flex w-full max-w-[80rem] items-end justify-between gap-2 bg-gray-1 px-4 py-2 md:gap-4 md:px-20">
             <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
               <div className="flex items-center gap-2">
                 <span className="font-medium">polarzero</span>
@@ -113,7 +113,7 @@ const ResumePage: NextPage = () => {
                   size="sm"
                   href={CONTACT_LINKS.twitter}
                   newTab
-                  leftIcon={<XIcon />}
+                  leftIcon={<XIcon className="h-4 w-4" />}
                 >
                   <span className="hidden md:inline">0xpolarzero</span>
                 </Button>
@@ -123,7 +123,7 @@ const ResumePage: NextPage = () => {
                   size="sm"
                   href={CONTACT_LINKS.github}
                   newTab
-                  leftIcon={<Github />}
+                  leftIcon={<Github className="h-4 w-4" />}
                 >
                   <span className="hidden md:inline">0xpolarzero</span>
                 </Button>
@@ -133,7 +133,7 @@ const ResumePage: NextPage = () => {
                   size="sm"
                   href={CONTACT_LINKS.telegram}
                   newTab
-                  leftIcon={<TelegramIcon />}
+                  leftIcon={<TelegramIcon className="h-4 w-4" />}
                 >
                   <span className="hidden md:inline">polarzer0</span>
                 </Button>
