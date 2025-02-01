@@ -6,7 +6,6 @@ const vertexShaders = {
   '/': vertexShaderHome,
   '/portfolio': vertexShaderPortfolio,
   '/writing': vertexShaderWriting,
-  '/hire-me': vertexShaderHome,
   '/resume': vertexShaderHome,
 };
 

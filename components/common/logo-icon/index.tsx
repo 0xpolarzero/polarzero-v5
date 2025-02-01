@@ -4,6 +4,7 @@ import {
   HashnodeIcon,
   MediumIcon,
   PmndrsIcon,
+  PrimodiumIcon,
   PromiseIcon,
   SavvyIcon,
   TelegramIcon,
@@ -23,6 +24,7 @@ LogoIcon.pmndrs = PmndrsIcon;
 LogoIcon.promise = PromiseIcon;
 LogoIcon.chainlink = ChainlinkIcon;
 LogoIcon.glider = GliderIcon;
+LogoIcon.primodium = PrimodiumIcon;
 
 LogoIcon.displayName = 'LogoIcon';
 

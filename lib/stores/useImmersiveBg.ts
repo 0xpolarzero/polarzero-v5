@@ -23,11 +23,7 @@ export const useImmersiveBg = create<ImmersiveBgState>((set, get) => ({
         get().enabled &&
         !isMobile &&
         !query?.get('pdf') &&
-        (path === '/' ||
-          path === '/writing' ||
-          path === '/portfolio' ||
-          path === '/hire-me' ||
-          path === '/resume'),
+        (path === '/' || path === '/writing' || path === '/portfolio' || path === '/resume'),
     });
   },
 }));

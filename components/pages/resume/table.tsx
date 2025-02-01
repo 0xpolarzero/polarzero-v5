@@ -45,20 +45,6 @@ const ResumeTable: FC<ResumeTableProps> = ({ items, tab }) => {
         <span className="font-mono">{RESUME_ABOUT.age.toFixed(4)}</span>
         <span className="whitespace-nowrap font-medium text-muted-foreground">location</span>
         {RESUME_ABOUT.location}
-        <span className="font-medium text-muted-foreground">like</span>
-        <div className="flex flex-wrap gap-2">
-          {RESUME_ABOUT.like.map((like, index) => (
-            <Badge
-              key={index}
-              intent={like.intent}
-              variant="secondary"
-              size="sm"
-              className="rounded-sm font-normal"
-            >
-              {like.value}
-            </Badge>
-          ))}
-        </div>
       </div>
     );
   }
@@ -127,7 +113,7 @@ const ResumeTableItems: FC<{ items: ResumeItem[] }> = ({ items }) => {
               )}
             >
               {item.stack ? (
-                <div className="flex flex-wrap items-end gap-x-2 gap-y-1 text-muted-foreground">
+                <div className="flex flex-wrap items-end gap-x-2 gap-y-1 text-xs text-muted-foreground">
                   {item.stack?.map((stack, index) => (
                     <div key={index}>
                       {stack.url ? (

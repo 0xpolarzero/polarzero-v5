@@ -200,17 +200,6 @@ const About = () => (
         <Text style={tw('font-medium text-muted-foreground')}>location:</Text>{' '}
         <Text>{RESUME_ABOUT.locationMin}</Text>
       </Text>
-      <Text>
-        <Text style={tw('font-medium text-muted-foreground')}>what I like:</Text>{' '}
-        <Text style={tw('leading-5')}>
-          {RESUME_ABOUT.like.map((like, index) => (
-            <Text key={like.value}>
-              {like.value}
-              {index !== RESUME_ABOUT.like.length - 1 ? ', ' : '.'}
-            </Text>
-          ))}
-        </Text>
-      </Text>
     </View>
   </>
 );

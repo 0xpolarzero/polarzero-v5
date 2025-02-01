@@ -8,7 +8,9 @@ import { BadgeProps } from '@/components/ui/badge/types';
  */
 export type ResumeItem = {
   status:
+    | 'company'
     | 'work'
+    | 'library'
     | 'contribution'
     | 'writing'
     | 'idea'
@@ -56,10 +58,6 @@ export type ResumeAbout = {
   age: number;
   location: ReactNode;
   locationMin: string;
-  like: {
-    value: string;
-    intent: BadgeProps['intent'];
-  }[];
 };
 
 /**

@@ -3,6 +3,7 @@ import { ResumeItem } from '@/lib/types/resume';
 
 const portfolioFilters: ResumeItem['status'][] = [
   'work',
+  'library',
   'contribution',
   'idea',
   'hackathon',
