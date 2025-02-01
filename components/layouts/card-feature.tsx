@@ -42,7 +42,6 @@ const CardFeature: FC<CardFeatureProps> = ({
     { url: documentationUrl, icon: <BookIcon /> },
     { url: articleUrl, icon: <NewspaperIcon /> },
   ].filter((obj) => obj.url);
-  console.log(categories);
 
   return (
     <FeatureDisplay
