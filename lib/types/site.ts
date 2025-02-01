@@ -19,7 +19,6 @@ export type PageSlug =
   | '/'
   | '/writing'
   | '/portfolio'
-  | '/hire-me'
   | '/resume'
   | `/writing/${string}`
   | '/gas-visualizer';

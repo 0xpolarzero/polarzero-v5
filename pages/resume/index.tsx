@@ -78,7 +78,7 @@ const ResumePage: NextPage = () => {
         openGraph={{
           type: 'website',
           locale: 'en_US',
-          description: 'hire-me',
+          description: 'resume',
           url: 'https://polarzero.xyz/resume',
           site_name: 'polarzero',
           images: [
