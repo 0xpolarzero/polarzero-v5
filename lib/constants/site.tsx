@@ -18,10 +18,11 @@ export const NAVBAR_PAGES: Page[] = [
   { name: 'resume', slug: '/resume', icon: <FileText /> },
 ];
 
+type Contact = 'email' | 'twitter' | 'telegram' | 'github';
 /**
  * Contact links.
  */
-export const CONTACT_LINKS: Record<string, string> = {
+export const CONTACT_LINKS: Record<Contact, string> = {
   email: 'contact@polarzero.xyz',
   twitter: 'https://twitter.com/0xpolarzero',
   telegram: 'https://t.me/polarzer0',

@@ -1,7 +1,8 @@
 import type { FC } from 'react';
 
-import { Github } from 'lucide-react';
+import { Github, Mail } from 'lucide-react';
 
+import { CONTACT_LINKS } from '@/lib/constants/site';
 import { useImmersiveBg } from '@/lib/stores/useImmersiveBg';
 import { cn } from '@/lib/utils';
 
@@ -15,7 +16,7 @@ const PolarzeroHeader: FC = () => {
   return (
     <div
       className={cn(
-        'flex flex-col items-center rounded-xl border border-gray-6 p-3 md:flex-row md:justify-between md:rounded-2xl md:p-6',
+        'flex flex-col items-center rounded-xl border border-gray-6 p-3 md:grid md:grid-cols-[1fr_auto] md:rounded-2xl md:p-6',
         immersiveBg
           ? 'bg-white/0 bg-clip-padding backdrop-blur-[2px] transition-all duration-100 hover:backdrop-blur-sm'
           : 'bg-gray-2',
@@ -37,37 +38,27 @@ const PolarzeroHeader: FC = () => {
       </div>
 
       {/* Links (desktop) */}
-      <div className="hidden space-x-2 md:flex">
-        <Button
-          intent="primary"
-          href="https://twitter.com/0xpolarzero"
-          leftIcon={<LogoIcon.X />}
-          newTab
-        >
+      <div className="hidden grid-cols-2 gap-2 md:grid">
+        <Button intent="primary" href={CONTACT_LINKS.twitter} leftIcon={<LogoIcon.X />} newTab>
           Twitter
         </Button>
-        <Button href="https://github.com/0xpolarzero" leftIcon={<Github />} newTab>
+        <Button href={CONTACT_LINKS.github} leftIcon={<Github />} newTab>
           GitHub
+        </Button>
+        <Button href={`mailto:${CONTACT_LINKS.email}`} leftIcon={<Mail />} className="col-span-2">
+          {CONTACT_LINKS.email}
         </Button>
       </div>
       {/* Links (mobile) */}
-      <div className="mt-4 flex w-full space-x-2 md:hidden">
-        <Button
-          size="md"
-          intent="primary"
-          className="w-full"
-          href="https://twitter.com/0xpolarzero"
-          leftIcon={<LogoIcon.X />}
-        >
+      <div className="mt-4 flex w-full flex-wrap gap-2 md:hidden">
+        <Button size="md" intent="primary" href={CONTACT_LINKS.twitter} leftIcon={<LogoIcon.X />}>
           Twitter
         </Button>
-        <Button
-          size="md"
-          className="w-full"
-          href="https://github.com/0xpolarzero"
-          leftIcon={<Github />}
-        >
+        <Button size="md" href={CONTACT_LINKS.github} leftIcon={<Github />}>
           GitHub
+        </Button>
+        <Button size="md" href={`mailto:${CONTACT_LINKS.email}`} leftIcon={<Mail />}>
+          {CONTACT_LINKS.email}
         </Button>
       </div>
     </div>
