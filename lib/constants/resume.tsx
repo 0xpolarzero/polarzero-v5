@@ -24,12 +24,176 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
   /* -------------------------------------------------------------------------- */
   2024: [
     {
+      status: 'library',
+      categories: ['library', 'solana', 'infra'],
+      title: 'DEX Indexer',
+      description:
+        'A fully-fledged TypeScript indexer for DEX trades on Solana using Yellowstone GRPC.',
+      startDate: new Date('2024-09-20'),
+      endDate: new Date('2025-01-16'),
+      mainUrl: 'https://www.npmjs.com/package/@primodiumxyz/dex-indexer',
+      websiteUrl: 'https://www.npmjs.com/package/@primodiumxyz/dex-indexer',
+      githubUrl: 'https://github.com/primodiumxyz/dex-indexer-stack/tree/main/packages/indexer',
+      stack: [
+        { name: 'Yellowstone gRPC', url: 'https://github.com/rpcpool/yellowstone-grpc' },
+        { name: 'QuickNode', url: 'https://www.quicknode.com/' },
+      ],
+      symbol: <LogoIcon.primodium />,
+      starred: true,
+    },
+    {
+      status: 'library',
+      categories: ['library', 'database', 'infra'],
+      title: 'DEX GraphQL',
+      description:
+        'A type-safe GraphQL client for querying DEX trades and tokens, built on a Hasura backend and supercharged with TimescaleDB, for optimized time-series capabilities.',
+      startDate: new Date('2024-09-20'),
+      endDate: new Date('2025-01-16'),
+      mainUrl: 'https://www.npmjs.com/package/@primodiumxyz/dex-graphql',
+      websiteUrl: 'https://www.npmjs.com/package/@primodiumxyz/dex-graphql',
+      githubUrl: 'https://github.com/primodiumxyz/dex-indexer-stack/tree/main/packages/gql',
+      stack: [
+        { name: 'Hasura', url: 'https://hasura.io/' },
+        { name: 'Timescale', url: 'https://www.timescale.com/' },
+        { name: 'Postgres', url: 'https://www.postgresql.org/' },
+        { name: 'GraphQL', url: 'https://graphql.org/' },
+        { name: 'Redis', url: 'https://redis.io/' },
+      ],
+      symbol: <LogoIcon.primodium />,
+      starred: true,
+    },
+    {
+      status: 'library',
+      categories: ['library', 'solana', 'ux'],
+      title: 'DEX Server',
+      description:
+        'A TypeScript server for managing trades on Solana with Jupiter, including priority fees and transactions landing... etc TODO',
+      startDate: new Date('2024-09-20'),
+      endDate: new Date('2025-01-27'),
+      mainUrl: 'https://www.npmjs.com/package/@primodiumxyz/dex-server',
+      websiteUrl: 'https://www.npmjs.com/package/@primodiumxyz/dex-server',
+      githubUrl: 'https://github.com/primodiumxyz/dex-server',
+      stack: [
+        { name: 'Fastify', url: 'https://fastify.dev/' },
+        { name: 'Jupiter', url: 'https://station.jup.ag/docs/api' },
+        { name: 'tRPC', url: 'https://trpc.io/' },
+        { name: 'Redis', url: 'https://redis.io/' },
+      ],
+      symbol: <LogoIcon.primodium />,
+    },
+    {
+      status: 'work',
+      categories: ['solana', 'fullstack', 'mobile app', 'ux'],
+      title: 'Tub',
+      description:
+        'A mobile trading app for memecoins on Solana with a full backend stack and curated algorithm.',
+      startDate: new Date('2024-09-20'),
+      endDate: new Date('2025-01-24'),
+      mainUrl: 'https://tub.app',
+      websiteUrl: 'https://tub.app',
+      githubUrl: 'https://github.com/primodiumxyz/tub',
+      stack: [
+        { name: 'Swift', url: 'https://swift.org' },
+        { name: 'PostgreSQL', url: 'https://www.postgresql.org/' },
+        { name: 'Timescale', url: 'https://www.timescale.com/' },
+        { name: 'AWS', url: 'https://aws.amazon.com/' },
+      ],
+      symbol: <LogoIcon.primodium />,
+    },
+    {
+      status: 'library',
+      categories: ['library', 'evm', 'ux'],
+      title: 'Gasless server',
+      description:
+        'A TypeScript server library for creating a gasless server with MUD-compliant Ethereum smart contracts.',
+      startDate: new Date('2024-07-10'),
+      endDate: new Date('2024-09-04'),
+      mainUrl: 'https://www.npmjs.com/package/@primodiumxyz/gasless-server',
+      websiteUrl: 'https://www.npmjs.com/package/@primodiumxyz/gasless-server',
+      githubUrl: 'https://github.com/primodiumxyz/gasless',
+      stack: [
+        { name: 'MUD', url: 'https://mud.dev' },
+        { name: 'Fastify', url: 'https://fastify.dev' },
+        { name: 'Redis', url: 'https://redis.io/' },
+      ],
+      symbol: <LogoIcon.primodium />,
+    },
+    {
+      status: 'work',
+      categories: ['evm', 'fullstack', 'onchain games', 'onchain economy'],
+      title: 'Primodium Empires',
+      description: 'A fully onchain, turn-based, prediction market game.',
+      startDate: new Date('2024-06-28'),
+      endDate: new Date('2024-09-20'),
+      mainUrl: 'https://empires.primodium.com',
+      websiteUrl: 'https://empires.primodium.com',
+      githubUrl: 'https://github.com/primodiumxyz/primodium',
+      stack: [
+        { name: 'MUD', url: 'https://mud.dev' },
+        { name: 'Phaser 3', url: 'https://phaser.io' },
+        { name: 'PostgreSQL', url: 'https://www.postgresql.org/' },
+        { name: 'AWS', url: 'https://aws.amazon.com/' },
+      ],
+      symbol: <LogoIcon.primodium />,
+    },
+    {
+      status: 'library',
+      categories: ['library', 'fullstack', 'state management'],
+      title: 'Reactive Tables',
+      description:
+        'A TypeScript state management library for building onchain games on top of MUD.',
+      startDate: new Date('2024-04-01'),
+      endDate: new Date('2024-09-13'),
+      mainUrl: 'https://www.npmjs.com/package/@primodiumxyz/reactive-tables',
+      websiteUrl: 'https://developer.primodium.com/reactive-tables',
+      githubUrl: 'https://github.com/primodiumxyz/reactive-tables',
+      stack: [
+        { name: 'MUD', url: 'https://mud.dev' },
+        { name: 'RxJS', url: 'https://rxjs.dev' },
+        { name: 'TinyBase', url: 'https://tinybase.org' },
+      ],
+      symbol: <LogoIcon.primodium />,
+      starred: true,
+    },
+    {
+      status: 'work',
+      categories: ['evm', 'fullstack', 'onchain games'],
+      title: 'Primodium v0.11',
+      description: 'A fully onchain space-based, empire building MMO game.',
+      startDate: new Date('2024-04-01'),
+      endDate: new Date('2024-06-28'),
+      mainUrl: 'https://primodium.com',
+      websiteUrl: 'https://primodium.com',
+      githubUrl: 'https://github.com/primodiumxyz/primodium',
+      stack: [
+        { name: 'MUD', url: 'https://mud.dev' },
+        { name: 'Phaser 3', url: 'https://phaser.io' },
+        { name: 'PostgreSQL', url: 'https://www.postgresql.org/' },
+        { name: 'AWS', url: 'https://aws.amazon.com/' },
+      ],
+      symbol: <LogoIcon.primodium />,
+    },
+    {
+      status: 'work',
+      categories: [],
+      title: 'Primodium',
+      description:
+        'Fullstack software engineer at Primodium building onchain games and consumer applications.',
+      startDate: new Date('2024-04-01'),
+      endDate: new Date('2025-02-15'),
+      mainUrl: 'https://x.com/primodiumgame',
+      websiteUrl: 'https://primodium.com',
+      githubUrl: 'https://github.com/primodiumxyz',
+      symbol: <LogoIcon.primodium />,
+    },
+    {
       status: 'work',
       categories: ['evm', 'tooling', 'optimization', 'data visualization', 'fullstack'],
       title: 'savvy',
       description:
-        'an interface for the EVM on the browser, to simulate & visualize onchain activity.',
+        'An interface for the EVM on the browser, to simulate & visualize onchain activity.',
       startDate: new Date('2024-02-03'),
+      endDate: new Date('2024-04-01'),
       mainUrl: 'https://svvy.sh',
       websiteUrl: 'https://svvy.sh',
       githubUrl: 'https://github.com/0xpolarzero/savvy',
@@ -38,14 +202,14 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
         { name: 'WhatsABI', url: 'https://github.com/shazow/whatsabi' },
       ],
       symbol: <LogoIcon.savvy />,
-      starred: true,
     },
     {
       status: 'contribution',
       categories: ['evm', 'tooling', 'fullstack'],
       title: 'Tevm',
-      description: 'lately with a Next.js example integrating Tevm.',
+      description: 'Lately with a Next.js example integrating Tevm.',
       startDate: new Date('2024-02-19'),
+      endDate: new Date('2024-04-01'),
       mainUrl: 'https://github.com/evmts/tevm-monorepo/',
       githubUrl: 'https://github.com/evmts/tevm-monorepo/',
       websiteUrl: 'https://tevm.sh/',
@@ -57,7 +221,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       categories: ['evm', 'optimization'],
       title: 'airdrop gas benchmarks',
       description:
-        'a series of tests to measure gas usage for popular airdrop patterns with various token standards and airdrop mechanisms.',
+        'A series of tests to measure gas usage for popular airdrop patterns with various token standards and airdrop mechanisms.',
       startDate: new Date('2024-01-23'),
       endDate: new Date('2024-03-02'),
       mainUrl:
@@ -73,7 +237,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       categories: ['evm', 'tooling', 'optimization'],
       title: 'gas metering comparison',
       description:
-        'measuring how various libraries/frameworks report gas usage against testnet transactions, for a specific set of calldata.',
+        'Measuring how various libraries/frameworks report gas usage against testnet transactions, for a specific set of calldata.',
       startDate: new Date('2024-02-17'),
       endDate: new Date('2024-02-28'),
       mainUrl: 'https://github.com/0xpolarzero/gas-metering-comparison',
@@ -96,7 +260,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       categories: ['evm', 'tooling', 'security'],
       title: 'Glider',
       description:
-        'testing the tool from Hexens during a Secureum workshop, contributing to the documentation.',
+        'Testing the tool from Hexens during a Secureum workshop, contributing to the documentation.',
       startDate: new Date('2023-12-05'),
       endDate: new Date('2023-12-26'),
       mainUrl: 'https://glide.r.xyz',
@@ -109,7 +273,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       categories: ['evm', 'immersive', 'spatial audio', 'music', 'NFTs', 'fullstack'],
       title: 'echoes',
       description:
-        'a contemplative yet interactive collectible, made of particles, as part of an immersive audiovisual experience.',
+        'A contemplative yet interactive collectible, made of particles, as part of an immersive audiovisual experience.',
       startDate: new Date('2023-01-30'),
       endDate: new Date('2023-02-12'),
       mainUrl: 'https://echoes.polarzero.xyz/',
@@ -136,7 +300,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       categories: ['immersive', 'data visualization', 'fullstack'],
       title: 'poligraph',
       description:
-        'a 3D graph to help visualize political relationships in the French Assemblée Nationale.',
+        'A 3D graph to help visualize political relationships in the French Assemblée Nationale.',
       startDate: new Date('2023-01-10'),
       endDate: new Date('2023-02-18'),
       mainUrl: 'https://poligraph.polarzero.xyz/',
@@ -155,7 +319,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       categories: ['evm', 'security', 'formal verification', 'fuzzing'],
       title: 'storage collision',
       description:
-        'an example of how some automated testing tools will behave with a very precise storage collision exploit.',
+        'An example of how some automated testing tools will behave with a very precise storage collision exploit.',
       startDate: new Date('2023-11-20'),
       endDate: new Date('2023-11-24'),
       mainUrl: 'https://github.com/0xpolarzero/storage-collision-formal-verification',
@@ -173,7 +337,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       title: 'ERC1155A',
       description: (
         <>
-          fuzzing Superform&apos;s ERC1155A, an extension of ERC1155 with extended approval and
+          Fuzzing Superform&apos;s ERC1155A, an extension of ERC1155 with extended approval and
           transmute logic.
         </>
       ),
@@ -188,7 +352,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       status: 'work',
       categories: ['immersive', 'spatial audio', 'music', 'fullstack'],
       title: 'metaverse',
-      description: 'an example of 3D audio integration in a virtual world on the browser.',
+      description: 'An example of 3D audio integration in a virtual world on the browser.',
       startDate: new Date('2022-04-11'),
       endDate: new Date('2023-01-03'),
       mainUrl: 'https://immersiveaudio.polarzero.xyz/',
@@ -210,7 +374,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       categories: ['evm', 'tooling', 'fullstack'],
       title: 'cascade',
       description:
-        '(just another attempt at a) decentralized automated crowdfunding platform, with automated and flexible recurring payments.',
+        '(Just another attempt at a) decentralized automated crowdfunding platform, with automated and flexible recurring payments.',
       startDate: new Date('2023-05-22'),
       endDate: new Date('2023-06-11'),
       mainUrl: 'https://devpost.com/software/cascade-u14fdb',
@@ -237,7 +401,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       status: 'idea',
       categories: ['immersive', 'music', 'NFTs', 'fullstack'],
       title: 'esthesis',
-      description: 'an immersive 3D visualizer for music NFTs across different platforms',
+      description: 'An immersive 3D visualizer for music NFTs across different platforms',
       startDate: new Date('2023-02-22'),
       endDate: new Date('2023-05-22'),
       mainUrl: 'https://esthesis.polarzero.xyz/',
@@ -261,7 +425,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       title: 'Chainlink Functions',
       description: (
         <>
-          testing Chainlink Functions during Alpha (01-03/2023) and Beta (09/2023); provided some
+          Testing Chainlink Functions during Alpha (01-03/2023) and Beta (09/2023); provided some
           now outdated examples:{' '}
           <Link
             className="font-medium hover:underline"
@@ -307,7 +471,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       categories: ['evm'],
       title: 'Alchemy University',
       description:
-        'a seven-week Ethereum bootcamp; cryptography fundamentals, data structures, UTXO/account-based models, smart contracts...',
+        'A seven-week Ethereum bootcamp; cryptography fundamentals, data structures, UTXO/account-based models, smart contracts...',
       startDate: new Date('2023-01-03'),
       endDate: new Date('2023-02-12'),
       mainUrl: 'https://university.alchemy.com/overview/ethereum',
@@ -319,7 +483,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       categories: ['evm', 'education'],
       title: 'Blockchain, but for real',
       description:
-        'some explanations about blockchain: current perception, what is it actually, how it works, perspectives for the future, and what to do now.',
+        'Some explanations about blockchain: current perception, what is it actually, how it works, perspectives for the future, and what to do now.',
       startDate: new Date('2023-10-27'),
       endDate: new Date('2023-11-07'),
       mainUrl: 'https://medium.com/@0xpolarzero/blockchain-but-for-real-e1d8c0e0ebfc',
@@ -339,7 +503,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       title: 'La blockchain, mais pour de vrai',
       description: (
         <>
-          quelques explications sur la blockchain : perceptions actuelles, ce que c&apos;est
+          Quelques explications sur la blockchain : perceptions actuelles, ce que c&apos;est
           réellement, fonctionnement, perspectives futures, ce qu&apos;on peut faire maintenant...
         </>
       ),
@@ -361,7 +525,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       categories: ['evm', 'education'],
       title: 'Decentralized systems, End the Cycle of Indifference',
       description:
-        'how traditional democracies tend to favor indifference, through delegation of knowledge and awareness, and how decentralized systems can help by incentivizing active participation in governance.',
+        'How traditional democracies tend to favor indifference, through delegation of knowledge and awareness, and how decentralized systems can help by incentivizing active participation in governance.',
       startDate: new Date('2023-10-12'),
       endDate: new Date('2023-10-17'),
       mainUrl:
@@ -383,7 +547,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       title: "Chainlink's New Dawn",
       description: (
         <>
-          a reflection on Chainlink&apos;s latest milestones, and key aspects from a
+          A reflection on Chainlink&apos;s latest milestones, and key aspects from a
           developer&apos;s perspective.
         </>
       ),
@@ -406,7 +570,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       title: 'Smart Contract Security, Terminology of a Review',
       description: (
         <>
-          navigating the rambling world of smart contract security, and specifically the
+          Navigating the rambling world of smart contract security, and specifically the
           terminology/technical jargon, from the perspective of a newcomer.
         </>
       ),
@@ -430,7 +594,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       categories: ['evm', 'education'],
       title: 'Lesson #0, Fundamentals of Solidity Storage',
       description:
-        'the storage layout in the EVM, how data is meticulously stored and managed with Solidity.',
+        'The storage layout in the EVM, how data is meticulously stored and managed with Solidity.',
       startDate: new Date('2023-06-28'),
       endDate: new Date('2023-06-29'),
       mainUrl: 'https://medium.com/@0xpolarzero/fundamentals-of-solidity-storage-581ba0551b3',
@@ -455,7 +619,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       title: 'promise',
       description: (
         <>
-          built to help improve trust in our digital relationships and make founders more
+          Built to help improve trust in our digital relationships and make founders more
           accountable for their promises;{' '}
           <Italic pdf={options.pdf}>Chainlink Top Quality Projects, QuickNode 1st Prize</Italic>.
         </>
@@ -488,7 +652,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       categories: ['immersive'],
       title: 'Three.js Journey',
       description:
-        'an extensive introduction to Web-based 3D with WebGL, using Three.js and React Three Fiber: physics, modeling, interactions, shaders, post-processing, optimization, R3F and Drei...',
+        'An extensive introduction to Web-based 3D with WebGL, using Three.js and React Three Fiber: physics, modeling, interactions, shaders, post-processing, optimization, R3F and Drei...',
       startDate: new Date('2022-11-27'),
       endDate: new Date('2022-12-06'),
       mainUrl: 'https://threejs-journey.xyz/',
@@ -500,7 +664,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       categories: ['evm', 'fullstack'],
       title: '"Full blockchain Solidity/JavaScript course"',
       description:
-        'a comprehensive introduction to all the core concepts related to blockchain, and developing smart contracts with JavaScript and Solidity.',
+        'A comprehensive introduction to all the core concepts related to blockchain, and developing smart contracts with JavaScript and Solidity.',
       startDate: new Date('2022-09-23'),
       endDate: new Date('2022-10-15'),
       mainUrl: 'https://github.com/smartcontractkit/full-blockchain-solidity-course-js',
@@ -512,7 +676,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       categories: ['javascript', 'fullstack'],
       title: 'The Odin Project, full stack curriculum',
       description:
-        'an open-source curriculum for learning web development with JavaScript, Node.js, Express, MongoDB, React...',
+        'An open-source curriculum for learning web development with JavaScript, Node.js, Express, MongoDB, React...',
       startDate: new Date('2022-02-05'),
       endDate: new Date('2022-06-12'),
       mainUrl: 'https://www.theodinproject.com/',
@@ -523,7 +687,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       categories: ['spatial audio'],
       title: 'Master in Music and Music Production',
       description:
-        'sound engineering, music theory, mixing, mastering, arrangement and orchestration...',
+        'Sound engineering, music theory, mixing, mastering, arrangement and orchestration...',
       startDate: new Date('2020-09-14'),
       endDate: new Date('2022-07-07'),
       mainUrl: 'https://www.sae.edu/fra/courses/master-musique/',
@@ -537,7 +701,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       status: 'writing',
       categories: ['immersive', 'education'],
       title: 'What is the metaverse anyway?',
-      description: 'breaking through some of the most common misconceptions.',
+      description: 'Breaking through some of the most common misconceptions.',
       startDate: new Date('2022-05-10'),
       endDate: new Date('2022-05-14'),
       mainUrl: 'https://blog.polarzero.xyz/what-is-the-metaverse-anyway',
@@ -556,7 +720,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       categories: ['immersive', 'music', 'spatial audio', 'NFTs', 'education'],
       title: "L'audio immersif dans les mondes virtuels",
       description:
-        'une place pour l’audio immersif dans le Web 3.0 : intégration dans le métavers; adaptation à un nouveau modèle, immersion dans un espace en pleine expansion, expériences immersives accessibles et avancées...',
+        'Une place pour l’audio immersif dans le Web 3.0 : intégration dans le métavers; adaptation à un nouveau modèle, immersion dans un espace en pleine expansion, expériences immersives accessibles et avancées...',
       startDate: new Date('2022-02-25'),
       endDate: new Date('2022-07-07'),
       mainUrl: 'https://drive.google.com/file/d/1r0_ZjVGLb32tfxoBmrERJypyCV6No36u/view',
@@ -585,7 +749,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       categories: ['music'],
       title: 'Bachelor in Music and Sound Engineering',
       description:
-        'musicology, harmony, acoustics, history of music, audio engineering, sound design...',
+        'Musicology, harmony, acoustics, history of music, audio engineering, sound design...',
       startDate: new Date('2019-09-16'),
       endDate: new Date('2020-06-30'),
       mainUrl: 'https://lact.univ-gustave-eiffel.fr/formations/licences/musique-et-metiers-du-son',
@@ -605,7 +769,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       title: 'Advanced Technician Certificate in Audiovisual Production',
       description: (
         <>
-          majoring in Sound Engineering; audio recording, sound design, post-production (editing,
+          Majoring in Sound Engineering; audio recording, sound design, post-production (editing,
           mixing), applied physics and acoustics... (~Associate&apos;s degree)
         </>
       ),
@@ -627,6 +791,10 @@ export const RESUME_ATTRIBUTES: ResumeAttributes = {
   work: {
     intent: 'primary', // blue
     labels: ['working on', 'worked on'],
+  },
+  library: {
+    intent: 'success', // green
+    labels: ['open sourcing', 'open sourced'],
   },
   writing: {
     intent: 'warning', // yellow
@@ -681,18 +849,10 @@ export const RESUME_ABOUT: ResumeAbout = {
   location: (
     <div className="flex flex-col gap-1">
       <span>Paris, France (UTC+1)</span>
-      <span className="text-muted-foreground">(soon?) Florence, Italy</span>
+      <span className="text-muted-foreground">Florence, Italy</span>
     </div>
   ),
   locationMin: 'Paris, France (UTC+1)',
-  like: [
-    { value: 'immersive experiences (esp. spatial audio)', intent: 'primary' },
-    { value: 'anything open-source', intent: 'orange' },
-    { value: 'truly accessible solutions', intent: 'orange' },
-    { value: 'chaotic-good people', intent: 'success' },
-    { value: 'trance (music)', intent: 'primary' },
-    { value: 'planning stuff', intent: 'success' },
-  ],
 };
 
 /**
