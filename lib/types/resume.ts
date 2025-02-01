@@ -56,10 +56,6 @@ export type ResumeAbout = {
   age: number;
   location: ReactNode;
   locationMin: string;
-  like: {
-    value: string;
-    intent: BadgeProps['intent'];
-  }[];
 };
 
 /**
