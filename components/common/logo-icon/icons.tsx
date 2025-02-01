@@ -104,6 +104,21 @@ export const HashnodeIcon: FC<JSX.IntrinsicElements['svg']> = ({
 /*                                  portfolio                                 */
 /* -------------------------------------------------------------------------- */
 
+export const PrimodiumIcon = (props: LucideProps) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width={200} height={200} {...props}>
+    {/* Center circles made larger */}
+    <circle cx={60} cy={60} r={25} fill="#4BA3E3" />
+    <circle cx={60} cy={60} r={17} fill="#7CDBFF" />
+
+    {/* Cross in the middle */}
+    <path fill="#2C394B" d="M25 53h70v14H25z" />
+    <path fill="#2C394B" d="M53 25h14v70H53z" />
+
+    {/* Side panels */}
+    <path fill="#3A4B5E" d="M15 35h18v50H15zM87 35h18v50H87zM35 15h50v18H35zM35 87h50v18H35z" />
+  </svg>
+);
+
 export const SavvyIcon = (props: LucideProps) => (
   <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <g data-name="Layer 2">
