@@ -174,7 +174,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       symbol: <LogoIcon.primodium />,
     },
     {
-      status: 'work',
+      status: 'company',
       categories: [],
       title: 'Primodium',
       description:
@@ -788,13 +788,17 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
  * Mapping from category to both its color and its labels.
  */
 export const RESUME_ATTRIBUTES: ResumeAttributes = {
+  company: {
+    intent: 'primary', // blue
+    labels: ['working at', 'worked at'],
+  },
   work: {
     intent: 'primary', // blue
     labels: ['working on', 'worked on'],
   },
   library: {
-    intent: 'success', // green
-    labels: ['open sourcing', 'open sourced'],
+    intent: 'fail', // red
+    labels: ['shipping', 'shipped'],
   },
   writing: {
     intent: 'warning', // yellow
@@ -834,7 +838,7 @@ export const RESUME_ATTRIBUTES: ResumeAttributes = {
  * Tabs to filter resume items.
  */
 export const RESUME_TABS: Record<ResumeTab, ResumeItem['status'][]> = {
-  work: ['work', 'contribution', 'research-work', 'idea', 'hackathon'],
+  work: ['company', 'work', 'library', 'contribution', 'research-work', 'idea', 'hackathon'],
   writing: ['writing', 'research-education'],
   education: ['education', 'course'],
   me: [],

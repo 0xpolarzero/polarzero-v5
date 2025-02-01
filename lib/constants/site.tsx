@@ -13,8 +13,8 @@ export const SITE_URL = 'https://polarzero.xyz';
  */
 export const NAVBAR_PAGES: Page[] = [
   { name: 'Home', slug: '/', icon: <Home /> },
-  { name: 'Writing', slug: '/writing', icon: <PenTool /> },
   { name: 'Portfolio', slug: '/portfolio', icon: <Layers /> },
+  { name: 'Writing', slug: '/writing', icon: <PenTool /> },
   { name: 'resume', slug: '/resume', icon: <FileText /> },
 ];
 

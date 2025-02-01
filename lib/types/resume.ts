@@ -8,6 +8,7 @@ import { BadgeProps } from '@/components/ui/badge/types';
  */
 export type ResumeItem = {
   status:
+    | 'company'
     | 'work'
     | 'library'
     | 'contribution'
