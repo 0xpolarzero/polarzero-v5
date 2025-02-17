@@ -140,7 +140,12 @@ const ResumeTableItems: FC<{ items: ResumeItem[] }> = ({ items }) => {
                   item.categories
                     .filter((category) => RESUME_COMPANIES.includes(category))
                     .map((company) => (
-                      <Badge variant="secondary" size="sm" className="flex items-center gap-2">
+                      <Badge
+                        key={company}
+                        variant="secondary"
+                        size="sm"
+                        className="flex items-center gap-2"
+                      >
                         {company}
                       </Badge>
                     ))}
