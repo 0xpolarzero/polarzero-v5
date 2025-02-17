@@ -20,9 +20,9 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
   options = { pdf: false },
 ) => ({
   /* -------------------------------------------------------------------------- */
-  /*                                    2024                                    */
+  /*                                    2025                                    */
   /* -------------------------------------------------------------------------- */
-  2024: [
+  2025: [
     {
       status: 'library',
       categories: ['library', 'solana', 'infra'],
@@ -91,7 +91,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       endDate: new Date('2025-01-24'),
       mainUrl: 'https://tub.app',
       websiteUrl: 'https://tub.app',
-      githubUrl: 'https://github.com/primodiumxyz/tub',
+      githubUrl: 'https://github.com/primodiumxyz/tub-ios',
       stack: [
         { name: 'Swift', url: 'https://swift.org' },
         { name: 'PostgreSQL', url: 'https://www.postgresql.org/' },
@@ -100,6 +100,11 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       ],
       symbol: <LogoIcon.primodium />,
     },
+  ],
+  /* -------------------------------------------------------------------------- */
+  /*                                    2024                                    */
+  /* -------------------------------------------------------------------------- */
+  2024: [
     {
       status: 'library',
       categories: ['library', 'evm', 'ux'],
@@ -127,7 +132,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       endDate: new Date('2024-09-20'),
       mainUrl: 'https://empires.primodium.com',
       websiteUrl: 'https://empires.primodium.com',
-      githubUrl: 'https://github.com/primodiumxyz/primodium',
+      githubUrl: 'https://github.com/primodiumxyz/empires',
       stack: [
         { name: 'MUD', url: 'https://mud.dev' },
         { name: 'Phaser 3', url: 'https://phaser.io' },
