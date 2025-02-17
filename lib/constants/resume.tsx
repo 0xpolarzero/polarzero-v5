@@ -69,7 +69,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
       categories: ['library', 'solana', 'ux', 'primodium'],
       title: 'DEX Server',
       description:
-        'A TypeScript server for managing trades on Solana with Jupiter, including priority fees and transactions landing... etc TODO',
+        'A TypeScript-based tRPC server for Solana, providing protected API endpoints for building and sponsoring user transactions.',
       startDate: new Date('2024-09-20'),
       endDate: new Date('2025-01-27'),
       mainUrl: 'https://www.npmjs.com/package/@primodiumxyz/dex-server',
