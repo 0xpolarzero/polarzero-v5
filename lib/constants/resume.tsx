@@ -13,6 +13,8 @@ import { ResumeAbout, ResumeAttributes, ResumeItem, ResumeTab } from '@/lib/type
 import LogoIcon from '@/components/common/logo-icon';
 import { Italic, Link } from '@/components/pages/resume/converters';
 
+export const RESUME_COMPANIES = ['primodium'];
+
 /**
  * Resume items, not necessarily in chronological order but grouped by year.
  */
@@ -25,7 +27,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
   2025: [
     {
       status: 'library',
-      categories: ['library', 'solana', 'infra'],
+      categories: ['library', 'solana', 'infra', 'primodium'],
       title: 'DEX Indexer',
       description:
         'A fully-fledged TypeScript indexer for DEX trades on Solana using Yellowstone GRPC.',
@@ -43,7 +45,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
     },
     {
       status: 'library',
-      categories: ['library', 'database', 'infra'],
+      categories: ['library', 'database', 'infra', 'primodium'],
       title: 'DEX GraphQL',
       description:
         'A type-safe GraphQL client for querying DEX trades and tokens, built on a Hasura backend and supercharged with TimescaleDB, for optimized time-series capabilities.',
@@ -64,7 +66,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
     },
     {
       status: 'library',
-      categories: ['library', 'solana', 'ux'],
+      categories: ['library', 'solana', 'ux', 'primodium'],
       title: 'DEX Server',
       description:
         'A TypeScript server for managing trades on Solana with Jupiter, including priority fees and transactions landing... etc TODO',
@@ -83,7 +85,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
     },
     {
       status: 'work',
-      categories: ['solana', 'fullstack', 'mobile app', 'ux'],
+      categories: ['solana', 'fullstack', 'mobile app', 'ux', 'primodium'],
       title: 'Tub',
       description:
         'A mobile trading app for memecoins on Solana with a full backend stack and curated algorithm.',
@@ -107,7 +109,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
   2024: [
     {
       status: 'library',
-      categories: ['library', 'evm', 'ux'],
+      categories: ['library', 'evm', 'ux', 'primodium'],
       title: 'Gasless server',
       description:
         'A TypeScript server library for creating a gasless server with MUD-compliant Ethereum smart contracts.',
@@ -125,7 +127,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
     },
     {
       status: 'work',
-      categories: ['evm', 'fullstack', 'onchain games', 'onchain economy'],
+      categories: ['evm', 'fullstack', 'onchain games', 'onchain economy', 'primodium'],
       title: 'Primodium Empires',
       description: 'A fully onchain, turn-based, prediction market game.',
       startDate: new Date('2024-06-28'),
@@ -143,7 +145,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
     },
     {
       status: 'library',
-      categories: ['library', 'fullstack', 'state management'],
+      categories: ['library', 'fullstack', 'state management', 'primodium'],
       title: 'Reactive Tables',
       description:
         'A TypeScript state management library for building onchain games on top of MUD.',
@@ -162,7 +164,7 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
     },
     {
       status: 'work',
-      categories: ['evm', 'fullstack', 'onchain games'],
+      categories: ['evm', 'fullstack', 'onchain games', 'primodium'],
       title: 'Primodium v0.11',
       description: 'A fully onchain space-based, empire building MMO game.',
       startDate: new Date('2024-04-01'),
@@ -176,19 +178,6 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
         { name: 'PostgreSQL', url: 'https://www.postgresql.org/' },
         { name: 'AWS', url: 'https://aws.amazon.com/' },
       ],
-      symbol: <LogoIcon.primodium />,
-    },
-    {
-      status: 'company',
-      categories: [],
-      title: 'Primodium',
-      description:
-        'Fullstack software engineer at Primodium building onchain games and consumer applications.',
-      startDate: new Date('2024-04-01'),
-      endDate: new Date('2025-02-15'),
-      mainUrl: 'https://x.com/primodiumgame',
-      websiteUrl: 'https://primodium.com',
-      githubUrl: 'https://github.com/primodiumxyz',
       symbol: <LogoIcon.primodium />,
     },
     {

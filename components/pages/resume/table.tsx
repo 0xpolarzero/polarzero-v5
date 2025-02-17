@@ -3,7 +3,7 @@ import { FC, Fragment } from 'react';
 
 import { BookIcon, GithubIcon, LinkIcon, NewspaperIcon, PlayIcon } from 'lucide-react';
 
-import { RESUME_ABOUT, RESUME_ATTRIBUTES } from '@/lib/constants/resume';
+import { RESUME_ABOUT, RESUME_ATTRIBUTES, RESUME_COMPANIES } from '@/lib/constants/resume';
 import { useMediaQuery } from '@/lib/hooks/useMediaQuery';
 import { ResumeItem, ResumeTab } from '@/lib/types/resume';
 import { cn } from '@/lib/utils';
@@ -135,7 +135,15 @@ const ResumeTableItems: FC<{ items: ResumeItem[] }> = ({ items }) => {
               ) : (
                 <div />
               )}
-              <div className="flex flex-wrap gap-x-2 gap-y-1">
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                {RESUME_COMPANIES.some((company) => item.categories.includes(company)) &&
+                  item.categories
+                    .filter((category) => RESUME_COMPANIES.includes(category))
+                    .map((company) => (
+                      <Badge variant="secondary" size="sm" className="flex items-center gap-2">
+                        {company}
+                      </Badge>
+                    ))}
                 {item.websiteUrl ? (
                   <Button
                     variant="outline"
