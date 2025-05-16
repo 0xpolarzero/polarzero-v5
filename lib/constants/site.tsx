@@ -1,6 +1,8 @@
-import { FileText, Home, Layers, PenTool } from 'lucide-react';
+import { FileText, Home, Layers, LucideProps, PenTool } from 'lucide-react';
 
 import type { Page } from '@/lib/types/site';
+
+import LogoIcon from '@/components/common/logo-icon';
 
 /**
  * The URL of the website.
@@ -22,9 +24,25 @@ type Contact = 'email' | 'twitter' | 'telegram' | 'github';
 /**
  * Contact links.
  */
-export const CONTACT_LINKS: Record<Contact, string> = {
+export const CONTACT_LINKS = {
   email: 'contact@polarzero.xyz',
   twitter: 'https://twitter.com/0xpolarzero',
   telegram: 'https://t.me/polarzer0',
   github: 'https://github.com/0xpolarzero',
+} as const satisfies Record<Contact, string>;
+
+type OrgInfo = {
+  website: string;
+  twitter: string;
+  github: string;
+  logo: (props: LucideProps) => JSX.Element;
+};
+/**
+ * Org links.
+ */
+export const ORG_INFO: OrgInfo = {
+  website: 'https://polareth.org',
+  twitter: 'https://twitter.com/polarethorg',
+  github: 'https://github.com/polareth',
+  logo: LogoIcon.polareth,
 };

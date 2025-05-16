@@ -27,6 +27,42 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
   2025: [
     {
       status: 'library',
+      categories: ['library', 'evm', 'infra'],
+      title: 'evmstate',
+      description:
+        'A TypeScript library for tracing, and visualizing EVM state changes with detailed human-readable labeling.',
+      startDate: new Date('2025-03-17'),
+      endDate: new Date('2025-05-13'),
+      mainUrl: 'https://www.npmjs.com/package/@polareth/evmstate',
+      websiteUrl: 'https://evmstate.polareth.org',
+      githubUrl: 'https://github.com/polareth/evmstate',
+      stack: [
+        { name: 'Tevm', url: 'https://tevm.sh' },
+        { name: 'WhatsABI', url: 'https://github.com/shazow/whatsabi' },
+      ],
+      symbol: <LogoIcon.polareth />,
+      starred: true,
+    },
+    {
+      status: 'library',
+      categories: ['fullstack'],
+      title: 'nightwatch',
+      description: 'A public archive of investigations into crypto scams and bad actors.',
+      startDate: new Date('2025-04-13'),
+      endDate: new Date('2025-04-20'),
+      mainUrl: 'https://nightwatch.polareth.org',
+      websiteUrl: 'https://nightwatch.polareth.org',
+      githubUrl: 'https://github.com/polareth/nightwatch',
+      stack: [
+        { name: 'Remix', url: 'https://remix.run/' },
+        { name: 'Neon', url: 'https://neon.tech/' },
+        { name: 'Deno', url: 'https://deno.com/' },
+      ],
+      symbol: <LogoIcon.nightwatch />,
+      starred: true,
+    },
+    {
+      status: 'library',
       categories: ['library', 'solana', 'infra', 'primodium'],
       title: 'DEX Indexer',
       description:
@@ -41,7 +77,6 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
         { name: 'QuickNode', url: 'https://www.quicknode.com/' },
       ],
       symbol: <LogoIcon.primodium />,
-      starred: true,
     },
     {
       status: 'library',
@@ -62,7 +97,6 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
         { name: 'Redis', url: 'https://redis.io/' },
       ],
       symbol: <LogoIcon.primodium />,
-      starred: true,
     },
     {
       status: 'library',
@@ -160,7 +194,6 @@ export const RESUME_ITEMS: (options?: { pdf: boolean }) => Record<string, Resume
         { name: 'TinyBase', url: 'https://tinybase.org' },
       ],
       symbol: <LogoIcon.primodium />,
-      starred: true,
     },
     {
       status: 'work',

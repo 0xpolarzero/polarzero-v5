@@ -3,7 +3,9 @@ import {
   GliderIcon,
   HashnodeIcon,
   MediumIcon,
+  NightwatchIcon,
   PmndrsIcon,
+  PolarethIcon,
   PrimodiumIcon,
   PromiseIcon,
   SavvyIcon,
@@ -25,6 +27,8 @@ LogoIcon.promise = PromiseIcon;
 LogoIcon.chainlink = ChainlinkIcon;
 LogoIcon.glider = GliderIcon;
 LogoIcon.primodium = PrimodiumIcon;
+LogoIcon.polareth = PolarethIcon;
+LogoIcon.nightwatch = NightwatchIcon;
 
 LogoIcon.displayName = 'LogoIcon';
 

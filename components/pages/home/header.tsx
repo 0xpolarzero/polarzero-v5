@@ -2,11 +2,12 @@ import type { FC } from 'react';
 
 import { Github, Mail } from 'lucide-react';
 
-import { CONTACT_LINKS } from '@/lib/constants/site';
+import { CONTACT_LINKS, ORG_INFO } from '@/lib/constants/site';
 import { useImmersiveBg } from '@/lib/stores/useImmersiveBg';
 import { cn } from '@/lib/utils';
 
 import LogoIcon from '@/components/common/logo-icon';
+import { TelegramIcon } from '@/components/common/logo-icon/icons';
 import PolarzeroAvatar from '@/components/common/polarzero-avatar';
 import { Button } from '@/components/ui';
 
@@ -45,9 +46,19 @@ const PolarzeroHeader: FC = () => {
         <Button href={CONTACT_LINKS.github} leftIcon={<Github />} newTab>
           GitHub
         </Button>
-        <Button href={`mailto:${CONTACT_LINKS.email}`} leftIcon={<Mail />} className="col-span-2">
-          {CONTACT_LINKS.email}
-        </Button>
+        <div className="col-span-2 flex gap-2">
+          <Button
+            href={CONTACT_LINKS.telegram}
+            leftIcon={<TelegramIcon />}
+            className="w-full"
+            newTab
+          >
+            Telegram
+          </Button>
+          <Button size="md" href={ORG_INFO.website} newTab>
+            <LogoIcon.polareth className="h-4 w-4" />
+          </Button>
+        </div>
       </div>
       {/* Links (mobile) */}
       <div className="mt-4 flex w-full flex-wrap gap-2 md:hidden">
@@ -57,8 +68,8 @@ const PolarzeroHeader: FC = () => {
         <Button size="md" href={CONTACT_LINKS.github} leftIcon={<Github />}>
           GitHub
         </Button>
-        <Button size="md" href={`mailto:${CONTACT_LINKS.email}`} leftIcon={<Mail />}>
-          {CONTACT_LINKS.email}
+        <Button size="md" href={CONTACT_LINKS.telegram} leftIcon={<TelegramIcon />}>
+          Telegram
         </Button>
       </div>
     </div>
